@@ -1,24 +1,46 @@
 
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
+import { ButtonGroup, Button } from '@progress/kendo-react-buttons';
+import { DateRangePicker } from '@progress/kendo-react-dateinputs';
 
-export default class Dashboard extends React.Component {
-    static propTypes = {
-        children: PropTypes.element
-    };
-
-    render() {
-        const text = (
-            <div id="Dashboard" className="page dashboard-page">
-                Dashboard page
+const Dashboard = () => {
+    return (
+        <div id="Dashboard" className="main-content">
+            <div className="card-container">
+                <h3 className="card-title">Team Efficiency</h3>
+                <div className="card-buttons">
+                    <ButtonGroup>
+                    <Button togglable={true}>
+                        Trend
+                    </Button>
+                    <Button togglable={true}>
+                        Volume
+                    </Button>
+                    </ButtonGroup>
+                </div>
+                <div className="card-ranges">
+                    <DateRangePicker />
+                </div>
+                <div className="card-component">CHART HERE:</div>
             </div>
-        );
-
-        return (
-            <div>
-                {this.props.children ? this.props.children : text}
+            <div className="card-container">
+                <h3 className="card-title">Team Members</h3>
+                <div className="card-buttons">
+                    <ButtonGroup>
+                    <Button togglable={true}>
+                        My Team
+                    </Button>
+                    <Button togglable={true}>
+                        All Teams
+                    </Button>
+                    </ButtonGroup>
+                </div>
+                <span></span>
+                <div className="card-component">GRID HERE:</div>
             </div>
-        );
-    }
+        </div>
+    );
 }
+
+export default Dashboard;
 

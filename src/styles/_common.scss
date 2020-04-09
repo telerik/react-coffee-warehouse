@@ -1,43 +1,89 @@
-.k-drawer-container {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-}
-.k-drawer-item {
-    user-select: none;
-}
-.k-icon {
-    font-size: 20px;
-}
-.custom-toolbar {
-    width: 100%;
-    background-color: #f6f6f6;
-    line-height: 10px;
-    border-bottom: inset;
-    border-bottom-width: 1px;
-    padding: 3px 8px;
-    color: #656565;
-}
-.mail-box{
-    margin-left: 20px;
-    font-weight: bold;
-    font-size: 17px;
-}
-.page ul {
-    list-style: none;
+// App styles
+body,
+h1,
+h2 {
     margin: 0;
     padding: 0;
 }
-.page li {
-    font-size: 1.2em;
-    background: 0 0;
-    border-radius: 0;
-    border-width: 0 0 1px;
-    border-color: rgba(33, 37, 41, 0.125);
-    border-style: solid;
-    line-height: 1.5em;
-    padding: 1.09em .84em 1.23em .84em;
+
+.header {
+    height: 80px;
+    
+    .nav-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 100%;
+        color: $white;
+    }
+    .menu-button {
+        flex: 0 0 50px;
+        text-align: center;
+    }
+    .title {
+        display: flex;
+        flex: 1 0 auto;
+        margin-left: 25px;
+    }
+    .vl {
+        border-left: 1px solid $white;
+        height: 25px;
+        margin: 6px 15px;
+    }
+    .settings {
+        flex: 0 0 auto;
+        display: flex;
+        align-items: center;
+    }
+    .k-avatar {
+        width: 40;
+        height: 40;
+        margin: 0 25px;
+        border: 1px solid white;
+    }
+    .k-dropdown {
+        max-width: 70px;
+        margin-left: 15px;
+    }
 }
-.page li:last-child {
-    border: 0;
+
+.card-container {
+    background-color: $white;
+    border-radius: 5px;
+    margin: 25px;
+    padding: 25px;
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 10px;
+    row-gap: 1em;
+
+    .card-buttons {
+        text-align: center;
+    }
+
+    .card-ranges {
+        text-align: right;
+    }
+
+    .card-component {
+        grid-column-start: 1;
+        grid-column-end: -1;
+    }
+}
+
+
+
+// Components styling
+.k-drawer-container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: $body-bg;
+}
+.k-drawer {
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
+}
+.k-drawer-item {
+  user-select: none;
 }

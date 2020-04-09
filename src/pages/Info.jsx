@@ -9,7 +9,7 @@ export default class Info extends React.Component {
 
     render() {
         const text = (
-            <div id="Info" className="page info-page">
+            <div id="Info" className="main-content">
                 Info page
             </div>
         );

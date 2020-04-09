@@ -9,8 +9,10 @@ export default class Profile extends React.Component {
 
     render() {
         const text = (
-            <div id="Profile" className="page profile-page">
-                Profile page
+            <div id="Profile" className="main-content">
+                <div className="card-container">
+                    <div className="card-component">FORM HERE:</div>
+                </div>
             </div>
         );
 

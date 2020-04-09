@@ -3,7 +3,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 
 import { Drawer, DrawerContent } from '@progress/kendo-react-layout';
-import { Button } from '@progress/kendo-react-buttons';
+import Header from './Header.jsx';
 
 const items = [
     { text: 'Dashboard', icon: 'k-i-inbox', selected: true , route: '/' },
@@ -16,7 +16,7 @@ const items = [
 class DrawerRouterContainer extends React.Component {
     state = {
         expanded: true,
-        selectedId: items.findIndex(x => x.selected === true)
+        selectedId: items.findIndex(x => x.selected === true),
     }
     
     handleClick = () => {
@@ -34,30 +34,27 @@ class DrawerRouterContainer extends React.Component {
             return currentPath.text;
         }
     }
-
     render() {
         let selected = this.setSelectedItem(this.props.location.pathname);
         return (
-        <div>
-            <div className="custom-toolbar">
-                <Button icon="menu" look="flat" onClick={this.handleClick}/>
-                <span className="mail-box">Coffee Warehouse</span>
-            </div>
-            <Drawer
-                expanded={this.state.expanded}
-                items={items.map(
-                (item) => ({ ...item, selected: item.text === selected }))}
-                position='start'
-                mode='push'
-                mini={true}
+             <React.Fragment>
+                <Header onButtonClick={this.handleClick} page={selected}/>
 
-                onSelect={this.onSelect}
-            >
-                <DrawerContent>
-                    {this.props.children}
-                </DrawerContent>
-            </Drawer>
-        </div>
+                <Drawer
+                    expanded={this.state.expanded}
+                    items={items.map(
+                    (item) => ({ ...item, selected: item.text === selected }))}
+                    position='start'
+                    mode='push'
+                    mini={true}
+
+                    onSelect={this.onSelect}
+                >
+                    <DrawerContent>
+                        {this.props.children}
+                    </DrawerContent>
+                </Drawer>
+        </React.Fragment>
         );
     }
 };
