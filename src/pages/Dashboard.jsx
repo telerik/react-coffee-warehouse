@@ -10,7 +10,7 @@ const Dashboard = () => {
                 <h3 className="card-title">Team Efficiency</h3>
                 <div className="card-buttons">
                     <ButtonGroup>
-                    <Button togglable={true}>
+                    <Button togglable={true} defaultChecked={true}>
                         Trend
                     </Button>
                     <Button togglable={true}>
@@ -27,7 +27,7 @@ const Dashboard = () => {
                 <h3 className="card-title">Team Members</h3>
                 <div className="card-buttons">
                     <ButtonGroup>
-                    <Button togglable={true}>
+                    <Button togglable={true} defaultChecked={true}>
                         My Team
                     </Button>
                     <Button togglable={true}>
