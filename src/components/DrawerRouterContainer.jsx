@@ -2,16 +2,25 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-import { Drawer, DrawerContent } from '@progress/kendo-react-layout';
+import { Drawer, DrawerContent, DrawerItem } from '@progress/kendo-react-layout';
 import Header from './Header.jsx';
 
 const items = [
-    { text: 'Dashboard', icon: 'k-i-inbox', selected: true , route: '/' },
-    { text: 'Planning', icon: 'k-i-bell', route: '/planning' },
-    { text: 'Profile', icon: 'k-i-calendar', route: '/profile' },
+    { text: 'Dashboard', iconSvg: 'dashboard-icon', selected: true , route: '/' },
+    { text: 'Planning', iconSvg: 'planning-icon', route: '/planning' },
+    { text: 'Profile', iconSvg: 'profile-icon', route: '/profile' },
     { separator: true },
-    { text: 'Info', icon: 'k-i-hyperlink-email', route: '/info' }
+    { text: 'Info', iconSvg: 'info-icon', route: '/info' }
 ];
+
+const CustomDrawerItem = (props) => {
+    return (
+        <DrawerItem {...props}>
+            <span className={'k-icon ' + props.iconSvg} />
+            <span className="k-item-text">{props.text}</span>
+        </DrawerItem>
+    );
+};
 
 class DrawerRouterContainer extends React.Component {
     state = {
@@ -44,6 +53,7 @@ class DrawerRouterContainer extends React.Component {
                     expanded={this.state.expanded}
                     items={items.map(
                     (item) => ({ ...item, selected: item.text === selected }))}
+                    item={CustomDrawerItem}
                     position='start'
                     mode='push'
                     mini={true}

@@ -1,8 +1,7 @@
 
 import * as React from 'react';
-import { Button } from '@progress/kendo-react-buttons';
-import headerBg from '../images/header-bg.png';
-import userAvatar from '../images/user-avatar.jpg';
+import headerBg from '../assets/header-bg.png';
+import userAvatar from '../assets/user-avatar.jpg';
 
 import { DropDownList } from '@progress/kendo-react-dropdowns';
 import { Avatar } from '@progress/kendo-react-layout';
@@ -13,8 +12,9 @@ const Header = (props) => {
         <header className="header" style={{ backgroundImage: `url(${headerBg})` }}>
             <div className="nav-container">
                 <div className="menu-button">
-                    <Button icon="menu" look="flat" onClick={onButtonClick}/>
+                    <span className={'k-icon hamburger-icon'} onClick={onButtonClick}/>
                 </div>
+                    
                 <div className="title">
                     <h1>Coffee Warehouse</h1>
                     <span className="vl"></span>
