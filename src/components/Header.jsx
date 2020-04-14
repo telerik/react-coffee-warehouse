@@ -14,7 +14,7 @@ const Header = (props) => {
                 <div className="menu-button">
                     <span className={'k-icon hamburger-icon'} onClick={onButtonClick}/>
                 </div>
-                    
+
                 <div className="title">
                     <h1>Coffee Warehouse</h1>
                     <span className="vl"></span>
@@ -23,7 +23,7 @@ const Header = (props) => {
                 <div className="settings">
                     <span>Language</span>
                     <DropDownList data={[ "Eng", "Bg", "Gb" ]} defaultValue="Eng"/>
-                    <Avatar type='image' shape={'circle'}>
+                    <Avatar type={'image'} shape={'circle'}>
                         <img src={userAvatar} alt="user-avatar"/>
                     </Avatar>
                 </div>

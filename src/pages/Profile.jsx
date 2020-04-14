@@ -7,6 +7,7 @@ import { Input } from './../components/form/Input';
 import { MaskedTextBox } from './../components/form/MaskedTextBox';
 import { DropDownList } from './../components/form/DropDownList';
 import { Editor } from './../components/form/Editor';
+import { Upload } from './../components/form/Upload';
 import { countries } from './../resources/countries';
 
 import { requiredValidator, emailValidator, phoneValidator, biographyValidator } from './../validators'
@@ -23,6 +24,13 @@ const Profile = () => {
                             onSubmit={handleSubmit}
                             render={(formRenderProps) => (
                                 <FormElement horizontal={true} style={{ maxWidth: 650 }}>
+                                    <Field
+                                        id={'avatar'}
+                                        name={'avatar'}
+                                        label={''}
+                                        validator={requiredValidator}
+                                        component={Upload}
+                                    />
                                     <Field
                                         id={'firstname'}
                                         name={'firstname'}

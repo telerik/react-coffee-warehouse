@@ -14,10 +14,11 @@ const items = [
 ];
 
 const CustomDrawerItem = (props) => {
+    const { iconSvg, text, ...others } = props;
     return (
-        <DrawerItem {...props}>
-            <span className={'k-icon ' + props.iconSvg} />
-            <span className="k-item-text">{props.text}</span>
+        <DrawerItem {...others}>
+            <span className={'k-icon ' + iconSvg} />
+            <span className="k-item-text">{text}</span>
         </DrawerItem>
     );
 };
@@ -27,7 +28,7 @@ class DrawerRouterContainer extends React.Component {
         expanded: true,
         selectedId: items.findIndex(x => x.selected === true),
     }
-    
+
     handleClick = () => {
         this.setState((e) => ({expanded: !e.expanded}));
     }
