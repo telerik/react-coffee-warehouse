@@ -151,7 +151,7 @@ const Dashboard = () => {
 
     return (
         <div id="Dashboard" className="main-content">
-            <div className="card-container">
+            <div className="card-container grid">
                 <h3 className="card-title">Team Efficiency</h3>
                 <div className="card-buttons">
                     <ButtonGroup>
@@ -168,7 +168,7 @@ const Dashboard = () => {
                 </div>
                 <div className="card-component">CHART HERE:</div>
             </div>
-            <div className="card-container">
+            <div className="card-container grid">
                 <h3 className="card-title">Team Members</h3>
                 <div className="card-buttons">
                     <ButtonGroup>

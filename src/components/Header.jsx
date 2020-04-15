@@ -23,10 +23,10 @@ const Header = (props) => {
                 <div className="settings">
                     <span>Language</span>
                     <DropDownList data={[ "Eng", "Bg", "Gb" ]} defaultValue="Eng"/>
-                    <Avatar type={'image'} shape={'circle'}>
-                        <img src={userAvatar} alt="user-avatar"/>
-                    </Avatar>
                 </div>
+                <Avatar type={'image'} shape={'circle'}>
+                    <img src={userAvatar} alt="user-avatar"/>
+                </Avatar>
             </div>
         </header>
     );

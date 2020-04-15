@@ -5,7 +5,7 @@ const Planning = () => {
     
     return (
         <div id="Planning" className="main-content">
-            <div className="card-container">
+            <div className="card-container grid">
                 <h3 className="card-title">Team Calendar</h3>
                 <span></span>
                 <span></span>

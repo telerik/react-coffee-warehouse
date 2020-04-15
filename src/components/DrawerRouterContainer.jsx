@@ -27,6 +27,7 @@ class DrawerRouterContainer extends React.Component {
     state = {
         expanded: true,
         selectedId: items.findIndex(x => x.selected === true),
+        isMobile: false
     }
 
     handleClick = () => {

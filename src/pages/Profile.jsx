@@ -17,7 +17,7 @@ const Profile = () => {
             alert(JSON.stringify(dataItem, null, 2));
         };
         return (
-            <div id="Profile" className="main-content">
+            <div id="Profile" className="profile-page main-content">
                 <div className="card-container">
                     <div className="card-component">
                         <Form

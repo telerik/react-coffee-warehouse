@@ -8,11 +8,10 @@ import { Button } from '@progress/kendo-react-buttons';
 const Info = () => {
     return (
         <div id="Info" className="info-page main-content">
-            <div className="kendoka">
-                <img src={kendoka} alt="kendoka" />
-            </div>
-            <div>
-                <div className="container">
+            <div className="content">
+                    <div className="kendoka">
+                        <img src={kendoka} alt="kendoka" />
+                    </div>
                     <div className="section-1">
                         <h1>KendoReact</h1>
                         <h2>UI for React Developers</h2>
@@ -216,10 +215,9 @@ const Info = () => {
                                 </h3>
                             </div>
                         </div>
-                    </div>
                 </div>
-                <div className="footer"/>
             </div>
+            <div className="footer"/>
         </div>
     );
 }
