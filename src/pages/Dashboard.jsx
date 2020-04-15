@@ -70,8 +70,8 @@ const RatingCell = (props) => {
                     const isActive = rating <= idx;
                     return (
                         <span
-                            className={isActive ? 'k-icon k-i-star' : 'k-icon k-i-star-outline'}
-                            style={isActive ? {color: '#ffa600'} : undefined}
+                            className={!isActive ? 'k-icon k-i-star' : 'k-icon k-i-star-outline'}
+                            style={!isActive ? {color: '#ffa600'} : undefined}
                         />
                     );
                 })
@@ -182,15 +182,15 @@ const Dashboard = () => {
                 </div>
                 <span></span>
                 <div className="card-component">
-                    <Grid data={data} style={{ height: 480 }} onDataChange={data => setData(data)}>
+                    <Grid data={data} style={{ height: 480, maxWidth: 1502 }} onDataChange={data => setData(data)}>
                         <Column title={'Employee'}>
-                            <Column field={'full_name'} title={'Contact Name'} columnMenu={ColumnMenu} width={220} cell={FullNameCell} />
-                            <Column field={'job_title'} title={'Job Title'} columnMenu={ColumnMenu} width={220} />
+                            <Column field={'full_name'} title={'Contact Name'} columnMenu={ColumnMenu} width={230} cell={FullNameCell} />
+                            <Column field={'job_title'} title={'Job Title'} columnMenu={ColumnMenu} width={230} />
                             <Column field={'country'} title={'Country'} columnMenu={ColumnMenu} width={100} cell={FlagCell} />
                             <Column field={'is_online'} title={'Status'} columnMenu={ColumnMenu} width={100} cell={OnlineCell} />
                         </Column>
                         <Column title={'Performance'}>
-                            <Column field={'rating'} title={'Rating'} columnMenu={ColumnMenu} width={110} cell={RatingCell} />
+                            <Column field={'rating'} title={'Rating'} columnMenu={ColumnMenu} width={130} cell={RatingCell} />
                             <Column field={'target'} title={'Engagement'} columnMenu={ColumnMenu} width={230} cell={EngagementCell} />
                             <Column field={'budget'} title={'Budget'} columnMenu={ColumnMenu} width={100} cell={CurrencyCell} />
                         </Column>

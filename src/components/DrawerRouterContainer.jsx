@@ -2,7 +2,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-import { Drawer, DrawerContent, DrawerNavigation, DrawerItem } from '@progress/kendo-react-layout';
+import { Drawer, DrawerContent, DrawerItem } from '@progress/kendo-react-layout';
 import Header from './Header.jsx';
 
 const items = [

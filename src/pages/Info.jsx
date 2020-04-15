@@ -3,8 +3,6 @@ import * as React from 'react';
 import kendoka from '../assets/kendoka.png';
 import github from '../assets/github-icon.svg';
 
-import { Button } from '@progress/kendo-react-buttons';
-
 const Info = () => {
     return (
         <div id="Info" className="info-page main-content">
@@ -16,8 +14,8 @@ const Info = () => {
                         <h1>KendoReact</h1>
                         <h2>UI for React Developers</h2>
                         <div className="button-group">
-                            <Button primary={true}>Start Free Trial</Button>
-                            <Button>Buy Now</Button>
+                            <a className="k-button k-primary" href="https://www.telerik.com/download-login-v2-kendo-react-ui">Start Free Trial</a>
+                            <a className="k-button" href="https://www.telerik.com/kendo-react-ui/#pricing">Buy Now</a>
                         </div>
 
                         <a className="github-link" href="https://github.com/telerik/react-coffee-warehouse">

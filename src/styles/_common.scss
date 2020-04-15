@@ -1,7 +1,4 @@
-#root {
-    overflow-x: hidden;
-}
-
+// Normalization
 body,
 h1,
 h2,
@@ -20,6 +17,7 @@ li {
     list-style: none;
 }
 
+// App styles
 .k-drawer-container {
     background-color: $background-color;
     min-height: calc(100vh - 80px);
@@ -75,10 +73,6 @@ li {
 
 .card-container {
     background-color: $white;
-    border-radius: 5px;
-    margin: 25px;
-    padding: 25px;
-    box-shadow: 0 0 10px rgba(0,0,0,.2);
 
     &.grid {
         display: grid;
@@ -115,13 +109,14 @@ li {
     }
 }
 
-.profile-page {
-    .k-form {
-        margin: 15px auto;
-    }
+@media (min-width: 480px) { }
 
-    .k-form-field:first-of-type .k-form-field-wrap {
-        margin: auto;
+@media (min-width: 768px) { 
+    .card-container {
+        padding: 30px;
+        margin: 25px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0,0,0,.2);
     }
 }
 
@@ -205,7 +200,73 @@ li {
     }
 }
 
+// Profile page
+.profile-page {
+    .k-form {
+        padding: 40px 0;
+    }
 
+    .k-form .k-form-field {
+        display: block;
+        padding: 0 15px;
+    }
+
+    .k-form-field:first-of-type .k-form-field-wrap {
+        margin: auto;
+    }
+
+    .k-form-field:first-of-type .k-avatar {
+        margin: 0 auto 1rem;
+    }
+
+    .k-form.k-form-horizontal .k-label {
+        width: 100%;
+    }
+
+    hr {
+        margin-top: 1rem;
+        opacity: 0.2;
+    }
+
+    .k-form .k-form-buttons {
+        justify-content: center;
+
+        & > * {
+            width: 140px;
+        }
+    }
+}
+
+@media (min-width: 480px) {
+    .profile-page {
+        .k-form .k-form-field {
+            display: flex;
+        }
+
+        .k-form-field:first-of-type .k-avatar {
+            margin: 0;
+        }
+
+        .k-form.k-form-horizontal .k-label {
+            width: 25%;
+        }
+    }
+}
+
+ @media (min-width: 768px) { 
+    .profile-page {
+        .k-form {
+            margin: 0 auto;
+            padding: 0;
+        }
+        .k-form .k-form-field {
+            padding: 0;
+        }
+    }
+ }
+
+
+// Info page
 .info-page {
     background-color: $info-background;
     color: $white;
@@ -213,12 +274,12 @@ li {
     h1, h2, h3, .component-link {
         font-family: Metric,Helvetica,Arial,sans-serif;
     }
-    a {
+    a:not(.k-button) {
         color: $link-color;
     }
     
     .content {
-        padding: 40px 20px 0;
+        padding-top: 40px;
         margin: 0 auto;
         position: relative;
         max-width: 820px;
@@ -234,7 +295,7 @@ li {
     .section-1 {
         text-align: center;
         h1 {
-            font-size: 65px;
+            font-size: 48px;
             font-weight: bold;
             color: $react-color;
         }
@@ -248,8 +309,9 @@ li {
             margin-bottom: 30px;
 
             .k-button {
-                width: 145px;
-                margin-right: 10px;
+                display: block;
+                margin: 10px auto;
+                width: 60%;
             }
         }
 
@@ -265,10 +327,17 @@ li {
         }
     }
 
+    .section-2 {
+        text-align: center;
+        margin-top: 40px;
+        padding: 0 15px;
+    }
+
     .section-3 {
         -webkit-columns: 2;
         column-count: 2;
         margin-top: 40px;
+        padding: 0 15px;
     }
 
     .package-item {
@@ -316,6 +385,14 @@ li {
             h2 {
                 font-size: 38px;
             }
+
+            .button-group {
+                .k-button {
+                    display: inline-block;
+                    width: 145px;
+                    margin-right: 10px;
+                }
+            }
         }
         .section-3 {
             -webkit-columns: 3;
@@ -335,12 +412,15 @@ li {
             top: 2em;
             text-align: left;
         }
-        .section-1 {
+        .section-1,
+        .section-2 {
             text-align: left;
+            padding: 0;
         }
         .section-3 {
             -webkit-columns: 4;
             column-count: 4;
+            padding: 0;
         }
         .footer {
             background-size: cover;

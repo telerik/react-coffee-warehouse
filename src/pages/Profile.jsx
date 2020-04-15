@@ -23,7 +23,7 @@ const Profile = () => {
                         <Form
                             onSubmit={handleSubmit}
                             render={(formRenderProps) => (
-                                <FormElement horizontal={true} style={{ maxWidth: 650 }}>
+                                <FormElement horizontal={true} style={{ maxWidth: 700 }}>
                                     <Field
                                         id={'avatar'}
                                         name={'avatar'}
@@ -74,6 +74,7 @@ const Profile = () => {
                                         name={'country'}
                                         label={'Country'}
                                         data={countries}
+                                        defaultValue={countries[33]}
                                         textField={'name'}
                                         valueField={'code'}
                                         component={DropDownList}
@@ -81,10 +82,11 @@ const Profile = () => {
                                     <Field
                                         id={'biography'}
                                         name={'biography'}
-                                        label={'Biography'}
+                                        label={'Short Biography'}
                                         validator={biographyValidator}
                                         component={Editor}
                                     />
+                                    <hr />
                                     <div className={'k-form-buttons'}>
                                         <Button>
                                                 Cancel

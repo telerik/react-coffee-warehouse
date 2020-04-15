@@ -5,6 +5,8 @@ import { FieldWrapper } from '@progress/kendo-react-form';
 import { Label, Error, Hint } from '@progress/kendo-react-labels';
 import { Avatar } from '@progress/kendo-react-layout';
 
+import userAvatar from '../../assets/user-avatar.jpg';
+
 export const Upload = (fieldRenderProps) => {
     const {valid, value, id, optional, label, hint, validationMessage, visited, ...others} = fieldRenderProps;
     const imgRef = React.useRef(null);
@@ -37,11 +39,11 @@ export const Upload = (fieldRenderProps) => {
         <FieldWrapper>
             <Label editorId={id} editorValid={valid} optional={optional}>
                 {label}
-                <Avatar style={{width: 100, height: 100}} shape={'circle'} type={hasImage ? 'image' : 'initials'}>
+                <Avatar style={{width: 100, height: 100}} shape={'circle'} type={'image'}>
                     {
                         hasImage ?
                             <img style={{width: 100, height: 100}} ref={imgRef} src={'#'} alt={'User Avatar'} /> :
-                            'AVATAR'
+                            <img style={{width: 100, height: 100}} src={userAvatar} alt="user-avatar"/>
                     }
                 </Avatar>
             </Label>
