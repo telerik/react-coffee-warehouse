@@ -2,7 +2,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-import { Drawer, DrawerContent, DrawerItem } from '@progress/kendo-react-layout';
+import { Drawer, DrawerContent, DrawerNavigation, DrawerItem } from '@progress/kendo-react-layout';
 import Header from './Header.jsx';
 
 const items = [
@@ -27,14 +27,28 @@ class DrawerRouterContainer extends React.Component {
     state = {
         expanded: true,
         selectedId: items.findIndex(x => x.selected === true),
-        isMobile: false
+        isSmallerScreen: window.innerWidth < 768
+    }
+
+    componentDidMount() {
+        window.addEventListener('resize', this.resizeWindow)
+        this.resizeWindow()
+    }
+  
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.resizeWindow)
+    }
+  
+    resizeWindow = () => {
+        this.setState({ isSmallerScreen: window.innerWidth < 768 })
     }
 
     handleClick = () => {
         this.setState((e) => ({expanded: !e.expanded}));
     }
 
-    onSelect = (e) => {
+
+    handleSelect = (e) => {
         this.setState({selectedId: e.itemIndex, expanded: false});
         this.props.history.push(e.itemTarget.props.route);
     }
@@ -54,13 +68,14 @@ class DrawerRouterContainer extends React.Component {
                 <Drawer
                     expanded={this.state.expanded}
                     items={items.map(
-                    (item) => ({ ...item, selected: item.text === selected }))}
+                        (item) => ({ ...item, selected: item.text === selected }))}
                     item={CustomDrawerItem}
                     position='start'
-                    mode='push'
-                    mini={true}
-
-                    onSelect={this.onSelect}
+                    mode={this.state.isSmallerScreen ? 'overlay' : 'push'}
+                    mini={this.state.isSmallerScreen ? false : true}
+                    
+                    onOverlayClick={this.handleClick}
+                    onSelect={this.handleSelect}
                 >
                     <DrawerContent>
                         {this.props.children}

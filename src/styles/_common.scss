@@ -20,7 +20,7 @@ li {
     list-style: none;
 }
 
-.k-drawer-container.k-drawer-push {
+.k-drawer-container {
     background-color: $background-color;
     min-height: calc(100vh - 80px);
 
@@ -125,112 +125,6 @@ li {
     }
 }
 
-.info-page {
-    background-color: $info-background;
-    color: $white;
-
-    h1, h2, h3, .component-link {
-        font-family: Metric,Helvetica,Arial,sans-serif;
-    }
-    a {
-        color: $link-color;
-    }
-    
-    .content {
-        padding: 120px 40px 0;
-        margin: 0 auto;
-        position: relative;
-        max-width: 820px;
-    }
-
-    .kendoka {
-        position: absolute;
-        right: 0;
-        top: 2em;
-
-        img {
-            max-width: 348px;
-        }
-    }
-
-    h1 {
-        font-size: 71px;
-        font-weight: bold;
-        color: $react-color;
-    }
-
-    h2 {
-        font-size: 38px;
-        margin-bottom: 53px;
-    }
-
-    .button-group {
-        margin-bottom: 30px;
-
-        .k-button {
-            width: 145px;
-            margin-right: 10px;
-        }
-    }
-
-    .github-link {
-        display: inline-flex;
-        flex-direction: row;
-        align-items: center;
-        align-content: center;
-
-        .github-text {
-            margin-left: 15px;
-        }
-    }
-
-    .footer {
-        background-image: url('../assets/info-background.svg');
-        background-repeat: no-repeat;
-        background-size: cover;
-        height: 320px;
-    }
-
-    .section-3 {
-        -webkit-columns: 2;
-        column-count: 2;
-        margin-top: 40px;
-    }
-
-    @media (min-width: 360px) {
-        .section-3 {
-            -webkit-columns: 3;
-            column-count: 3;
-        }
-    }
-
-    @media (min-width: 768px) {
-        .section-3 {
-            -webkit-columns: 4;
-            column-count: 4;
-        }
-    }
-
-    .package-item {
-        display: inline-block;
-        margin-top: 20px;
-    }
-
-    .package-title a {
-        font-size: 17px;
-        color: #CCCCCC;
-        text-transform: uppercase;
-    }
-
-    .component-link {
-        padding: 5px 0;
-        
-        a {
-            font-size: 20px;
-        }
-    }
-}
-
 
 // Header
 .header {
@@ -256,34 +150,37 @@ li {
         width: 20px;
     }
 
-    .title, .settings, .k-avatar {
-        display: none;
+    .title {
+        display: flex;
+        flex: 1 0 auto;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: 25px;
     }
-}
 
-@media (min-width: 300px) {
-    .header {
-        .k-avatar {
-            display: block;
+    .k-avatar {
+        display: block;
+        width: 40px;
+        height: 40px;
+        margin: 0 25px;
+        border: 1px solid white;
+
+        img {
             width: 40px;
             height: 40px;
-            margin: 0 25px;
-            border: 1px solid white;
-    
-            img {
-                width: 40px;
-                height: 40px;
-            }
         }
+    }
+
+    .settings {
+        display: none;
     }
 }
 
 @media (min-width: 480px) {
     .header {
         .title {
-            display: flex;
-            flex: 1 0 auto;
-            margin-left: 25px;
+            flex-direction: row;
+            align-items: center;
         }
         .vl {
             border-left: 1px solid $white;
@@ -292,7 +189,6 @@ li {
         }
     }
 }
-
 
 @media (min-width: 768px) {
     .header {
@@ -305,6 +201,149 @@ li {
         .k-dropdown {
             max-width: 70px;
             margin-left: 15px;
+        }
+    }
+}
+
+
+.info-page {
+    background-color: $info-background;
+    color: $white;
+
+    h1, h2, h3, .component-link {
+        font-family: Metric,Helvetica,Arial,sans-serif;
+    }
+    a {
+        color: $link-color;
+    }
+    
+    .content {
+        padding: 40px 20px 0;
+        margin: 0 auto;
+        position: relative;
+        max-width: 820px;
+    }
+
+    .kendoka {
+        text-align: center;
+        img {
+            max-width: 280px;
+        }
+    }
+
+    .section-1 {
+        text-align: center;
+        h1 {
+            font-size: 65px;
+            font-weight: bold;
+            color: $react-color;
+        }
+
+        h2 {
+            font-size: 30px;
+            margin-bottom: 53px;
+        }
+
+        .button-group {
+            margin-bottom: 30px;
+
+            .k-button {
+                width: 145px;
+                margin-right: 10px;
+            }
+        }
+
+        .github-link {
+            display: inline-flex;
+            flex-direction: row;
+            align-items: center;
+            align-content: center;
+
+            .github-text {
+                margin-left: 15px;
+            }
+        }
+    }
+
+    .section-3 {
+        -webkit-columns: 2;
+        column-count: 2;
+        margin-top: 40px;
+    }
+
+    .package-item {
+        display: inline-block;
+        margin-top: 20px;
+    }
+
+    .package-title a {
+        font-size: 17px;
+        color: #CCCCCC;
+        text-transform: uppercase;
+    }
+
+    .component-link {
+        padding: 5px 0;
+        
+        a {
+            font-size: 20px;
+        }
+    }
+
+    .footer {
+        background-image: url('../assets/info-background.svg');
+        background-repeat: no-repeat;
+        height: 320px;
+    }
+}
+
+@media (min-width: 480px) { 
+    .info-page {
+        .content {
+            padding: 40px 40px 0;
+        }
+        .kendoka {
+            img {
+                max-width: 348px;
+            }
+        }
+
+        .section-1 {
+            h1 {
+                font-size: 71px;
+            }
+
+            h2 {
+                font-size: 38px;
+            }
+        }
+        .section-3 {
+            -webkit-columns: 3;
+            column-count: 3;
+        }
+    }
+}
+
+@media (min-width: 768px) { 
+    .info-page {
+        .content {
+            padding: 120px 40px 0;
+        }
+        .kendoka {
+            position: absolute;
+            right: 0;
+            top: 2em;
+            text-align: left;
+        }
+        .section-1 {
+            text-align: left;
+        }
+        .section-3 {
+            -webkit-columns: 4;
+            column-count: 4;
+        }
+        .footer {
+            background-size: cover;
         }
     }
 }
