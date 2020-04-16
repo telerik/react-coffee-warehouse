@@ -15,6 +15,7 @@ import {
 
 import { Grid, Column, ColumnMenu } from './../components/Grid';
 import { employees } from './../resources/employees';
+import { orders } from './../resources/orders';
 import { images } from './../resources/images';
 
 const FullNameCell = (props) => {
@@ -166,7 +167,9 @@ const Dashboard = () => {
                 <div className="card-ranges">
                     <DateRangePicker />
                 </div>
-                <div className="card-component">CHART HERE:</div>
+                <div className="card-component">
+                    <Grid data={orders} style={{ height: 440, maxWidth: 1300 }}></Grid>
+                </div>
             </div>
             <div className="card-container grid">
                 <h3 className="card-title">Team Members</h3>
