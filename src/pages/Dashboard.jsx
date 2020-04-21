@@ -150,8 +150,8 @@ const CurrencyCell = (props) => {
 
 const Dashboard = () => {
     const [data, setData] = React.useState(employees.map(dataItem => Object.assign({ selected: false }, dataItem)));
-    const [isTrend, setIsTrend] = React.useState(false);
-    const [isMyTeam, setIsMyTeam] = React.useState(false);
+    const [isTrend, setIsTrend] = React.useState(true);
+    const [isMyTeam, setIsMyTeam] = React.useState(true);
 
     const trendOnClick = React.useCallback(
         () => setIsTrend(true),
@@ -223,8 +223,8 @@ const Dashboard = () => {
                             <Column field={'is_online'} title={'Status'} columnMenu={ColumnMenu} width={100} cell={OnlineCell} />
                         </Column>
                         <Column title={'Performance'}>
-                            <Column field={'rating'} title={'Rating'} columnMenu={ColumnMenu} width={130} cell={RatingCell} />
-                            <Column field={'target'} title={'Engagement'} columnMenu={ColumnMenu} width={230} cell={EngagementCell} />
+                            <Column field={'rating'} title={'Rating'} columnMenu={ColumnMenu} width={110} cell={RatingCell} />
+                            <Column field={'target'} title={'Engagement'} columnMenu={ColumnMenu} width={200} cell={EngagementCell} />
                             <Column field={'budget'} title={'Budget'} columnMenu={ColumnMenu} width={100} cell={CurrencyCell} />
                         </Column>
                         <Column title={'Contacts'}>
