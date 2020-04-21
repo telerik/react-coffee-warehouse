@@ -73,50 +73,102 @@ li {
 
 .card-container {
     background-color: $white;
+    padding: 40px 0;
+    text-align: center;
 
     &.grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(1, 1fr);
         column-gap: 10px;
         row-gap: 1em;
     }
 
-    .card-buttons {
-        text-align: center;
+    .card-title {
 
+    }
+
+    .card-buttons {
         .k-button {
             width: 105px;
         }
     }
 
     .card-ranges {
-        text-align: right;
-
         .k-daterangepicker {
             .k-textbox-container, .k-floating-label-container {
                 padding-top: 0; 
+                width: 105px;
             }
 
             .k-label {
-                display: none;;
+                display: none;
             }
         }
     }
 
     .card-component {
-        grid-column-start: 1;
-        grid-column-end: -1;
+        grid-column: 1 / -1;
     }
 }
 
-@media (min-width: 480px) { }
+@media (min-width: 480px) {
+    .card-container {
+        text-align: initial;
+        padding: 30px;
+
+        &.grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .card-title {
+            grid-column: 1 / 2;
+            grid-row: 1;
+        }
+
+        .card-buttons {
+            text-align: center;
+            grid-column: 1 / -1;
+            grid-row: 2;
+        }
+
+        .card-ranges {
+            text-align: right;
+            grid-column: 2 / 3;
+            grid-row: 1;
+        }
+    }
+
+ }
 
 @media (min-width: 768px) { 
     .card-container {
-        padding: 30px;
         margin: 25px;
         border-radius: 5px;
         box-shadow: 0 0 10px rgba(0,0,0,.2);
+
+        &.grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .card-title {
+
+        }
+
+        .card-buttons {
+            text-align: center;
+            grid-column: 2 / 3;
+            grid-row: 1;
+        }
+
+        .card-ranges {
+            text-align: right;
+            grid-column: 3 / 4;
+        }
+
+        .card-component {
+            grid-column-start: 1;
+            grid-column-end: -1;
+        }
     }
 }
 
@@ -202,9 +254,6 @@ li {
 
 // Profile page
 .profile-page {
-    .k-form {
-        padding: 40px 0;
-    }
 
     .k-form .k-form-field {
         display: block;

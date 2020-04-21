@@ -215,7 +215,7 @@ const Dashboard = () => {
                 </div>
                 <span></span>
                 <div className="card-component">
-                    <Grid data={data} style={{ height: 480, maxWidth: 1502 }} onDataChange={data => setData(data)}>
+                    <Grid data={data} style={{ height: 480, maxWidth: window.innerWidth - 20, margin: '0 auto' }} onDataChange={data => setData(data)}>
                         <Column title={'Employee'}>
                             <Column field={'full_name'} title={'Contact Name'} columnMenu={ColumnMenu} width={230} cell={FullNameCell} />
                             <Column field={'job_title'} title={'Job Title'} columnMenu={ColumnMenu} width={230} />
