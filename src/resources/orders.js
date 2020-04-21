@@ -1,4 +1,4 @@
-export const orders = [[{
+export const orders = [{
     "OrderID": 10255,
     "CustomerID": "RICSU",
     "EmployeeID": 9,
@@ -17428,4 +17428,12 @@ export const orders = [[{
     "OrderTotal": 1255.7205,
     "RequiredDateStart": 1591178400000,
     "RequiredDateEnd": 1591180200000
-}]];
+}].map(order => ({
+    ...order,
+    // parse dates
+    OrderDate: new Date(order.OrderDate),
+    RequiredDate: new Date(order.RequiredDate),
+    ShippedDate: new Date(order.ShippedDate),
+    RequiredDateStart: new Date(order.RequiredDateStart),
+    RequiredDateEnd: new Date(order.RequiredDateEnd),
+}));

@@ -14,6 +14,7 @@ import {
 } from '@progress/kendo-react-intl';
 
 import { Grid, Column, ColumnMenu } from './../components/Grid';
+import { Chart } from './../components/Chart';
 import { employees } from './../resources/employees';
 import { orders } from './../resources/orders';
 import { images } from './../resources/images';
@@ -168,7 +169,14 @@ const Dashboard = () => {
                     <DateRangePicker />
                 </div>
                 <div className="card-component">
-                    <Grid data={orders} style={{ height: 440, maxWidth: 1300 }}></Grid>
+                    <Chart
+                        data={orders}
+                        filterStart={new Date('2018-07-01T21:00:00.000Z')}
+                        filterEnd={new Date('2018-10-01T21:00:00.000Z')}
+                        groupByField={'TeamID'}
+                        seriesCategoryField={'OrderDate'}
+                        seriesField={'OrderTotal'}
+                    />
                 </div>
             </div>
             <div className="card-container grid">
