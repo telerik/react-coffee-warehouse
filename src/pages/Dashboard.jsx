@@ -150,6 +150,27 @@ const CurrencyCell = (props) => {
 
 const Dashboard = () => {
     const [data, setData] = React.useState(employees.map(dataItem => Object.assign({ selected: false }, dataItem)));
+    const [isTrend, setIsTrend] = React.useState(false);
+    const [isMyTeam, setIsMyTeam] = React.useState(false);
+
+    const trendOnClick = React.useCallback(
+        () => setIsTrend(true),
+        [setIsTrend]
+    );
+    const volumeOnClick = React.useCallback(
+        () => setIsTrend(false),
+        [setIsTrend]
+    );
+    const myTeamOnClick = React.useCallback(
+        () => setIsMyTeam(true),
+        [setIsMyTeam]
+    );
+    const allTeamOnClick = React.useCallback(
+        () => setIsMyTeam(false),
+        [setIsMyTeam]
+    );
+
+    // TODO: get my team from global state
 
     return (
         <div id="Dashboard" className="main-content">
@@ -157,12 +178,12 @@ const Dashboard = () => {
                 <h3 className="card-title">Team Efficiency</h3>
                 <div className="card-buttons">
                     <ButtonGroup>
-                    <Button togglable={true} defaultChecked={true}>
-                        Trend
-                    </Button>
-                    <Button togglable={true}>
-                        Volume
-                    </Button>
+                        <Button togglable={true} selected={isTrend} onClick={trendOnClick}>
+                            Trend
+                        </Button>
+                        <Button togglable={true} selected={!isTrend} onClick={volumeOnClick}>
+                            Volume
+                        </Button>
                     </ButtonGroup>
                 </div>
                 <div className="card-ranges">
@@ -176,6 +197,7 @@ const Dashboard = () => {
                         groupByField={'TeamID'}
                         seriesCategoryField={'OrderDate'}
                         seriesField={'OrderTotal'}
+                        seriesType={isTrend ? 'line' : 'column'}
                     />
                 </div>
             </div>
@@ -183,10 +205,10 @@ const Dashboard = () => {
                 <h3 className="card-title">Team Members</h3>
                 <div className="card-buttons">
                     <ButtonGroup>
-                        <Button togglable={true} defaultChecked={true}>
+                        <Button togglable={true} selected={isMyTeam} onClick={myTeamOnClick}>
                             My Team
                         </Button>
-                        <Button togglable={true}>
+                        <Button togglable={true} selected={!isMyTeam} onClick={allTeamOnClick}>
                             All Teams
                         </Button>
                     </ButtonGroup>

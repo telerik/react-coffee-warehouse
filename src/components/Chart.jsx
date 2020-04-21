@@ -13,7 +13,7 @@ import {
 import { groupBy, filterBy } from '@progress/kendo-data-query';
 
 export const Chart = (props) => {
-    const {data, groupByField, seriesCategoryField, seriesField, filterStart, filterEnd} = props;
+    const {data, groupByField, seriesCategoryField, seriesField, filterStart, filterEnd, seriesType} = props;
 
     const filteredData = filterBy(data, {
         logic: "and",
@@ -31,7 +31,7 @@ export const Chart = (props) => {
                   groupedData.map(group => {
                     return (
                       <ChartSeriesItem
-                          type={'column'}
+                          type={seriesType}
                           field={seriesField}
                           categoryField={seriesCategoryField}
                           data={group.items}
