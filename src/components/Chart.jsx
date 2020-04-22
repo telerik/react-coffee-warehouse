@@ -8,7 +8,6 @@ import {
     ChartSeriesItem,
     ChartCategoryAxis,
     ChartCategoryAxisItem,
-    ChartTitle,
     ChartLegend
 } from '@progress/kendo-react-charts';
 import { groupBy, filterBy } from '@progress/kendo-data-query';
@@ -22,15 +21,14 @@ export const Chart = (props) => {
     const filteredData = filterBy(data, {
         logic: "and",
         filters: [
-            { field: "OrderDate", operator: "gt", value: filterStart },
-            { field: "OrderDate", operator: "lt", value: filterEnd }
+            { field: "orderDate", operator: "gt", value: filterStart },
+            { field: "orderDate", operator: "lt", value: filterEnd }
         ]
     });
     const groupedData = groupBy(filteredData, [{ field: groupByField }]);
-
     return (
         <KendoChart style={{ height: 350 }}>
-            <ChartLegend position="bottom" orientation="horizontal" />
+            <ChartLegend position="bottom" orientation="horizontal" background={'#f4f5f8'} />
             <ChartSeries>
                 {
                     groupedData.map(group => {

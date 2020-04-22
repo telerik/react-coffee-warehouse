@@ -103,8 +103,20 @@ const employees = [
     .map(item => ({...item, selected: false}))
     .map(item => {
         return {
-            ...item,
-            team_id: Math.ceil(Math.random() * 4)
+            teamId: Math.ceil(Math.random() * 4),
+            id: item.id,
+            fullName: item.full_name,
+            jobTitle: item.job_title,
+            country: item.country,
+            isOnline: item.is_online,
+            rating: item.rating,
+            target: item.target,
+            budget: item.budget,
+            phone: item.phone,
+            address: item.address,
+            imgId: item.img_id,
+            gender: item.gender,
+            selected: item.selected
         };
     });
 

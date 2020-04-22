@@ -1758,17 +1758,18 @@ const customers = [
     { CustomerID: "WOLZA", CustomerCompanyName: "Wolski  Zajazd", CustomerContactName: "Zbyszek Piestrzeniewicz" }
 ];
 
-orders.forEach(order => {
+const newOrders = orders.map(order => {
     const orderResult = orderTotals.find(ot => ot.OrderID === order.OrderID);
     const customerResult = customers.find(ot => ot.CustomerID === order.CustomerID);
+    const newOrder = {};
 
-    order.CustomerCompanyName = customerResult.CustomerCompanyName;
-    order.CustomerContactName = customerResult.CustomerContactName;
+    newOrder.customerCompanyName = customerResult.CustomerCompanyName;
+    newOrder.customerContactName = customerResult.CustomerContactName;
 
-    order.OrderTotal = orderResult.OrderTotal;
-    order.OrderDate = order.OrderDate.getTime();
-    order.RequiredDate = order.RequiredDate.getTime();
-    order.ShippedDate = order.ShippedDate.getTime();
+    newOrder.orderTotal = orderResult.OrderTotal;
+    newOrder.orderDate = order.OrderDate.getTime();
+    newOrder.requiredDate = order.RequiredDate.getTime();
+    newOrder.shippedDate = order.ShippedDate.getTime();
 
     // 7 AM + 3 hours offset
     const initialTime = 1000 * 60 * 60 * 11;
@@ -1786,12 +1787,26 @@ orders.forEach(order => {
     const eventReminder = eventResult % workTimeStep;
     const eventEndTime = minEventLenght + eventStartTime + (eventResult - eventReminder);
 
-    order.RequiredDateStart = order.RequiredDate + initialTime + eventStartTime;
-    order.RequiredDateEnd = order.RequiredDate + initialTime + eventEndTime;
+    newOrder.requiredDateStart = newOrder.requiredDate + initialTime + eventStartTime;
+    newOrder.requiredDateEnd = newOrder.requiredDate + initialTime + eventEndTime;
 
+    newOrder.orderID = order.OrderID;
+    newOrder.customerID = order.CustomerID;
+    newOrder.employeeID = order.EmployeeID;
+    newOrder.teamID = order.TeamID;
+    newOrder.shipVia = order.ShipVia;
+    newOrder.freight = order.Freight;
+    newOrder.shipName = order.ShipName;
+    newOrder.shipAddress = order.ShipAddress;
+    newOrder.shipCity = order.ShipCity;
+    newOrder.shipRegion = order.ShipRegion;
+    newOrder.shipPostalCode = order.ShipPostalCode;
+    newOrder.shipCountry = order.ShipCountry;
+
+    return newOrder;
     // console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
     // console.log(JSON.stringify(new Date(order.RequiredDateStart)));
     // console.log(JSON.stringify(new Date(order.RequiredDateEnd)));
 });
 
-console.log(JSON.stringify(orders));
+console.log(JSON.stringify(newOrders));

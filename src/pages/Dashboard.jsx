@@ -34,7 +34,7 @@ const FullNameCell = (props) => {
         lineHeight: '32px',
         boxShadow: 'inset 0 0 1px #999, inset 0 0 10px rgba(0,0,0,.2)',
         marginLeft: '5px',
-        backgroundImage: images[props.dataItem.img_id + props.dataItem.gender]
+        backgroundImage: images[props.dataItem.imgId + props.dataItem.gender]
     };
 
     const customerName = {
@@ -47,7 +47,7 @@ const FullNameCell = (props) => {
     return (
         <td>
             <div style={customerPhotoStyle} />
-            <div style={customerName}>{ props.dataItem.full_name }</div>
+            <div style={customerName}>{ props.dataItem.fullName }</div>
         </td>
     );
 };
@@ -113,7 +113,7 @@ const OnlineCell = (props) => {
     return (
         <td style={{textAlign: 'center'}}>
             {
-                props.dataItem.is_online === true ?
+                props.dataItem.isOnline === true ?
                     <span style={onlineBadgeStyle}>Online</span> :
                     <span style={offlineBadgeStyle}>Offline</span>
             }
@@ -161,7 +161,7 @@ const Dashboard = () => {
     const MYTEAMID = 1;
     const gridFilterExpression = isMyTeam ? {
             logic: "and",
-            filters: [{ field: "team_id", operator: "eq", value: MYTEAMID }]
+            filters: [{ field: "teamId", operator: "eq", value: MYTEAMID }]
         } : null;
 
     const [range, setRange] = React.useState({
@@ -227,11 +227,11 @@ const Dashboard = () => {
                         data={orders}
                         filterStart={range.start}
                         filterEnd={range.end}
-                        groupByField={'TeamID'}
+                        groupByField={'teamID'}
                         groupData={teams}
-                        groupTextField={'TeamName'}
-                        seriesCategoryField={'OrderDate'}
-                        seriesField={'OrderTotal'}
+                        groupTextField={'teamName'}
+                        seriesCategoryField={'orderDate'}
+                        seriesField={'orderTotal'}
                         seriesType={isTrend ? 'line' : 'column'}
                     />
                 </div>
@@ -252,10 +252,10 @@ const Dashboard = () => {
                 <div className="card-component">
                     <Grid data={filterBy(data, gridFilterExpression)} style={{ height: 480, maxWidth: window.innerWidth - 20, margin: '0 auto' }} onDataChange={data => setData(data)}>
                         <Column title={'Employee'}>
-                            <Column field={'full_name'} title={'Contact Name'} columnMenu={ColumnMenu} width={230} cell={FullNameCell} />
-                            <Column field={'job_title'} title={'Job Title'} columnMenu={ColumnMenu} width={230} />
+                            <Column field={'fullName'} title={'Contact Name'} columnMenu={ColumnMenu} width={230} cell={FullNameCell} />
+                            <Column field={'jobTitle'} title={'Job Title'} columnMenu={ColumnMenu} width={230} />
                             <Column field={'country'} title={'Country'} columnMenu={ColumnMenu} width={100} cell={FlagCell} />
-                            <Column field={'is_online'} title={'Status'} columnMenu={ColumnMenu} width={100} cell={OnlineCell} />
+                            <Column field={'isOnline'} title={'Status'} columnMenu={ColumnMenu} width={100} cell={OnlineCell} />
                         </Column>
                         <Column title={'Performance'}>
                             <Column field={'rating'} title={'Rating'} columnMenu={ColumnMenu} width={110} cell={RatingCell} />

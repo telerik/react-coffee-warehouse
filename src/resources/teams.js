@@ -1,17 +1,22 @@
 export const teams = [
     {
-        'TeamID': 1,
-        'TeamName': 'Tiger Team'
+        'teamID': 1,
+        'teamName': 'Tiger Team',
+        'teamColor': '#FF6358'
     },
     {
-        'TeamID': 2,
-        'TeamName': 'Lemon Team'
+        'teamID': 2,
+        'teamName': 'Lemon Team',
+        'teamColor': '#FFD246'
     },
     {
-        'TeamID': 3,
-        'TeamName': 'Organic Team'
-    },{
-        'TeamID': 4,
-        'TeamName': 'Ocean Team'
+        'teamID': 3,
+        'teamName': 'Organic Team',
+        'teamColor': '#78D237'
+    },
+    {
+        'teamID': 4,
+        'teamName': 'Ocean Team',
+        'teamColor': '#28B4C8'
     }
 ];
