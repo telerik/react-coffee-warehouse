@@ -1,4 +1,5 @@
 import React from 'react';
+import * as PropTypes from 'prop-types';
 
 import { DropDownList as KendoDropDownList } from '@progress/kendo-react-dropdowns';
 import { FieldWrapper } from '@progress/kendo-react-form';
@@ -24,4 +25,16 @@ export const DropDownList = (fieldRenderProps) => {
             </div>
         </FieldWrapper>
     );
+};
+
+DropDownList.displayName = 'DropDownList';
+DropDownList.propTypes = {
+    valid: PropTypes.bool,
+    defaultValue: PropTypes.object,
+    id: PropTypes.string,
+    optional: PropTypes.bool,
+    label: PropTypes.string,
+    hint: PropTypes.string,
+    validationMessage: PropTypes.string,
+    visited: PropTypes.bool,
 };

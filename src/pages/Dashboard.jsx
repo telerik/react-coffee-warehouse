@@ -12,12 +12,15 @@ import {
 import {
     useInternationalization
 } from '@progress/kendo-react-intl';
+import { firstDayOfMonth, lastDayOfMonth } from '@progress/kendo-date-math';
 
 import { Grid, Column, ColumnMenu } from './../components/Grid';
 import { Chart } from './../components/Chart';
 import { employees } from './../resources/employees';
 import { orders } from './../resources/orders';
+import { teams } from './../resources/teams';
 import { images } from './../resources/images';
+import { filterBy } from '@progress/kendo-data-query';
 
 const FullNameCell = (props) => {
     const customerPhotoStyle = {
@@ -72,6 +75,7 @@ const RatingCell = (props) => {
                     const isActive = rating <= idx;
                     return (
                         <span
+                            key={idx}
                             className={!isActive ? 'k-icon k-i-star' : 'k-icon k-i-star-outline'}
                             style={!isActive ? {color: '#ffa600'} : undefined}
                         />
@@ -149,10 +153,41 @@ const CurrencyCell = (props) => {
 };
 
 const Dashboard = () => {
-    const [data, setData] = React.useState(employees.map(dataItem => Object.assign({ selected: false }, dataItem)));
+    const [data, setData] = React.useState(employees);
     const [isTrend, setIsTrend] = React.useState(true);
     const [isMyTeam, setIsMyTeam] = React.useState(true);
 
+    // TODO: get my team from global state
+    const MYTEAMID = 1;
+    const gridFilterExpression = isMyTeam ? {
+            logic: "and",
+            filters: [{ field: "team_id", operator: "eq", value: MYTEAMID }]
+        } : null;
+
+    const [range, setRange] = React.useState({
+        start: new Date('2018-07-01T21:00:00.000Z'),
+        end: new Date('2018-09-30T21:00:00.000Z')
+    });
+
+    const onRangeChange = React.useCallback(
+        (event) => {
+            let rangeStart;
+            let rangeEnd;
+
+            if (event.value.start) {
+                rangeStart = firstDayOfMonth(event.value.start)
+            }
+            if (event.value.end) {
+                rangeEnd = lastDayOfMonth(event.value.end)
+            }
+
+            setRange({
+                start: rangeStart,
+                end: rangeEnd
+            })
+        },
+        [setRange]
+    );
     const trendOnClick = React.useCallback(
         () => setIsTrend(true),
         [setIsTrend]
@@ -170,8 +205,6 @@ const Dashboard = () => {
         [setIsMyTeam]
     );
 
-    // TODO: get my team from global state
-
     return (
         <div id="Dashboard" className="main-content">
             <div className="card-container grid">
@@ -187,14 +220,16 @@ const Dashboard = () => {
                     </ButtonGroup>
                 </div>
                 <div className="card-ranges">
-                    <DateRangePicker />
+                    <DateRangePicker value={range} onChange={onRangeChange} />
                 </div>
                 <div className="card-component">
                     <Chart
                         data={orders}
-                        filterStart={new Date('2018-07-01T21:00:00.000Z')}
-                        filterEnd={new Date('2018-10-01T21:00:00.000Z')}
+                        filterStart={range.start}
+                        filterEnd={range.end}
                         groupByField={'TeamID'}
+                        groupData={teams}
+                        groupTextField={'TeamName'}
                         seriesCategoryField={'OrderDate'}
                         seriesField={'OrderTotal'}
                         seriesType={isTrend ? 'line' : 'column'}
@@ -215,7 +250,7 @@ const Dashboard = () => {
                 </div>
                 <span></span>
                 <div className="card-component">
-                    <Grid data={data} style={{ height: 480, maxWidth: window.innerWidth - 20, margin: '0 auto' }} onDataChange={data => setData(data)}>
+                    <Grid data={filterBy(data, gridFilterExpression)} style={{ height: 480, maxWidth: window.innerWidth - 20, margin: '0 auto' }} onDataChange={data => setData(data)}>
                         <Column title={'Employee'}>
                             <Column field={'full_name'} title={'Contact Name'} columnMenu={ColumnMenu} width={230} cell={FullNameCell} />
                             <Column field={'job_title'} title={'Job Title'} columnMenu={ColumnMenu} width={230} />

@@ -1,4 +1,5 @@
 import React from 'react';
+import * as PropTypes from 'prop-types';
 
 import { MaskedTextBox as KendoMaskedTextBox } from '@progress/kendo-react-inputs';
 import { FieldWrapper } from '@progress/kendo-react-form';
@@ -23,4 +24,16 @@ export const MaskedTextBox = (fieldRenderProps) => {
             </div>
         </FieldWrapper>
     );
+};
+
+MaskedTextBox.displayName = 'MaskedTextBox';
+MaskedTextBox.propTypes = {
+    valid: PropTypes.bool,
+    value: PropTypes.object,
+    id: PropTypes.string,
+    optional: PropTypes.bool,
+    label: PropTypes.string,
+    hint: PropTypes.string,
+    validationMessage: PropTypes.string,
+    visited: PropTypes.bool,
 };

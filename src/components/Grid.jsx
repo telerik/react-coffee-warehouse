@@ -1,5 +1,6 @@
 
 import React from 'react';
+import * as PropTypes from 'prop-types';
 
 import { Grid as KendoGrid, GridColumn, GridColumnMenuSort, GridColumnMenuFilter } from '@progress/kendo-react-grid';
 import { process } from '@progress/kendo-data-query';
@@ -110,3 +111,9 @@ export const Grid = (props) => {
     );
 };
 
+Grid.displayName = 'Grid';
+Grid.propTypes = {
+    data: PropTypes.array,
+    onDataChange: PropTypes.func,
+    style: PropTypes.object
+};

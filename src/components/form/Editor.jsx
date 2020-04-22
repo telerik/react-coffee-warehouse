@@ -1,4 +1,5 @@
 import React from 'react';
+import * as PropTypes from 'prop-types';
 
 import { Editor as KendoEditor, EditorTools, EditorUtils } from '@progress/kendo-react-editor';
 import { FieldWrapper } from '@progress/kendo-react-form';
@@ -65,4 +66,17 @@ export const Editor = (fieldRenderProps) => {
             </div>
         </FieldWrapper>
     );
+};
+
+Editor.displayName = 'Editor';
+Editor.propTypes = {
+    valid: PropTypes.bool,
+    value: PropTypes.object,
+    id: PropTypes.string,
+    optional: PropTypes.bool,
+    label: PropTypes.string,
+    hint: PropTypes.string,
+    validationMessage: PropTypes.string,
+    visited: PropTypes.bool,
+    onChange: PropTypes.func
 };

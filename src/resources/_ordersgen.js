@@ -1778,11 +1778,11 @@ orders.forEach(order => {
     const maxEventTime = 1000 * 60 * 30 * 3;
     const minEventLenght = 1000 * 60 * 30;
 
-    const result = (Math.random() * maxWorkTime);
+    const result = Math.ceil(Math.random() * maxWorkTime);
     const reminder = result % workTimeStep;
     const eventStartTime = result - reminder;
 
-    const eventResult = Math.random() * maxEventTime
+    const eventResult = Math.ceil(Math.random() * maxEventTime)
     const eventReminder = eventResult % workTimeStep;
     const eventEndTime = minEventLenght + eventStartTime + (eventResult - eventReminder);
 

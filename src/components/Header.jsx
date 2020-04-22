@@ -1,12 +1,14 @@
 
 import * as React from 'react';
+import * as PropTypes from 'prop-types';
+
 import headerBg from '../assets/header-bg.png';
 import userAvatar from '../assets/user-avatar.jpg';
 
 import { DropDownList } from '@progress/kendo-react-dropdowns';
 import { Avatar } from '@progress/kendo-react-layout';
 
-const Header = (props) => {
+export const Header = (props) => {
     const { onButtonClick, page } = props;
     return (
         <header className="header" style={{ backgroundImage: `url(${headerBg})` }}>
@@ -32,5 +34,8 @@ const Header = (props) => {
     );
 }
 
-export default Header;
-
+Header.displayName = 'Header';
+Header.propTypes = {
+    page: PropTypes.string,
+    onButtonClick: PropTypes.func
+};

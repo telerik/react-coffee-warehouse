@@ -1,9 +1,11 @@
 
 import React from 'react';
+import * as PropTypes from 'prop-types';
+
 import { withRouter } from 'react-router-dom';
 
 import { Drawer, DrawerContent, DrawerItem } from '@progress/kendo-react-layout';
-import Header from './Header.jsx';
+import { Header } from './Header.jsx';
 
 const items = [
     { text: 'Dashboard', iconSvg: 'dashboard-icon', selected: true , route: '/' },
@@ -34,11 +36,11 @@ class DrawerRouterContainer extends React.Component {
         window.addEventListener('resize', this.resizeWindow)
         this.resizeWindow()
     }
-  
+
     componentWillUnmount() {
         window.removeEventListener('resize', this.resizeWindow)
     }
-  
+
     resizeWindow = () => {
         this.setState({ isSmallerScreen: window.innerWidth < 768 })
     }
@@ -73,7 +75,7 @@ class DrawerRouterContainer extends React.Component {
                     position='start'
                     mode={this.state.isSmallerScreen ? 'overlay' : 'push'}
                     mini={this.state.isSmallerScreen ? false : true}
-                    
+
                     onOverlayClick={this.handleClick}
                     onSelect={this.handleSelect}
                 >
