@@ -8,16 +8,22 @@ import {
     ChartSeriesItem,
     ChartCategoryAxis,
     ChartCategoryAxisItem,
-    ChartLegend
+    ChartLegend,
+    ChartTooltip
 } from '@progress/kendo-react-charts';
 import { groupBy, filterBy } from '@progress/kendo-data-query';
+import { useInternationalization } from '@progress/kendo-react-intl'
+
+const MONTH_FORMAT = 'MMMM yy';
 
 export const Chart = (props) => {
     const {
         data, groupByField, seriesCategoryField, seriesField,
-        filterStart, filterEnd, seriesType, groupData, groupTextField
+        filterStart, filterEnd, seriesType, groupResourceData, groupTextField,
+        groupColorField
     } = props;
 
+    const intlService = useInternationalization();
     const filteredData = filterBy(data, {
         logic: "and",
         filters: [
@@ -26,23 +32,37 @@ export const Chart = (props) => {
         ]
     });
     const groupedData = groupBy(filteredData, [{ field: groupByField }]);
+
+    const ChartTooltipRender = ({ point }) => {
+        return (
+            <div>
+                <div style={{textTransform: 'uppercase'}}>{intlService.formatDate(point.category, MONTH_FORMAT)}</div>
+                <div style={{textAlign: 'center'}}>{intlService.formatNumber(point.value, 'c')}</div>
+            </div>
+        );
+    };
+
     return (
         <KendoChart style={{ height: 350 }}>
             <ChartLegend position="bottom" orientation="horizontal" background={'#f4f5f8'} />
+            <ChartTooltip render={ChartTooltipRender} />
             <ChartSeries>
                 {
                     groupedData.map(group => {
-                        const groupName = groupData.find(item => item[groupByField] === group.value)[groupTextField];
+                        const groupResource = groupResourceData.find(item => item[groupByField] === group.value);
+
                         return (
                             <ChartSeriesItem
                                 key={group.value}
-                                name={groupName}
+                                name={groupResource[groupTextField]}
                                 type={seriesType}
                                 field={seriesField}
                                 categoryField={seriesCategoryField}
-                                tooltip={{ visible: true }}
                                 data={group.items}
-                            />
+                                color={groupResource[groupColorField]}
+                            >
+
+                            </ChartSeriesItem>
                         );
                     })
                 }
@@ -52,7 +72,7 @@ export const Chart = (props) => {
                     baseUnit={'months'}
                     labels={{
                         dateFormats: {
-                            months: 'MMMM yy'
+                            months: MONTH_FORMAT
                         }
                     }}
                 >
@@ -71,6 +91,6 @@ Chart.propTypes = {
     filterStart: PropTypes.object,
     filterEnd: PropTypes.object,
     seriesType: PropTypes.string,
-    groupData: PropTypes.array,
+    groupResourceData: PropTypes.array,
     groupTextField: PropTypes.string,
 };

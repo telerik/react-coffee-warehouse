@@ -228,8 +228,9 @@ const Dashboard = () => {
                         filterStart={range.start}
                         filterEnd={range.end}
                         groupByField={'teamID'}
-                        groupData={teams}
+                        groupResourceData={teams}
                         groupTextField={'teamName'}
+                        groupColorField={'teamColor'}
                         seriesCategoryField={'orderDate'}
                         seriesField={'orderTotal'}
                         seriesType={isTrend ? 'line' : 'column'}
