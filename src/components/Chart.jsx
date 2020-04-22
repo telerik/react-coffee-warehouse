@@ -14,7 +14,7 @@ import {
 import { groupBy, filterBy } from '@progress/kendo-data-query';
 import { useInternationalization } from '@progress/kendo-react-intl'
 
-const MONTH_FORMAT = 'MMMM yy';
+const MONTH_FORMAT = 'MMMM yyyy';
 
 export const Chart = (props) => {
     const {

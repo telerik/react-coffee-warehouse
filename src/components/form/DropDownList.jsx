@@ -6,14 +6,14 @@ import { FieldWrapper } from '@progress/kendo-react-form';
 import { Label, Error, Hint } from '@progress/kendo-react-labels';
 
 export const DropDownList = (fieldRenderProps) => {
-    const { validationMessage, visited, label, id, defaultValue, valid, hint, optional, ...others } = fieldRenderProps;
+    const { validationMessage, visited, label, id, value, valid, hint, optional, ...others } = fieldRenderProps;
     const ddlRef = React.useRef(null);
     const showValidationMessage = visited && validationMessage;
     return (
         <FieldWrapper>
             <Label editorId={id} editorValid={valid} editorRef={ddlRef} optional={optional}>{label}</Label>
             <div className={'k-form-field-wrap'}>
-                <KendoDropDownList ref={ddlRef} defaultValue={defaultValue} valid={valid} id={id} {...others} />
+                <KendoDropDownList ref={ddlRef} value={value} valid={valid} id={id} {...others} />
                 {
                     !showValidationMessage &&
                         <Hint>{hint}</Hint>

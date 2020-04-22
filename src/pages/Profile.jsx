@@ -74,7 +74,6 @@ const Profile = () => {
                                         name={'country'}
                                         label={'Country'}
                                         data={countries}
-                                        defaultValue={countries[33]}
                                         textField={'name'}
                                         valueField={'code'}
                                         component={DropDownList}
