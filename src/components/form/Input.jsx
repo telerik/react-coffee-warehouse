@@ -29,7 +29,7 @@ export const Input = (fieldRenderProps) => {
 Input.displayName = 'Input';
 Input.propTypes = {
     valid: PropTypes.bool,
-    value: PropTypes.object,
+    value: PropTypes.string,
     id: PropTypes.string,
     optional: PropTypes.bool,
     label: PropTypes.string,

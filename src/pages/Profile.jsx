@@ -1,6 +1,8 @@
 
 import * as React from 'react';
 
+import { useHistory } from "react-router-dom";
+
 import { Form, FormElement, Field } from '@progress/kendo-react-form';
 import { Button } from '@progress/kendo-react-buttons';
 import { Input } from './../components/form/Input';
@@ -9,19 +11,34 @@ import { DropDownList } from './../components/form/DropDownList';
 import { Editor } from './../components/form/Editor';
 import { Upload } from './../components/form/Upload';
 import { countries } from './../resources/countries';
+import { AppContext } from './../AppContext'
 
 import { requiredValidator, emailValidator, phoneValidator, biographyValidator } from './../validators'
 
+const countriesData = countries.map(country => country.name);
+
 const Profile = () => {
-        const handleSubmit = (dataItem) => {
-            alert(JSON.stringify(dataItem, null, 2));
-        };
+        const {languageId, onLanguageChange, onProfileChange, ...formValues} = React.useContext(AppContext);
+        let history = useHistory();
+
+        const handleSubmit = React.useCallback(
+            (dataItem) => {
+                onProfileChange({dataItem});
+
+                history.push('/');
+            },
+            [onProfileChange, history]
+        );
+
         return (
             <div id="Profile" className="profile-page main-content">
                 <div className="card-container">
                     <div className="card-component">
                         <Form
                             onSubmit={handleSubmit}
+                            initialValues={{
+                                ...formValues
+                            }}
                             render={(formRenderProps) => (
                                 <FormElement horizontal={true} style={{ maxWidth: 700 }}>
                                     <Field
@@ -32,22 +49,22 @@ const Profile = () => {
                                         component={Upload}
                                     />
                                     <Field
-                                        id={'firstname'}
-                                        name={'firstname'}
+                                        id={'firstName'}
+                                        name={'firstName'}
                                         label={'First Name'}
                                         validator={requiredValidator}
                                         component={Input}
                                     />
                                     <Field
-                                        id={'middlename'}
-                                        name={'middlename'}
+                                        id={'middleName'}
+                                        name={'middleName'}
                                         label={'Middle Name'}
                                         optional={true}
                                         component={Input}
                                     />
                                     <Field
-                                        id={'lastname'}
-                                        name={'lastname'}
+                                        id={'lastName'}
+                                        name={'lastName'}
                                         label={'Last Name'}
                                         validator={requiredValidator}
                                         component={Input}
@@ -62,8 +79,8 @@ const Profile = () => {
                                         component={Input}
                                     />
                                     <Field
-                                        id={'phonenumber'}
-                                        name={'phonenumber'}
+                                        id={'phoneNumber'}
+                                        name={'phoneNumber'}
                                         label={'Phone Number'}
                                         mask={'(+9) 0000-000-00-00'}
                                         validator={phoneValidator}
@@ -73,9 +90,7 @@ const Profile = () => {
                                         id={'country'}
                                         name={'country'}
                                         label={'Country'}
-                                        data={countries}
-                                        textField={'name'}
-                                        valueField={'code'}
+                                        data={countriesData}
                                         component={DropDownList}
                                     />
                                     <Field

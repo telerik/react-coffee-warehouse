@@ -8,8 +8,16 @@ import userAvatar from '../assets/user-avatar.jpg';
 import { DropDownList } from '@progress/kendo-react-dropdowns';
 import { Avatar } from '@progress/kendo-react-layout';
 
+import { languages } from './../resources/languages';
+import { AppContext } from './../AppContext'
+
 export const Header = (props) => {
     const { onButtonClick, page } = props;
+
+    const {languageId, onLanguageChange} = React.useContext(AppContext);
+
+    const currentLanguage = languages.find(item => item.languageId === languageId);
+
     return (
         <header className="header" style={{ backgroundImage: `url(${headerBg})` }}>
             <div className="nav-container">
@@ -24,7 +32,13 @@ export const Header = (props) => {
                 </div>
                 <div className="settings">
                     <span>Language</span>
-                    <DropDownList data={[ "Eng", "Bg", "Gb" ]} defaultValue="Eng"/>
+                    <DropDownList
+                        textField={'language'}
+                        dataItemKey={'languageId'}
+                        data={languages}
+                        value={currentLanguage}
+                        onChange={onLanguageChange}
+                    />
                 </div>
                 <Avatar type={'image'} shape={'circle'}>
                     <img src={userAvatar} alt="user-avatar"/>

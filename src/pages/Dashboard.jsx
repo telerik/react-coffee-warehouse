@@ -21,6 +21,7 @@ import { orders } from './../resources/orders';
 import { teams } from './../resources/teams';
 import { images } from './../resources/images';
 import { filterBy } from '@progress/kendo-data-query';
+import { AppContext } from './../AppContext'
 
 const FullNameCell = (props) => {
     const customerPhotoStyle = {
@@ -157,11 +158,10 @@ const Dashboard = () => {
     const [isTrend, setIsTrend] = React.useState(true);
     const [isMyTeam, setIsMyTeam] = React.useState(true);
 
-    // TODO: get my team from global state
-    const MYTEAMID = 1;
+    const { teamId } = React.useContext(AppContext);
     const gridFilterExpression = isMyTeam ? {
             logic: "and",
-            filters: [{ field: "teamId", operator: "eq", value: MYTEAMID }]
+            filters: [{ field: "teamId", operator: "eq", value: teamId }]
         } : null;
 
     const [range, setRange] = React.useState({

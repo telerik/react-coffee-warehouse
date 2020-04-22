@@ -29,7 +29,7 @@ export const MaskedTextBox = (fieldRenderProps) => {
 MaskedTextBox.displayName = 'MaskedTextBox';
 MaskedTextBox.propTypes = {
     valid: PropTypes.bool,
-    value: PropTypes.object,
+    value: PropTypes.string,
     id: PropTypes.string,
     optional: PropTypes.bool,
     label: PropTypes.string,

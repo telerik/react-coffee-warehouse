@@ -1,14 +1,14 @@
 import React from 'react';
 
 export const AppContext = React.createContext({
-    language: 'en',
-    firstname: '',
-    lastname: '',
+    languageId: 'en',
+    firstName: '',
+    lastName: '',
     middleName: '',
     email: '',
     phoneNumber: '',
     avatar: null,
-    country: null,
+    country: '',
     isInPublicDirectory: false,
     biography: '',
     teamId: null,

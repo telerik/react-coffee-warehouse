@@ -13,25 +13,27 @@ import './App.scss';
 
 const App = () => {
     const [contextState, setContextState] = React.useState({
-        language: 'en',
-        firstname: 'Peter',
-        lastname: 'Douglas',
+        languageId: 'en',
+        firstName: 'Peter',
+        lastName: 'Douglas',
         middleName: '',
         email: 'peter.douglas@progress.com',
         phoneNumber: '(+1) 8373-837-93-02',
         avatar: null,
-        country: countries[33],
+        country: countries[33].name,
         isInPublicDirectory: true,
         biography: '',
         teamId: 1
     });
     const onLanguageChange = React.useCallback(
-        () => { },
-        [setContextState]
+        (event) => { setContextState({...contextState, languageId: event.value.languageId}) },
+        [contextState, setContextState]
     );
     const onProfileChange = React.useCallback(
-        () => { },
-        [setContextState]
+        (event) => {
+            setContextState({...contextState, ...event.dataItem});
+        },
+        [contextState, setContextState]
     );
     return (
         <div className="App">
