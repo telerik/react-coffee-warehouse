@@ -14,7 +14,11 @@ export const enMessages = {
         "teamCalendar": "Team Calendar",
         "saveChanges": "Save Changes",
         "cancel": "Cancel",
-        "warehouse": "Coffee Warehouse"
+        "warehouse": "Coffee Warehouse",
+        "startFreeTrial": "Start Free Trial",
+        "buyNow": "Buy Now",
+        "getSource": "Get the source code on GitHub",
+        "demoInfo": "This demo application is built using the following KendoReact components and the KendoReact Default Theme."
     },
     "grid":{
         "groupPanelEmpty": "Drag a column header and drop it here to group by that column",

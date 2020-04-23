@@ -3,7 +3,10 @@ import * as React from 'react';
 import kendoka from '../assets/kendoka.png';
 import github from '../assets/github-icon.svg';
 
+import { useLocalization } from '@progress/kendo-react-intl';
+
 const Info = () => {
+    const localizationService = useLocalization();
     return (
         <div id="Info" className="info-page main-content">
             <div className="content">
@@ -14,17 +17,25 @@ const Info = () => {
                         <h1>KendoReact</h1>
                         <h2>UI for React Developers</h2>
                         <div className="button-group">
-                            <a className="k-button k-primary" href="https://www.telerik.com/download-login-v2-kendo-react-ui">Start Free Trial</a>
-                            <a className="k-button" href="https://www.telerik.com/kendo-react-ui/#pricing">Buy Now</a>
+                            <a className="k-button k-primary" href="https://www.telerik.com/download-login-v2-kendo-react-ui">
+                                {localizationService.toLanguageString('custom.startFreeTrial')}
+                            </a>
+                            <a className="k-button" href="https://www.telerik.com/kendo-react-ui/#pricing">
+                                {localizationService.toLanguageString('custom.buyNow')}
+                            </a>
                         </div>
 
                         <a className="github-link" href="https://github.com/telerik/react-coffee-warehouse">
                             <img src={github} alt="github icon" />
-                            <span className="github-text"> Get the source code on GitHub</span>
+                            <span className="github-text">
+                                {localizationService.toLanguageString('custom.getSource')}
+                            </span>
                         </a>
                     </div>
                     <div className="section-2">
-                        <p>This demo application is built using the following KendoReact components and the KendoReact Default Theme</p>
+                        <p>
+                            {localizationService.toLanguageString('custom.demoInfo')}
+                        </p>
                     </div>
                     <div className="section-3">
                         <div>

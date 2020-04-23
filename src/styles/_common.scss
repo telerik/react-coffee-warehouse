@@ -378,7 +378,7 @@ li {
             .k-button {
                 display: block;
                 margin: 10px auto;
-                width: 60%;
+                min-width: 145px;
             }
         }
 
@@ -456,7 +456,6 @@ li {
             .button-group {
                 .k-button {
                     display: inline-block;
-                    width: 145px;
                     margin-right: 10px;
                 }
             }

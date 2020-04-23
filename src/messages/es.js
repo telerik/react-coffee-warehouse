@@ -14,7 +14,11 @@ export const esMessages = {
         "teamCalendar": "Calendario del equipo",
         "saveChanges": "Guardar cambios",
         "cancel": "Cancelar",
-        "warehouse": "Almacén De Café"
+        "warehouse": "Almacén De Café",
+        "startFreeTrial": "Iniciar prueba gratuita",
+        "buyNow": "Comprar ahora",
+        "getSource": "Obtenga el código fuente en GitHub",
+        "demoInfo": "Esta aplicación de demostración está construida utilizando los siguientes componentes de KendoReact y el tema predeterminado de KendoReact."
     },
     "datepicker": {
         "toggleCalendar": "Alternar calendario"

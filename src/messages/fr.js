@@ -14,7 +14,11 @@ export const frMessages = {
         "teamCalendar": "Calendrier d'équipe",
         "saveChanges": "Sauvegarder les modifications",
         "cancel": "Annuler",
-        "warehouse": "Entrepôt De Café"
+        "warehouse": "Entrepôt De Café",
+        "startFreeTrial": "Démarrer l'essai gratuit",
+        "buyNow": "Acheter maintenant",
+        "getSource": "Récupérer le code source sur GitHub",
+        "demoInfo": "Cette application de démonstration est construite à l'aide des composants KendoReact suivants et du thème par défaut KendoReact."
     },
     "grid":{
         "groupPanelEmpty": "Faites glisser un en-tête de colonne et déposez-le ici pour grouper par cette colonne",
