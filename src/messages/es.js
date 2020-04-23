@@ -18,7 +18,27 @@ export const esMessages = {
         "startFreeTrial": "Iniciar prueba gratuita",
         "buyNow": "Comprar ahora",
         "getSource": "Obtenga el código fuente en GitHub",
-        "demoInfo": "Esta aplicación de demostración está construida utilizando los siguientes componentes de KendoReact y el tema predeterminado de KendoReact."
+        "demoInfo": "Esta aplicación de demostración está construida utilizando los siguientes componentes de KendoReact y el tema predeterminado de KendoReact.",
+        "firstName": "Primer nombre",
+        "middleName": "Segundo nombre",
+        "lastName": "Apellido",
+        "email": "Dirección de correo electrónico",
+        "phoneNumber": "Número de teléfono",
+        "country": "País",
+        "biography": "Biografía corta",
+        "public": "Incluir en directorio público",
+        "team": "Equipo",
+        "employee": "Empleado",
+        "contactName": "Nombre de contacto",
+        "jobTitle": "Título del trabajo",
+        "status": "Estado",
+        "performance": "Rendimiento",
+        "rating":"Clasificación",
+        "engagement": "Compromiso",
+        "budget": "Presupuesto",
+        "contacts": "Contactos",
+        "address": "Dirección",
+        "phone": "Teléfono"
     },
     "datepicker": {
         "toggleCalendar": "Alternar calendario"

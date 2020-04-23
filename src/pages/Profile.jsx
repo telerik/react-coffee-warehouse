@@ -1,6 +1,8 @@
 
 import * as React from 'react';
 
+import { useLocalization } from '@progress/kendo-react-intl';
+
 import { useHistory } from "react-router-dom";
 
 import { Form, FormElement, Field } from '@progress/kendo-react-form';
@@ -19,7 +21,8 @@ const countriesData = countries.map(country => country.name);
 
 const Profile = () => {
         const {languageId, onLanguageChange, onProfileChange, ...formValues} = React.useContext(AppContext);
-        let history = useHistory();
+        const localizationService = useLocalization();
+        const history = useHistory();
 
         const handleSubmit = React.useCallback(
             (dataItem) => {
@@ -51,21 +54,21 @@ const Profile = () => {
                                     <Field
                                         id={'firstName'}
                                         name={'firstName'}
-                                        label={'First Name'}
+                                        label={localizationService.toLanguageString('custom.firstName')}
                                         validator={requiredValidator}
                                         component={Input}
                                     />
                                     <Field
                                         id={'middleName'}
                                         name={'middleName'}
-                                        label={'Middle Name'}
+                                        label={localizationService.toLanguageString('custom.middleName')}
                                         optional={true}
                                         component={Input}
                                     />
                                     <Field
                                         id={'lastName'}
                                         name={'lastName'}
-                                        label={'Last Name'}
+                                        label={localizationService.toLanguageString('custom.lastName')}
                                         validator={requiredValidator}
                                         component={Input}
                                     />
@@ -74,14 +77,14 @@ const Profile = () => {
                                         name={'email'}
                                         type={'email'}
                                         placeholder={'e.g.: peter@gmail.com'}
-                                        label={'Email Address'}
+                                        label={localizationService.toLanguageString('custom.email')}
                                         validator={emailValidator}
                                         component={Input}
                                     />
                                     <Field
                                         id={'phoneNumber'}
                                         name={'phoneNumber'}
-                                        label={'Phone Number'}
+                                        label={localizationService.toLanguageString('custom.phoneNumber')}
                                         mask={'(+9) 0000-000-00-00'}
                                         validator={phoneValidator}
                                         component={MaskedTextBox}
@@ -89,28 +92,28 @@ const Profile = () => {
                                     <Field
                                         id={'country'}
                                         name={'country'}
-                                        label={'Country'}
+                                        label={localizationService.toLanguageString('custom.country')}
                                         data={countriesData}
                                         component={DropDownList}
                                     />
                                     <Field
                                         id={'biography'}
                                         name={'biography'}
-                                        label={'Short Biography'}
+                                        label={localizationService.toLanguageString('custom.biography')}
                                         validator={biographyValidator}
                                         component={Editor}
                                     />
                                     <hr />
                                     <div className={'k-form-buttons'}>
                                         <Button>
-                                                Cancel
+                                            {localizationService.toLanguageString('custom.cancel')}
                                         </Button>
                                         <Button
                                             primary={true}
                                             type={'submit'}
                                             disabled={!formRenderProps.allowSubmit}
                                         >
-                                                Save Changes
+                                            {localizationService.toLanguageString('custom.saveChanges')}
                                         </Button>
                                     </div>
                                 </FormElement>
