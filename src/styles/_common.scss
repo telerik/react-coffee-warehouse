@@ -89,7 +89,7 @@ li {
 
     .card-buttons {
         .k-button {
-            width: 105px;
+            min-width: 105px;
         }
     }
 
@@ -97,7 +97,7 @@ li {
         .k-daterangepicker {
             .k-textbox-container, .k-floating-label-container {
                 padding-top: 0; 
-                width: 105px;
+                min-width: 105px;
             }
 
             .k-label {
