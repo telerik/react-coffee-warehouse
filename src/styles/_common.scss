@@ -252,8 +252,26 @@ li {
     }
 }
 
+// Dashboard page
+.dashboard-page {
+    .card-container:last-of-type {
+        padding-top: 0;
+    }
+}
+
+@media (min-width: 768px) {
+    .dashboard-page {
+        .card-container:last-of-type {
+            padding-top: 30px;
+        }
+    }
+}
+
 // Profile page
 .profile-page {
+    .card-container {
+        text-align: left;
+    }
 
     .k-form .k-form-field {
         display: block;

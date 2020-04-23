@@ -206,7 +206,7 @@ const Dashboard = () => {
     );
 
     return (
-        <div id="Dashboard" className="main-content">
+        <div id="Dashboard" className="dashboard-page main-content">
             <div className="card-container grid">
                 <h3 className="card-title">Team Efficiency</h3>
                 <div className="card-buttons">
