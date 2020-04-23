@@ -266,6 +266,54 @@ li {
         }
     }
 }
+// Planning page 
+.planning-page {
+    .card-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .card-title{
+        grid-column: 1 / -1;
+    }
+    .k-hbox {
+        padding: 0 20px;
+        background: transparent;
+    }
+    .k-avatar {
+        width: 41px;
+        height: 41px;
+    }
+    .k-card-title {
+        font-size: 15px;
+        margin-bottom: -6px;
+        text-align: left;
+    }
+    .k-card-subtitle {
+        margin-top: 0;
+        text-transform: uppercase;
+        font-size: 11px;
+    }
+}
+
+@media (min-width: 480px) {
+    .planning-page {
+        .card-container {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .planning-page {
+        .card-container {
+            grid-template-columns: repeat(5, 1fr);
+        }
+
+        .k-hbox {
+            padding: 0;
+            border-width: 0;
+        }
+    }
+}
 
 // Profile page
 .profile-page {
@@ -379,6 +427,7 @@ li {
                 display: block;
                 margin: 10px auto;
                 min-width: 145px;
+                width: 60%;
             }
         }
 
@@ -457,6 +506,7 @@ li {
                 .k-button {
                     display: inline-block;
                     margin-right: 10px;
+                    width: auto;
                 }
             }
         }

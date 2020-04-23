@@ -21,7 +21,7 @@ export const Scheduler = (props) => {
             modelFields={modelFields}
             resources={resources}
             timezone={'Etc/UTC'}
-            defaultView="work-week"
+            defaultView={window.innerWidth < 768 ? "day" : "work-week"}
         >
             <DayView />
             <WorkWeekView />
