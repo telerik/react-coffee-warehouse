@@ -299,7 +299,7 @@ li {
         justify-content: center;
 
         & > * {
-            width: 140px;
+            min-width: 140px;
         }
     }
 }

@@ -112,7 +112,7 @@ export const esMessages = {
         "editorValidationEnd": "La hora de finalización debe ser posterior a la hora de inicio",
         "allEvents": "Todos los eventos",
         "allDay": "todo el día",
-        "hoy": "Hoy",
+        "today": "Hoy",
         "dayViewTitle": "Día",
         "weekViewTitle": "Semana",
         "monthViewTitle": "Mes",
