@@ -44,7 +44,7 @@ export const Chart = (props) => {
 
     return (
         <KendoChart style={{ height: 350 }}>
-            <ChartLegend position="bottom" orientation="horizontal" background={'#f4f5f8'} />
+            <ChartLegend position="bottom" orientation="horizontal" background={'#f4f5f8'} padding={{ left: 80 }} labels={{padding: { right: 80 }}}/>
             <ChartTooltip render={ChartTooltipRender} />
             <ChartSeries>
                 {
