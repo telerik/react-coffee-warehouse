@@ -2,16 +2,16 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 
-import headerBg from '../assets/header-bg.png';
-import userAvatar from '../assets/user-avatar.jpg';
-
 import { DropDownList } from '@progress/kendo-react-dropdowns';
 import { Avatar } from '@progress/kendo-react-layout';
-
 import { useLocalization } from '@progress/kendo-react-intl';
 
 import { locales } from './../resources/locales';
+
 import { AppContext } from './../AppContext'
+
+import headerBg from '../assets/header-bg.png';
+import userAvatar from '../assets/user-avatar.jpg';
 
 export const Header = (props) => {
     const { onButtonClick, page } = props;

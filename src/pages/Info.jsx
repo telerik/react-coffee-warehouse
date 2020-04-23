@@ -1,9 +1,10 @@
 
 import * as React from 'react';
-import kendoka from '../assets/kendoka.png';
-import github from '../assets/github-icon.svg';
 
 import { useLocalization } from '@progress/kendo-react-intl';
+
+import kendoka from '../assets/kendoka.png';
+import github from '../assets/github-icon.svg';
 
 const Info = () => {
     const localizationService = useLocalization();

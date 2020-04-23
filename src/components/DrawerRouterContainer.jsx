@@ -2,10 +2,11 @@
 import React from 'react';
 
 import { withRouter } from 'react-router-dom';
-
-import { Drawer, DrawerContent, DrawerItem } from '@progress/kendo-react-layout';
-import { Header } from './Header.jsx';
 import { registerForLocalization, provideLocalizationService } from '@progress/kendo-react-intl';
+import { Drawer, DrawerContent, DrawerItem } from '@progress/kendo-react-layout';
+
+import { Header } from './Header.jsx';
+
 
 const items = [
     { name: 'dashboard', iconSvg: 'dashboard-icon', selected: true , route: '/' },

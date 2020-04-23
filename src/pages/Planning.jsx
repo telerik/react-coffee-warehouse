@@ -4,6 +4,7 @@ import * as React from 'react';
 import { useLocalization } from '@progress/kendo-react-intl';
 
 import { Scheduler } from './../components/Scheduler';
+
 import { employees } from './../resources/employees';
 import { orders, ordersModelFields } from './../resources/orders';
 import { teams } from './../resources/teams';
