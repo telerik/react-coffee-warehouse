@@ -595,7 +595,7 @@ export const employees = [{
     "budget": 72251,
     "phone": "(419) 5806752",
     "address": "0355 Petterle Avenue",
-    "imgId": 8,
+    "imgId": 1,
     "gender": "M",
     "selected": false
 }, {
@@ -880,7 +880,7 @@ export const employees = [{
     "budget": 66166,
     "phone": "(711) 6587550",
     "address": "29796 Mcbride Court",
-    "imgId": 2,
+    "imgId": 4,
     "gender": "M",
     "selected": false
 }, {

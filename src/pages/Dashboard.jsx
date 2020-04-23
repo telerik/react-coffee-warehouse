@@ -23,7 +23,6 @@ const Dashboard = () => {
     const [isTrend, setIsTrend] = React.useState(true);
     const [isMyTeam, setIsMyTeam] = React.useState(true);
     const localizationService = useLocalization();
-    const toLanguageString = localizationService.toLanguageString;
 
     const { teamId } = React.useContext(AppContext);
     const gridFilterExpression = isMyTeam ? {
@@ -75,14 +74,14 @@ const Dashboard = () => {
     return (
         <div id="Dashboard" className="dashboard-page main-content">
             <div className="card-container grid">
-                <h3 className="card-title">{toLanguageString('custom.teamEfficiency')}</h3>
+                <h3 className="card-title">{localizationService.toLanguageString('custom.teamEfficiency')}</h3>
                 <div className="card-buttons">
                     <ButtonGroup>
                         <Button togglable={true} selected={isTrend} onClick={trendOnClick}>
-                            {toLanguageString('custom.trend')}
+                            {localizationService.toLanguageString('custom.trend')}
                         </Button>
                         <Button togglable={true} selected={!isTrend} onClick={volumeOnClick}>
-                            {toLanguageString('custom.volume')}
+                            {localizationService.toLanguageString('custom.volume')}
                         </Button>
                     </ButtonGroup>
                 </div>
@@ -105,34 +104,34 @@ const Dashboard = () => {
                 </div>
             </div>
             <div className="card-container grid">
-                <h3 className="card-title">{toLanguageString('custom.teamMembers')}</h3>
+                <h3 className="card-title">{localizationService.toLanguageString('custom.teamMembers')}</h3>
                 <div className="card-buttons">
                     <ButtonGroup>
                         <Button togglable={true} selected={isMyTeam} onClick={myTeamOnClick}>
-                            {toLanguageString('custom.myTeam')}
+                            {localizationService.toLanguageString('custom.myTeam')}
                         </Button>
                         <Button togglable={true} selected={!isMyTeam} onClick={allTeamOnClick}>
-                            {toLanguageString('custom.allTeams')}
+                            {localizationService.toLanguageString('custom.allTeams')}
                         </Button>
                     </ButtonGroup>
                 </div>
                 <span></span>
                 <div className="card-component">
                     <Grid data={filterBy(data, gridFilterExpression)} style={{ height: 480, maxWidth: window.innerWidth - 20, margin: '0 auto' }} onDataChange={data => setData(data)}>
-                        <Column title={toLanguageString('custom.employee')}>
-                            <Column field={'fullName'} title={toLanguageString('custom.contactName')} columnMenu={ColumnMenu} width={230} cell={FullNameCell} />
-                            <Column field={'jobTitle'} title={toLanguageString('custom.jobTitle')} columnMenu={ColumnMenu} width={230} />
-                            <Column field={'country'} title={toLanguageString('custom.country')} columnMenu={ColumnMenu} width={100} cell={FlagCell} />
-                            <Column field={'isOnline'} title={toLanguageString('custom.status')} columnMenu={ColumnMenu} width={100} cell={OnlineCell} />
+                        <Column title={localizationService.toLanguageString('custom.employee')}>
+                            <Column field={'fullName'} title={localizationService.toLanguageString('custom.contactName')} columnMenu={ColumnMenu} width={230} cell={FullNameCell} />
+                            <Column field={'jobTitle'} title={localizationService.toLanguageString('custom.jobTitle')} columnMenu={ColumnMenu} width={230} />
+                            <Column field={'country'} title={localizationService.toLanguageString('custom.country')} columnMenu={ColumnMenu} width={100} cell={FlagCell} />
+                            <Column field={'isOnline'} title={localizationService.toLanguageString('custom.status')} columnMenu={ColumnMenu} width={100} cell={OnlineCell} />
                         </Column>
-                        <Column title={toLanguageString('custom.performance')}>
-                            <Column field={'rating'} title={toLanguageString('custom.rating')} columnMenu={ColumnMenu} width={110} cell={RatingCell} />
-                            <Column field={'target'} title={toLanguageString('custom.engagement')} columnMenu={ColumnMenu} width={200} cell={EngagementCell} />
-                            <Column field={'budget'} title={toLanguageString('custom.budget')} columnMenu={ColumnMenu} width={100} cell={CurrencyCell} />
+                        <Column title={localizationService.toLanguageString('custom.performance')}>
+                            <Column field={'rating'} title={localizationService.toLanguageString('custom.rating')} columnMenu={ColumnMenu} width={110} cell={RatingCell} />
+                            <Column field={'target'} title={localizationService.toLanguageString('custom.engagement')} columnMenu={ColumnMenu} width={200} cell={EngagementCell} />
+                            <Column field={'budget'} title={localizationService.toLanguageString('custom.budget')} columnMenu={ColumnMenu} width={100} cell={CurrencyCell} />
                         </Column>
-                        <Column title={toLanguageString('custom.contacts')}>
-                            <Column field={'phone'} title={toLanguageString('custom.phone')} columnMenu={ColumnMenu} width={130} />
-                            <Column field={'address'} title={toLanguageString('custom.address')} columnMenu={ColumnMenu} width={200} />
+                        <Column title={localizationService.toLanguageString('custom.contacts')}>
+                            <Column field={'phone'} title={localizationService.toLanguageString('custom.phone')} columnMenu={ColumnMenu} width={130} />
+                            <Column field={'address'} title={localizationService.toLanguageString('custom.address')} columnMenu={ColumnMenu} width={200} />
                         </Column>
                     </Grid>
                 </div>
