@@ -37,7 +37,7 @@ export const RadioGroup = (fieldRenderProps) => {
 RadioGroup.displayName = 'RadioGroup';
 RadioGroup.propTypes = {
     valid: PropTypes.bool,
-    value: PropTypes.string,
+    value: PropTypes.number,
     labelId: PropTypes.string,
     data: PropTypes.array,
     optional: PropTypes.bool,

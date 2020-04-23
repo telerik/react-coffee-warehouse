@@ -1,4 +1,4 @@
-const emailRegex = new RegExp(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);
+const emailRegex = new RegExp(/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/);
 const phoneRegex = new RegExp(/^[0-9 ()+-]+$/);
 
 export const emailValidator = (value) => (emailRegex.test(value) ? '' : 'You have entered an invalid email address!');

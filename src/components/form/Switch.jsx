@@ -38,7 +38,7 @@ export const Switch = (fieldRenderProps) => {
 Switch.displayName = 'Switch';
 Switch.propTypes = {
     valid: PropTypes.bool,
-    value: PropTypes.string,
+    value: PropTypes.bool,
     id: PropTypes.string,
     labelId: PropTypes.string,
     optional: PropTypes.bool,

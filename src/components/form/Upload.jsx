@@ -76,7 +76,7 @@ export const Upload = (fieldRenderProps) => {
 Upload.displayName = 'Upload';
 Upload.propTypes = {
     valid: PropTypes.bool,
-    value: PropTypes.object,
+    value: PropTypes.array,
     id: PropTypes.string,
     optional: PropTypes.bool,
     label: PropTypes.string,

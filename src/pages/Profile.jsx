@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import { useLocalization } from '@progress/kendo-react-intl';
 import { useHistory } from "react-router-dom";
-import { Form, FormElement, Field } from '@progress/kendo-react-form';
+import { Form, Field, FormElement } from '@progress/kendo-react-form';
 import { Button } from '@progress/kendo-react-buttons';
 
 import { Input } from './../components/form/Input';
@@ -32,7 +32,7 @@ const Profile = () => {
         const localizationService = useLocalization();
         const history = useHistory();
 
-        const handleSubmit = React.useCallback(
+        const onSubmit = React.useCallback(
             (dataItem) => {
                 onProfileChange({dataItem});
 
@@ -41,12 +41,19 @@ const Profile = () => {
             [onProfileChange, history]
         );
 
+        const onCancelClick = React.useCallback(
+            () => {
+                history.push('/');
+            },
+            [history]
+        );
+
         return (
             <div id="Profile" className="profile-page main-content">
                 <div className="card-container">
                     <div className="card-component">
                         <Form
-                            onSubmit={handleSubmit}
+                            onSubmit={onSubmit}
                             initialValues={{
                                 ...formValues
                             }}
@@ -127,7 +134,9 @@ const Profile = () => {
                                     />
                                     <hr />
                                     <div className={'k-form-buttons'}>
-                                        <Button>
+                                        <Button
+                                            onClick={onCancelClick}
+                                        >
                                             {localizationService.toLanguageString('custom.cancel')}
                                         </Button>
                                         <Button
