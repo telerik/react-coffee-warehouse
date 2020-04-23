@@ -12,12 +12,20 @@ import { MaskedTextBox } from './../components/form/MaskedTextBox';
 import { DropDownList } from './../components/form/DropDownList';
 import { Editor } from './../components/form/Editor';
 import { Upload } from './../components/form/Upload';
-import { countries } from './../resources/countries';
+import { RadioGroup } from './../components/form/RadioGroup';
+import { Switch } from './../components/form/Switch';
 import { AppContext } from './../AppContext'
+
+import { countries } from './../resources/countries';
+import { teams } from './../resources/teams';
 
 import { requiredValidator, emailValidator, phoneValidator, biographyValidator } from './../validators'
 
 const countriesData = countries.map(country => country.name);
+const teamsData = teams.map(team => ({
+    value: team.teamID,
+    label: team.teamName
+}));
 
 const Profile = () => {
         const {languageId, onLanguageChange, onProfileChange, ...formValues} = React.useContext(AppContext);
@@ -102,6 +110,20 @@ const Profile = () => {
                                         label={localizationService.toLanguageString('custom.biography')}
                                         validator={biographyValidator}
                                         component={Editor}
+                                    />
+                                    <Field
+                                        labelId={'isInPublicDirectoryLabel'}
+                                        name={'isInPublicDirectory'}
+                                        label={localizationService.toLanguageString('custom.public')}
+                                        component={Switch}
+                                    />
+                                    <Field
+                                        labelId={'teamlabel'}
+                                        name={'teamId'}
+                                        layout={'horizontal'}
+                                        label={localizationService.toLanguageString('custom.team')}
+                                        component={RadioGroup}
+                                        data={teamsData}
                                     />
                                     <hr />
                                     <div className={'k-form-buttons'}>

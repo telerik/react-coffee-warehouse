@@ -21,7 +21,7 @@ export const Editor = (fieldRenderProps) => {
                     id={id}
                     valid={valid}
                     defaultEditMode={'div'}
-                    contentStyle={{ height: 290 }}
+                    contentStyle={{ height: 150 }}
                     value={value}
                     onChange={onChangeHandler}
                     tools={[
