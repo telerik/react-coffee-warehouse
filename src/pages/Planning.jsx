@@ -52,10 +52,6 @@ const Planning = () => {
                 {
                     orderEmployees.map(employee => {
                         return (
-                            employee.id === "2757a92d-5eed-4215-818f-fdf15b6b27d0"
-                            || employee.id === "c8389213-a2cd-4bb8-ba99-9c29e9b70881"
-                            || employee.id === "7b991e13-bef7-4f19-bd18-d5aa9d263cba"
-                            || employee.id === "d26bcf84-a8b4-471c-a582-2de64d7e7715" ? null :
                             <div key={employee.id} onClick={() => onEmployeeClick(employee.id)} style={!filterState[employee.id] ? {opacity: .5} : {}}>
                                 <Card style={{ borderWidth: 0, cursor: 'pointer'}}>
                                     <CardHeader className="k-hbox" >
