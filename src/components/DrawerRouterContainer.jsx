@@ -5,13 +5,14 @@ import { withRouter } from 'react-router-dom';
 
 import { Drawer, DrawerContent, DrawerItem } from '@progress/kendo-react-layout';
 import { Header } from './Header.jsx';
+import { registerForLocalization, provideLocalizationService } from '@progress/kendo-react-intl';
 
 const items = [
-    { text: 'Dashboard', iconSvg: 'dashboard-icon', selected: true , route: '/' },
-    { text: 'Planning', iconSvg: 'planning-icon', route: '/planning' },
-    { text: 'Profile', iconSvg: 'profile-icon', route: '/profile' },
+    { name: 'dashboard', iconSvg: 'dashboard-icon', selected: true , route: '/' },
+    { name: 'planning', iconSvg: 'planning-icon', route: '/planning' },
+    { name: 'profile', iconSvg: 'profile-icon', route: '/profile' },
     { separator: true },
-    { text: 'Info', iconSvg: 'info-icon', route: '/info' }
+    { name: 'info', iconSvg: 'info-icon', route: '/info' }
 ];
 
 const CustomDrawerItem = (props) => {
@@ -54,22 +55,30 @@ class DrawerRouterContainer extends React.Component {
         this.props.history.push(e.itemTarget.props.route);
     }
 
-    setSelectedItem = (pathName) => {
+    getSelectedItem = (pathName) => {
         let currentPath = items.find(item => item.route === pathName);
-        if (currentPath.text) {
-            return currentPath.text;
+        if (currentPath.name) {
+            return currentPath.name;
         }
     }
     render() {
-        let selected = this.setSelectedItem(this.props.location.pathname);
+        let selected = this.getSelectedItem(this.props.location.pathname);
+        const localizationService = provideLocalizationService(this);
+
         return (
              <React.Fragment>
-                <Header onButtonClick={this.handleClick} page={selected}/>
-
+                <Header
+                    onButtonClick={this.handleClick}
+                    page={localizationService.toLanguageString(`custom.${selected}`)}
+                />
                 <Drawer
                     expanded={this.state.expanded}
-                    items={items.map(
-                        (item) => ({ ...item, selected: item.text === selected }))}
+                    items={items.map((item) => ({
+                                ...item,
+                                text: localizationService.toLanguageString(`custom.${item.name}`),
+                                selected: item.name === selected
+                            }))
+                    }
                     item={CustomDrawerItem}
                     position='start'
                     mode={this.state.isSmallerScreen ? 'overlay' : 'push'}
@@ -86,6 +95,8 @@ class DrawerRouterContainer extends React.Component {
         );
     }
 };
+
+registerForLocalization(DrawerRouterContainer);
 
 export default withRouter(DrawerRouterContainer);
 

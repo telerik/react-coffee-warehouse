@@ -13,6 +13,7 @@ import {
     useInternationalization
 } from '@progress/kendo-react-intl';
 import { firstDayOfMonth, lastDayOfMonth } from '@progress/kendo-date-math';
+import { useLocalization } from '@progress/kendo-react-intl';
 
 import { Grid, Column, ColumnMenu } from './../components/Grid';
 import { Chart } from './../components/Chart';
@@ -157,6 +158,7 @@ const Dashboard = () => {
     const [data, setData] = React.useState(employees);
     const [isTrend, setIsTrend] = React.useState(true);
     const [isMyTeam, setIsMyTeam] = React.useState(true);
+    const localizationService = useLocalization();
 
     const { teamId } = React.useContext(AppContext);
     const gridFilterExpression = isMyTeam ? {
@@ -208,14 +210,14 @@ const Dashboard = () => {
     return (
         <div id="Dashboard" className="dashboard-page main-content">
             <div className="card-container grid">
-                <h3 className="card-title">Team Efficiency</h3>
+                <h3 className="card-title">{localizationService.toLanguageString('custom.teamEfficiency')}</h3>
                 <div className="card-buttons">
                     <ButtonGroup>
                         <Button togglable={true} selected={isTrend} onClick={trendOnClick}>
-                            Trend
+                            {localizationService.toLanguageString('custom.trend')}
                         </Button>
                         <Button togglable={true} selected={!isTrend} onClick={volumeOnClick}>
-                            Volume
+                            {localizationService.toLanguageString('custom.volume')}
                         </Button>
                     </ButtonGroup>
                 </div>
@@ -238,14 +240,14 @@ const Dashboard = () => {
                 </div>
             </div>
             <div className="card-container grid">
-                <h3 className="card-title">Team Members</h3>
+                <h3 className="card-title">{localizationService.toLanguageString('custom.teamMembers')}</h3>
                 <div className="card-buttons">
                     <ButtonGroup>
                         <Button togglable={true} selected={isMyTeam} onClick={myTeamOnClick}>
-                            My Team
+                            {localizationService.toLanguageString('custom.myTeam')}
                         </Button>
                         <Button togglable={true} selected={!isMyTeam} onClick={allTeamOnClick}>
-                            All Teams
+                            {localizationService.toLanguageString('custom.allTeams')}
                         </Button>
                     </ButtonGroup>
                 </div>

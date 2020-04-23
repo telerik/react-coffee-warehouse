@@ -8,15 +8,35 @@ import userAvatar from '../assets/user-avatar.jpg';
 import { DropDownList } from '@progress/kendo-react-dropdowns';
 import { Avatar } from '@progress/kendo-react-layout';
 
-import { languages } from './../resources/languages';
+import { useLocalization } from '@progress/kendo-react-intl';
+
+import { locales } from './../resources/locales';
 import { AppContext } from './../AppContext'
 
 export const Header = (props) => {
     const { onButtonClick, page } = props;
+    const { avatar, localeId, onLanguageChange } = React.useContext(AppContext);
+    const localizationService = useLocalization();
 
-    const {languageId, onLanguageChange} = React.useContext(AppContext);
+    const currentLanguage = locales.find(item => item.localeId === localeId);
 
-    const currentLanguage = languages.find(item => item.languageId === languageId);
+    const imgRef = React.useRef(null);
+    const hasImage = avatar && avatar.length > 0;
+
+    React.useEffect(
+        () => {
+            if (hasImage) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    imgRef.current.setAttribute('src', e.target.result)
+                }
+
+                reader.readAsDataURL(avatar[0].getRawFile());
+            }
+        },
+        [avatar, hasImage]
+    );
 
     return (
         <header className="header" style={{ backgroundImage: `url(${headerBg})` }}>
@@ -26,22 +46,26 @@ export const Header = (props) => {
                 </div>
 
                 <div className="title">
-                    <h1>Coffee Warehouse</h1>
+                    <h1>{localizationService.toLanguageString('custom.warehouse')}</h1>
                     <span className="vl"></span>
                     <h2>{page}</h2>
                 </div>
                 <div className="settings">
-                    <span>Language</span>
+                    <span>{localizationService.toLanguageString('custom.language')}</span>
                     <DropDownList
-                        textField={'language'}
-                        dataItemKey={'languageId'}
-                        data={languages}
+                        textField={'locale'}
+                        dataItemKey={'localeId'}
+                        data={locales}
                         value={currentLanguage}
                         onChange={onLanguageChange}
                     />
                 </div>
                 <Avatar type={'image'} shape={'circle'}>
-                    <img src={userAvatar} alt="user-avatar"/>
+                    {
+                        hasImage ?
+                            <img ref={imgRef} src={'#'} alt={'User Avatar'} /> :
+                            <img src={userAvatar} alt="user-avatar"/>
+                    }
                 </Avatar>
             </div>
         </header>
