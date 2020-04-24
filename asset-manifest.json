@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/react-coffee-warehouse/static/css/main.e6b75ced.chunk.css",
+    "main.js": "/react-coffee-warehouse/static/js/main.7635d201.chunk.js",
+    "main.js.map": "/react-coffee-warehouse/static/js/main.7635d201.chunk.js.map",
+    "runtime-main.js": "/react-coffee-warehouse/static/js/runtime-main.24b30e5a.js",
+    "runtime-main.js.map": "/react-coffee-warehouse/static/js/runtime-main.24b30e5a.js.map",
+    "static/js/2.8baf995e.chunk.js": "/react-coffee-warehouse/static/js/2.8baf995e.chunk.js",
+    "static/js/2.8baf995e.chunk.js.map": "/react-coffee-warehouse/static/js/2.8baf995e.chunk.js.map",
+    "index.html": "/react-coffee-warehouse/index.html",
+    "precache-manifest.5ab2b6cbc600e76665e0fc31b8958e89.js": "/react-coffee-warehouse/precache-manifest.5ab2b6cbc600e76665e0fc31b8958e89.js",
+    "service-worker.js": "/react-coffee-warehouse/service-worker.js",
+    "static/css/main.e6b75ced.chunk.css.map": "/react-coffee-warehouse/static/css/main.e6b75ced.chunk.css.map",
+    "static/js/2.8baf995e.chunk.js.LICENSE.txt": "/react-coffee-warehouse/static/js/2.8baf995e.chunk.js.LICENSE.txt",
+    "static/media/App.scss": "/react-coffee-warehouse/static/media/profile-icon.aebef4ea.svg",
+    "static/media/github-icon.svg": "/react-coffee-warehouse/static/media/github-icon.767e15a2.svg",
+    "static/media/header-bg.png": "/react-coffee-warehouse/static/media/header-bg.f1a95872.png",
+    "static/media/kendoka.png": "/react-coffee-warehouse/static/media/kendoka.1240069c.png",
+    "static/media/user-avatar.jpg": "/react-coffee-warehouse/static/media/user-avatar.5bded05c.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.24b30e5a.js",
+    "static/js/2.8baf995e.chunk.js",
+    "static/css/main.e6b75ced.chunk.css",
+    "static/js/main.7635d201.chunk.js"
+  ]
+}
