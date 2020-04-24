@@ -108,6 +108,11 @@ li {
 
     .card-component {
         grid-column: 1 / -1;
+
+        .k-chart, .k-grid {
+            max-width: 1360px;
+            margin: 0 auto;
+        }
     }
 }
 
@@ -171,7 +176,6 @@ li {
         }
     }
 }
-
 
 // Header
 .header {
@@ -246,7 +250,7 @@ li {
         }
         
         .k-dropdown {
-            max-width: 70px;
+            max-width: 90px;
             margin-left: 15px;
         }
     }
