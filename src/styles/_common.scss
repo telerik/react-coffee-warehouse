@@ -193,6 +193,7 @@ a {
         background-image:  url('./../assets/hamburger-icon.svg');
         background-repeat: no-repeat;
         width: 20px;
+        cursor: pointer;
     }
 
     .title {
@@ -208,7 +209,7 @@ a {
         width: 40px;
         height: 40px;
         margin: 0 25px;
-        border: 1px solid white;
+        box-shadow: 0 0 0px 1px $white;
 
         img {
             width: 40px;

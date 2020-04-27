@@ -4,7 +4,6 @@ import * as React from 'react';
 import { ButtonGroup, Button } from '@progress/kendo-react-buttons';
 import { DateRangePicker } from '@progress/kendo-react-dateinputs';
 
-import { firstDayOfMonth, lastDayOfMonth } from '@progress/kendo-date-math';
 import { useLocalization } from '@progress/kendo-react-intl';
 import { filterBy } from '@progress/kendo-data-query';
 
@@ -31,25 +30,15 @@ const Dashboard = () => {
         } : null;
 
     const [range, setRange] = React.useState({
-        start: new Date('2018-07-01T21:00:00.000Z'),
-        end: new Date('2018-09-30T21:00:00.000Z')
+        start: new Date('2020-01-01T21:00:00.000Z'),
+        end: new Date('2020-04-29T21:00:00.000Z')
     });
 
     const onRangeChange = React.useCallback(
         (event) => {
-            let rangeStart;
-            let rangeEnd;
-
-            if (event.value.start) {
-                rangeStart = firstDayOfMonth(event.value.start)
-            }
-            if (event.value.end) {
-                rangeEnd = lastDayOfMonth(event.value.end)
-            }
-
             setRange({
-                start: rangeStart,
-                end: rangeEnd
+                start: event.value.start,
+                end: event.value.end
             })
         },
         [setRange]
