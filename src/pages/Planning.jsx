@@ -72,16 +72,8 @@ const Planning = () => {
             <div className="card-container grid">
                 <h3 className="card-title">{localizationService.toLanguageString('custom.teamCalendar')}</h3>
                 {
-                    orderEmployees.map(employee => {
-                        const teamColor = employee.teamId === 1
-                            ? '#FF6358'
-                            : employee.teamId === 2
-                                ? '#F7C62F'
-                                : employee.teamId === 3
-                                    ? '#55AB1D'
-                                    : employee.teamId === 4
-                                        ? '#28B4C8' : undefined;
 
+                    orderEmployees.map(employee => {
                         return (
                             <div
                                 key={employee.id}
@@ -93,13 +85,13 @@ const Planning = () => {
                                         <Avatar type='image' shape='circle'>
                                             <img alt="" style={{
                                                     backgroundImage: images[employee.imgId + employee.gender],
-                                                    borderColor: teamColor,
+                                                    borderColor: teams.find(({teamID}) => teamID === employee.teamId).teamColor,
                                                     ...photoStyle
                                                 }}
                                             />
                                         </Avatar>
                                         <div>
-                                            <CardTitle style={{color: teamColor}}>{employee.fullName}</CardTitle>
+                                            <CardTitle style={{color: teams.find(({teamID}) => teamID === employee.teamId).teamColor}}>{employee.fullName}</CardTitle>
                                             <CardSubtitle>{employee.jobTitle}</CardSubtitle>
                                         </div>
                                     </CardHeader>
@@ -108,7 +100,7 @@ const Planning = () => {
                         );
                     })
                 }
-                <div className="card-component" style={{ maxWidth: window.innerWidth - 20, margin: '0 auto' }} >
+                <div className="card-component" >
                     <Scheduler
                         data={data.filter(event => filterState[event.employeeID])}
                         onDataChange={onDataChange}

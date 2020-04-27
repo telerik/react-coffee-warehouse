@@ -38,7 +38,10 @@ export const enMessages = {
         "budget": "Budget",
         "contacts": "Contacts",
         "address": "Address",
-        "phone": "Phone"
+        "phone": "Phone",
+        "gridSearch": "Search in all columns...",
+        "exportExcel": "Export to Excel",
+        "exportPdf": "Export to PDF"
     },
     "grid":{
         "groupPanelEmpty": "Drag a column header and drop it here to group by that column",

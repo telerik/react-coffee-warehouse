@@ -38,7 +38,10 @@ export const esMessages = {
         "budget": "Presupuesto",
         "contacts": "Contactos",
         "address": "Dirección",
-        "phone": "Teléfono"
+        "phone": "Teléfono",
+        "gridSearch": "Buscar en todas las columnas ...",
+        "exportExcel": "Exportar a Excel",
+        "exportPdf": "Exportar a PDF"
     },
     "datepicker": {
         "toggleCalendar": "Alternar calendario"

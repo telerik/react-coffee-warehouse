@@ -8,6 +8,7 @@ import { GridPDFExport } from '@progress/kendo-react-pdf';
 import { ExcelExport } from '@progress/kendo-react-excel-export';
 import { process } from '@progress/kendo-data-query';
 import { Input } from '@progress/kendo-react-inputs';
+import { useLocalization } from '@progress/kendo-react-intl';
 
 export const Column = GridColumn;
 
@@ -34,6 +35,7 @@ export const Grid = (props) => {
     const [filter, setFilter] = React.useState(null);
     const lastSelectedIndexRef = React.useRef(0);
     const [allColumnFilter, setAllColumnFilter] = React.useState('');
+    const localizationService = useLocalization();
 
     const dataState = {
         take,
@@ -181,17 +183,23 @@ export const Grid = (props) => {
             onHeaderSelectionChange={onHeaderSelectionChange}
         >
             <GridToolbar>
-                <Input value={allColumnFilter} onChange={onAllColumnFilterChange} placeholder={'Search in all columns...'} />
+                <Input
+                    value={allColumnFilter}
+                    onChange={onAllColumnFilterChange}
+                    placeholder={localizationService.toLanguageString('custom.gridSearch')}
+                />
                 <Button
+                    icon="excel"
                     onClick={onExcelExport}
                 >
-                    Export to Excel
+                    {localizationService.toLanguageString('custom.exportExcel')}
                 </Button>
                 <Button
+                    icon="pdf"
                     onClick={onPdfExport}
                     disabled={isPdfExporting}
                 >
-                    Export PDF
+                    {localizationService.toLanguageString('custom.exportPdf')}
                 </Button>
             </GridToolbar>
             <Column

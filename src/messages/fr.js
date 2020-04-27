@@ -38,7 +38,10 @@ export const frMessages = {
         "budget": "Budget",
         "contacts": "Contacts",
         "address": "Adresse",
-        "phone": "Téléphone"
+        "phone": "Téléphone",
+        "gridSearch": "Rechercher dans toutes les colonnes ...",
+        "exportExcel": "Exporter vers Excel",
+        "exportPdf": "Exporter au format PDF"
     },
     "grid":{
         "groupPanelEmpty": "Faites glisser un en-tête de colonne et déposez-le ici pour grouper par cette colonne",
