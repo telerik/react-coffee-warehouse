@@ -3,6 +3,7 @@ import * as React from 'react';
 
 import { useLocalization } from '@progress/kendo-react-intl';
 import { Card, CardHeader, Avatar, CardTitle, CardSubtitle } from '@progress/kendo-react-layout';
+import { guid } from '@progress/kendo-react-common';
 
 import { Scheduler } from './../components/Scheduler';
 
@@ -25,6 +26,20 @@ orderEmployees.forEach(employee => {
 const Planning = () => {
     const localizationService = useLocalization();
     const [filterState, setFilterState] = React.useState(initialFilterState);
+    const [data, setData] = React.useState(orders);
+
+    const onDataChange = React.useCallback(
+        ({ created, updated, deleted }) => {
+            setData(old => old
+                // Filter the deleted items
+                .filter((item) => deleted.find(current => current[ordersModelFields.id] === item[ordersModelFields.id]) === undefined)
+                // Find and replace the updated items
+                .map((item) => updated.find(current => current[ordersModelFields.id] === item[ordersModelFields.id]) || item)
+                // Add the newly created items and assign an `id`.
+                .concat(created.map((item) => Object.assign({}, item, { [ordersModelFields.id]: guid() }))))
+        },
+        []
+    );
 
     const onEmployeeClick = React.useCallback(
         (employeeId) => {
@@ -79,7 +94,7 @@ const Planning = () => {
                                             <img alt="" style={{
                                                     backgroundImage: images[employee.imgId + employee.gender],
                                                     borderColor: teamColor,
-                                                    ...photoStyle 
+                                                    ...photoStyle
                                                 }}
                                             />
                                         </Avatar>
@@ -95,7 +110,8 @@ const Planning = () => {
                 }
                 <div className="card-component" style={{ maxWidth: window.innerWidth - 20, margin: '0 auto' }} >
                     <Scheduler
-                        data={orders.filter(order => filterState[order.employeeID])}
+                        data={data.filter(event => filterState[event.employeeID])}
+                        onDataChange={onDataChange}
                         modelFields={ordersModelFields}
                         resources={[
                             {

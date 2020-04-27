@@ -12,7 +12,7 @@ import {
 
 export const Scheduler = (props) => {
     const {
-        data, modelFields, resources
+        data, modelFields, resources, onDataChange
     } = props;
 
     const defaultDate = new Date("2020-04-27T00:00:00Z");
@@ -25,6 +25,14 @@ export const Scheduler = (props) => {
             timezone={'Etc/UTC'}
             defaultDate={defaultDate}
             defaultView={window.innerWidth < 768 ? "day" : "work-week"}
+            onDataChange={onDataChange}
+            editable={{
+                add: true,
+                remove: true,
+                drag: true,
+                resize: true,
+                edit: true
+            }}
         >
             <DayView />
             <WorkWeekView />
