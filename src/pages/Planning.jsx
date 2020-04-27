@@ -12,10 +12,14 @@ import { orders, ordersModelFields } from './../resources/orders';
 import { teams } from './../resources/teams';
 
 const orderEmployees = employees.filter(employee => employee.jobTitle === 'Sales Representative');
-const initialFilterState = {};
+const initialFilterState = { };
 
 orderEmployees.forEach(employee => {
-    initialFilterState[employee.id] = true;
+    if(employee.fullName === 'Wait Peperell') {
+        initialFilterState[employee.id] = false;
+    } else {
+        initialFilterState[employee.id] = true;
+    }
 });
 
 const Planning = () => {
@@ -28,6 +32,7 @@ const Planning = () => {
                 ...filterState,
                 [employeeId]: !filterState[employeeId]
             });
+            console.log(employeeId, filterState)
         },
         [filterState, setFilterState]
     );
@@ -39,6 +44,8 @@ const Planning = () => {
         borderRadius: '50%',
         backgroundSize: '32px 35px',
         backgroundPosition: 'center center',
+        borderWidth: 2,
+        borderStyle: 'solid',
         verticalAlign: 'middle',
         lineHeight: '32px',
         boxShadow: 'inset 0 0 1px #999, inset 0 0 10px rgba(0,0,0,.2)',
@@ -51,15 +58,33 @@ const Planning = () => {
                 <h3 className="card-title">{localizationService.toLanguageString('custom.teamCalendar')}</h3>
                 {
                     orderEmployees.map(employee => {
+                        const teamColor = employee.teamId === 1
+                            ? '#FF6358'
+                            : employee.teamId === 2
+                                ? '#F7C62F'
+                                : employee.teamId === 3
+                                    ? '#55AB1D'
+                                    : employee.teamId === 4
+                                        ? '#28B4C8' : undefined;
+
                         return (
-                            <div key={employee.id} onClick={() => onEmployeeClick(employee.id)} style={!filterState[employee.id] ? {opacity: .5} : {}}>
+                            <div
+                                key={employee.id}
+                                onClick={() => onEmployeeClick(employee.id)}
+                                style={!filterState[employee.id] ? {opacity: .5} : {}}
+                            >
                                 <Card style={{ borderWidth: 0, cursor: 'pointer'}}>
                                     <CardHeader className="k-hbox" >
                                         <Avatar type='image' shape='circle'>
-                                            <img alt="" style={{backgroundImage: images[employee.imgId + employee.gender], ...photoStyle }}/>
+                                            <img alt="" style={{
+                                                    backgroundImage: images[employee.imgId + employee.gender],
+                                                    borderColor: teamColor,
+                                                    ...photoStyle 
+                                                }}
+                                            />
                                         </Avatar>
                                         <div>
-                                            <CardTitle >{employee.fullName}</CardTitle>
+                                            <CardTitle style={{color: teamColor}}>{employee.fullName}</CardTitle>
                                             <CardSubtitle>{employee.jobTitle}</CardSubtitle>
                                         </div>
                                     </CardHeader>

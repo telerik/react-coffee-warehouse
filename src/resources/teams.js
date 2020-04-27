@@ -7,12 +7,12 @@ export const teams = [
     {
         'teamID': 2,
         'teamName': 'Lemon Team',
-        'teamColor': '#FFD246'
+        'teamColor': '#F7C62F'
     },
     {
         'teamID': 3,
         'teamName': 'Organic Team',
-        'teamColor': '#78D237'
+        'teamColor': '#55AB1D'
     },
     {
         'teamID': 4,
