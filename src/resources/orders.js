@@ -17443,5 +17443,8 @@ export const ordersModelFields = {
     title: 'customerContactName',
     description: 'shipAddress',
     start: 'requiredDateStart',
-    end: 'requiredDateEnd'
+    end: 'requiredDateEnd',
+    recurrenceRule: 'recurrenceRule',
+    recurrenceId: 'recurrenceID',
+    recurrenceExceptions: 'recurrenceException'
 };
