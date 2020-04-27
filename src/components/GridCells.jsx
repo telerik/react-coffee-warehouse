@@ -34,6 +34,10 @@ export const FullNameCell = (props) => {
         paddingLeft: '10px'
     };
 
+    if (props.rowType === 'groupHeader') {
+        return null;
+    }
+
     return (
         <td>
             <div style={customerPhotoStyle} />
@@ -43,6 +47,10 @@ export const FullNameCell = (props) => {
 };
 
 export const FlagCell = (props) => {
+    if (props.rowType === 'groupHeader') {
+        return null;
+    }
+
     return (
         <td style={{textAlign: 'center'}}>
             <img
@@ -57,6 +65,10 @@ export const FlagCell = (props) => {
 export const RatingCell = (props) => {
     const MAX_STARS = 5;
     const rating = props.dataItem.rating;
+
+    if (props.rowType === 'groupHeader') {
+        return null;
+    }
 
     return (
         <td>
@@ -100,6 +112,11 @@ export const OnlineCell = (props) => {
         color: '#fff',
         backgroundColor: '#dc3545'
     };
+
+    if (props.rowType === 'groupHeader') {
+        return null;
+    }
+
     return (
         <td style={{textAlign: 'center'}}>
             {
@@ -112,6 +129,10 @@ export const OnlineCell = (props) => {
 };
 
 export const EngagementCell = (props) => {
+    if (props.rowType === 'groupHeader') {
+        return null;
+    }
+
     return (
         <td>
             <Sparkline
@@ -134,6 +155,10 @@ export const CurrencyCell = (props) => {
     };
 
     const intlService = useInternationalization();
+
+    if (props.rowType === 'groupHeader') {
+        return null;
+    }
 
     return (
         <td>
