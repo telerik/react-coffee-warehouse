@@ -2,8 +2,12 @@
 import React from 'react';
 import * as PropTypes from 'prop-types';
 
-import { Grid as KendoGrid, GridColumn, GridColumnMenuSort, GridColumnMenuFilter } from '@progress/kendo-react-grid';
+import { Grid as KendoGrid, GridColumn, GridColumnMenuSort, GridColumnMenuFilter, GridToolbar } from '@progress/kendo-react-grid';
+import { Button } from '@progress/kendo-react-buttons'
+import { GridPDFExport } from '@progress/kendo-react-pdf';
+import { ExcelExport } from '@progress/kendo-react-excel-export';
 import { process } from '@progress/kendo-data-query';
+import { Input } from '@progress/kendo-react-inputs';
 
 export const Column = GridColumn;
 
@@ -19,27 +23,105 @@ export const ColumnMenu = (props) => {
 export const Grid = (props) => {
     const { data, onDataChange, ...others } = props;
 
+    const excelExportRef = React.useRef(null);
+    const pdfExportRef = React.useRef(null);
+
+    const [isPdfExporting, setIsPdfExporting] = React.useState(false);
     const [take, setTake] = React.useState(10);
     const [skip, setSkip] = React.useState(0);
     const [sort, setSort] = React.useState([]);
     const [group, setGroup] = React.useState([]);
+    const [filter, setFilter] = React.useState(null);
     const lastSelectedIndexRef = React.useRef(0);
+    const [allColumnFilter, setAllColumnFilter] = React.useState('');
 
     const dataState = {
         take,
         skip,
         sort,
-        group
+        group,
+        filter
     };
+
+    const textColumns = props.children.map(col => {
+            if (col.props.children) {
+                return col.props.children.map(child => {
+                    if (!child.props.filter || child.props.filter === "text") {
+                        return child.props.field;
+                    }
+                });
+            } else if (col.props.field) {
+                if (!col.props.filter || col.props.filter === "text") {
+                    return col.props.field;
+                }
+            }
+        })
+        .flat()
+        .filter(field => field);
+
+    const allColumnsFilters = textColumns.map(column => ({
+        field: column,
+        operator: 'contains',
+        value: allColumnFilter
+    }));
+
+    const allColumnFilteredData = allColumnFilter ?
+                                    process(data, {filter: { logic: "or", filters: allColumnsFilters }}).data :
+                                    data;
+
+    const processedData = process(allColumnFilteredData, dataState);
+
+    React.useEffect(
+        () => {
+            if (!processedData.data.length) {
+                setSkip(0);
+            }
+        },
+        [processedData]
+    )
 
     const onDataStateChange = React.useCallback(
         (event) => {
             setTake(event.data.take);
             setSkip(event.data.skip);
             setSort(event.data.sort);
-            setGroup(event.data.group)
+            setGroup(event.data.group);
+            setFilter(event.data.filter);
         },
         [setTake, setSkip, setSort, setGroup]
+    );
+
+    const onExcelExport = React.useCallback(
+        () => {
+            if (excelExportRef.current) {
+                excelExportRef.current.save();
+            }
+        },
+        []
+    );
+
+    const onPdfExportDone = React.useCallback(
+        () => {
+            setIsPdfExporting(false);
+        },
+        []
+    );
+
+    const onAllColumnFilterChange = React.useCallback(
+        (event) => {
+            setAllColumnFilter(event.value);
+        },
+        [setAllColumnFilter]
+    );
+
+    const onPdfExport = React.useCallback(
+        () => {
+            if (pdfExportRef.current) {
+                setIsPdfExporting(true);
+                pdfExportRef.current.save(processedData.data, onPdfExportDone);
+            }
+        },
+        [processedData, onPdfExportDone]
     );
 
     const onSelectionChange = React.useCallback(
@@ -82,7 +164,7 @@ export const Grid = (props) => {
         [data, onDataChange]
     );
 
-    return (
+    const GridElement = (
         <KendoGrid
             {...dataState}
             {...others}
@@ -92,12 +174,26 @@ export const Grid = (props) => {
             groupable
             selectedField={'selected'}
 
-            data={process(data, dataState)}
+            data={processedData}
             onDataStateChange={onDataStateChange}
 
             onSelectionChange={onSelectionChange}
             onHeaderSelectionChange={onHeaderSelectionChange}
         >
+            <GridToolbar>
+                <Input value={allColumnFilter} onChange={onAllColumnFilterChange} placeholder={'Search in all columns...'} />
+                <Button
+                    onClick={onExcelExport}
+                >
+                    Export to Excel
+                </Button>
+                <Button
+                    onClick={onPdfExport}
+                    disabled={isPdfExporting}
+                >
+                    Export PDF
+                </Button>
+            </GridToolbar>
             <Column
                 field={'selected'}
                 width={50}
@@ -108,6 +204,18 @@ export const Grid = (props) => {
             />
             {props.children}
         </KendoGrid>
+    );
+
+    return (
+        <>
+            <ExcelExport data={processedData.data} ref={excelExportRef}>
+                { GridElement }
+            </ExcelExport>
+            <GridPDFExport ref={pdfExportRef}>
+                { GridElement }
+            </GridPDFExport>
+        </>
+
     );
 };
 
