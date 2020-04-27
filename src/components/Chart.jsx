@@ -8,13 +8,17 @@ import {
     ChartSeriesItem,
     ChartCategoryAxis,
     ChartCategoryAxisItem,
+    ChartValueAxis,
+    ChartValueAxisItem,
     ChartLegend,
     ChartTooltip
 } from '@progress/kendo-react-charts';
 import { groupBy, filterBy } from '@progress/kendo-data-query';
-import { useInternationalization } from '@progress/kendo-react-intl'
+import { useInternationalization } from '@progress/kendo-react-intl';
+import { locales } from './../resources/locales';
 
 const MONTH_FORMAT = 'MMMM yyyy';
+const COMPACT_FORMAT = 'MM yyyy';
 
 export const Chart = (props) => {
     const {
@@ -37,7 +41,7 @@ export const Chart = (props) => {
         return (
             <div>
                 <div style={{textTransform: 'uppercase'}}>{intlService.formatDate(point.category, MONTH_FORMAT)}</div>
-                <div style={{textAlign: 'center'}}>{intlService.formatNumber(point.value, 'c')}</div>
+                <div style={{textAlign: 'center'}}>{intlService.formatNumber(point.value, {locale: locales.locale})}</div>
             </div>
         );
     };
@@ -72,12 +76,16 @@ export const Chart = (props) => {
                     baseUnit={'months'}
                     labels={{
                         dateFormats: {
-                            months: MONTH_FORMAT
+                            months: window.innerWidth >= 480 ? MONTH_FORMAT : COMPACT_FORMAT
                         }
                     }}
                 >
                 </ChartCategoryAxisItem>
             </ChartCategoryAxis>
+            <ChartValueAxis>
+                <ChartValueAxisItem labels={{format: {locale: locales.locale}}}>
+                </ChartValueAxisItem>
+            </ChartValueAxis>
         </KendoChart>
     );
 };
