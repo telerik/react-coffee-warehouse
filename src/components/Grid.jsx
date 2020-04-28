@@ -45,43 +45,6 @@ export const Grid = (props) => {
         filter
     };
 
-    const textColumns = props.children.map(col => {
-            if (col.props.children) {
-                return col.props.children.map(child => {
-                    if (!child.props.filter || child.props.filter === "text") {
-                        return child.props.field;
-                    }
-                });
-            } else if (col.props.field) {
-                if (!col.props.filter || col.props.filter === "text") {
-                    return col.props.field;
-                }
-            }
-        })
-        .flat()
-        .filter(field => field);
-
-    const allColumnsFilters = textColumns.map(column => ({
-        field: column,
-        operator: 'contains',
-        value: allColumnFilter
-    }));
-
-    const allColumnFilteredData = allColumnFilter ?
-                                    process(data, {filter: { logic: "or", filters: allColumnsFilters }}).data :
-                                    data;
-
-    const processedData = process(allColumnFilteredData, dataState);
-
-    React.useEffect(
-        () => {
-            if (!processedData.data.length) {
-                setSkip(0);
-            }
-        },
-        [processedData]
-    )
-
     const onDataStateChange = React.useCallback(
         (event) => {
             setTake(event.data.take);
@@ -114,16 +77,6 @@ export const Grid = (props) => {
             setAllColumnFilter(event.value);
         },
         [setAllColumnFilter]
-    );
-
-    const onPdfExport = React.useCallback(
-        () => {
-            if (pdfExportRef.current) {
-                setIsPdfExporting(true);
-                pdfExportRef.current.save(processedData.data, onPdfExportDone);
-            }
-        },
-        [processedData, onPdfExportDone]
     );
 
     const onSelectionChange = React.useCallback(
@@ -164,6 +117,53 @@ export const Grid = (props) => {
             onDataChange(updatedData);
         },
         [data, onDataChange]
+    );
+
+    const textColumns = props.children.map(col => {
+            if (col.props.children) {
+                return col.props.children.map(child => {
+                    if (!child.props.filter || child.props.filter === "text") {
+                        return child.props.field;
+                    }
+                });
+            } else if (col.props.field) {
+                if (!col.props.filter || col.props.filter === "text") {
+                    return col.props.field;
+                }
+            }
+        })
+        .flat()
+        .filter(field => field);
+
+    const allColumnsFilters = textColumns.map(column => ({
+        field: column,
+        operator: 'contains',
+        value: allColumnFilter
+    }));
+
+    const allColumnFilteredData = allColumnFilter ?
+                                    process(data, {filter: { logic: "or", filters: allColumnsFilters }}).data :
+                                    data;
+
+    const processedData = process(allColumnFilteredData, dataState);
+
+    React.useEffect(
+        () => {
+            if (!processedData.data.length) {
+                setSkip(0);
+            }
+        },
+        [processedData]
+    );
+
+    const onPdfExport = React.useCallback(
+        () => {
+            if (pdfExportRef.current) {
+                setIsPdfExporting(true);
+                pdfExportRef.current.save(processedData.data, onPdfExportDone);
+            }
+        },
+        [processedData, onPdfExportDone]
     );
 
     const GridElement = (
