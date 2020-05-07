@@ -35,7 +35,7 @@ export const Scheduler = (props) => {
             }}
         >
             <DayView />
-            <WorkWeekView />
+            <WorkWeekView numberOfDays={7} />
             <WeekView />
             <MonthView />
         </KendoScheduler>
