@@ -24,7 +24,7 @@ export const Chart = (props) => {
     const {
         data, groupByField, seriesCategoryField, seriesField,
         filterStart, filterEnd, seriesType, groupResourceData, groupTextField,
-        groupColorField
+        groupColorField, onRefresh
     } = props;
 
     const intlService = useInternationalization();
@@ -47,7 +47,7 @@ export const Chart = (props) => {
     };
 
     return (
-        <KendoChart style={{ height: 350 }} onRefresh={() => null}>
+        <KendoChart style={{ height: 350 }} onRefresh={onRefresh}>
             <ChartLegend position="bottom" orientation="horizontal" background={'#f4f5f8'} padding={{ left: 80 }} labels={{padding: { right: 80 }}}/>
             <ChartTooltip render={ChartTooltipRender} />
             <ChartSeries>
@@ -101,4 +101,5 @@ Chart.propTypes = {
     seriesType: PropTypes.string,
     groupResourceData: PropTypes.array,
     groupTextField: PropTypes.string,
+    onRefresh: PropTypes.func
 };

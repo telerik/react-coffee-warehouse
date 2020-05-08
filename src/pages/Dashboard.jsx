@@ -23,6 +23,16 @@ const Dashboard = () => {
     const [isMyTeam, setIsMyTeam] = React.useState(true);
     const localizationService = useLocalization();
 
+    const isChartChangeRef = React.useRef(false);
+    const onChartRefresh = React.useCallback(
+        () => null,
+        []
+    );
+
+    React.useEffect(() => {
+        isChartChangeRef.current = false;
+    });
+
     const { teamId } = React.useContext(AppContext);
     const gridFilterExpression = isMyTeam ? {
             logic: "and",
@@ -33,7 +43,6 @@ const Dashboard = () => {
         start: new Date('2020-01-01T21:00:00.000Z'),
         end: new Date('2020-04-29T21:00:00.000Z')
     });
-
     const onRangeChange = React.useCallback(
         (event) => {
             setRange({
@@ -44,11 +53,17 @@ const Dashboard = () => {
         [setRange]
     );
     const trendOnClick = React.useCallback(
-        () => setIsTrend(true),
+        () => {
+            isChartChangeRef.current = true;
+            setIsTrend(true);
+        },
         [setIsTrend]
     );
     const volumeOnClick = React.useCallback(
-        () => setIsTrend(false),
+        () => {
+            isChartChangeRef.current = true;
+            setIsTrend(false);
+        },
         [setIsTrend]
     );
     const myTeamOnClick = React.useCallback(
@@ -89,6 +104,7 @@ const Dashboard = () => {
                         seriesCategoryField={'orderDate'}
                         seriesField={'orderTotal'}
                         seriesType={isTrend ? 'line' : 'column'}
+                        onRefresh={isChartChangeRef.current ? null : onChartRefresh}
                     />
                 </div>
             </div>
