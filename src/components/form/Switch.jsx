@@ -6,31 +6,44 @@ import { FieldWrapper } from '@progress/kendo-react-form';
 import { Label, Error, Hint } from '@progress/kendo-react-labels';
 
 export const Switch = (fieldRenderProps) => {
-    const { validationMessage, visited, label, labelId, id, valid, hint, optional, value, ...others } = fieldRenderProps;
-    const showValidationMessage = visited && validationMessage;
-    const switchRef = React.useRef(null);
+    const { validationMessage, touched, label, optional, id, valid, disabled, hint, ...others } = fieldRenderProps;
+    const editorRef = React.useRef(null);
+
+    const showValidationMessage = touched && validationMessage;
+    const showHint = !showValidationMessage && hint;
+    const hintId = showHint ? `${id}_hint` : '';
+    const errorId = showValidationMessage ? `${id}_error` : '';
+    const labelId = label ? `${id}_label` : '';
 
     return (
         <FieldWrapper>
-            <Label id={labelId} editorRef={switchRef} editorValid={valid} optional={optional}>{label}</Label>
-            <div className={'k-form-field-wrap'}>
-                <KendoSwitch
-                    ariaDescribedBy={labelId}
-                    ariaLabelledBy={labelId}
-                    valid={valid}
-                    checked={value}
-                    ref={switchRef}
-                    {...others}
-                />
-                {
-                    !showValidationMessage &&
-                        <Hint>{hint}</Hint>
-                }
-                {
-                    showValidationMessage &&
-                        <Error>{validationMessage}</Error>
-                }
-            </div>
+            <Label
+                id={labelId}
+                editorRef={editorRef}
+                editorId={id}
+                editorValid={valid}
+                editorDisabled={disabled}
+                optional={optional}
+            >
+                {label}
+            </Label>
+            <KendoSwitch
+                ref={editorRef}
+                ariaLabelledBy={labelId}
+                ariaDescribedBy={`${hintId} ${errorId}`}
+                valid={valid}
+                id={id}
+                disabled={disabled}
+                {...others}
+            />
+            {
+                showHint &&
+                <Hint id={hintId}>{hint}</Hint>
+            }
+            {
+                showValidationMessage &&
+                <Error id={errorId}>{validationMessage}</Error>
+            }
         </FieldWrapper>
     );
 };

@@ -6,20 +6,32 @@ import { FieldWrapper } from '@progress/kendo-react-form';
 import { Label, Error, Hint } from '@progress/kendo-react-labels';
 
 export const Input = (fieldRenderProps) => {
-    const { validationMessage, visited, label, id, valid, hint, optional, ...others } = fieldRenderProps;
-    const showValidationMessage = visited && validationMessage;
+    const { validationMessage, touched, label, id, valid, disabled, hint, type, optional, ...others } = fieldRenderProps;
+
+    const showValidationMessage = touched && validationMessage;
+    const showHint = !showValidationMessage && hint;
+    const hintId = showHint ? `${id}_hint` : '';
+    const errorId = showValidationMessage ? `${id}_error` : '';
+
     return (
         <FieldWrapper>
-            <Label editorId={id} editorValid={valid} optional={optional}>{label}</Label>
+            <Label editorId={id} editorValid={valid} editorDisabled={disabled} optional={optional}>{label}</Label>
             <div className={'k-form-field-wrap'}>
-                <KendoInput valid={valid} id={id} {...others} />
+                <KendoInput
+                    valid={valid}
+                    type={type}
+                    id={id}
+                    disabled={disabled}
+                    ariaDescribedBy={`${hintId} ${errorId}`}
+                    {...others}
+                />
                 {
-                    !showValidationMessage &&
-                        <Hint>{hint}</Hint>
+                    showHint &&
+                        <Hint id={hintId}>{hint}</Hint>
                 }
                 {
                     showValidationMessage &&
-                        <Error>{validationMessage}</Error>
+                        <Error id={errorId}>{validationMessage}</Error>
                 }
             </div>
         </FieldWrapper>

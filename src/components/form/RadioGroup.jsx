@@ -6,33 +6,39 @@ import { FieldWrapper } from '@progress/kendo-react-form';
 import { Label, Error, Hint } from '@progress/kendo-react-labels';
 
 export const RadioGroup = (fieldRenderProps) => {
-    const { validationMessage, visited, label, labelId, valid, hint, optional, ...others } = fieldRenderProps;
-    const showValidationMessage = visited && validationMessage;
-    const radioRef = React.useRef(null);
+    const { validationMessage, touched, id, label, valid, disabled, hint, ...others } = fieldRenderProps;
+    const editorRef = React.useRef(null);
+
+    const showValidationMessage = touched && validationMessage;
+    const showHint = !showValidationMessage && hint
+    const hintId = showHint ? `${id}_hint` : '';
+    const errorId = showValidationMessage ? `${id}_error` : '';
+    const labelId = label ? `${id}_label` : '';
 
     return (
         <FieldWrapper>
-            <Label id={labelId} editorRef={radioRef} editorValid={valid} optional={optional}>{label}</Label>
-            <div className={'k-form-field-wrap'}>
-                <KendoRadioGroup
-                    ariaDescribedBy={labelId}
-                    ariaLabelledBy={labelId}
-                    valid={valid}
-                    ref={radioRef}
-                    {...others}
-                />
-                {
-                    !showValidationMessage &&
-                        <Hint>{hint}</Hint>
-                }
-                {
-                    showValidationMessage &&
-                        <Error>{validationMessage}</Error>
-                }
-            </div>
+            <Label id={labelId} editorRef={editorRef} editorId={id} editorValid={valid} editorDisabled={disabled}>{label}</Label>
+            <KendoRadioGroup
+                id={id}
+                ariaDescribedBy={`${hintId} ${errorId}`}
+                ariaLabelledBy={labelId}
+                valid={valid}
+                disabled={disabled}
+                ref={editorRef}
+                {...others}
+            />
+            {
+                showHint &&
+                <Hint id={hintId}>{hint}</Hint>
+            }
+            {
+                showValidationMessage &&
+                <Error id={errorId}>{validationMessage}</Error>
+            }
         </FieldWrapper>
     );
 };
+
 
 RadioGroup.displayName = 'RadioGroup';
 RadioGroup.propTypes = {

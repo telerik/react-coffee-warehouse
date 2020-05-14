@@ -9,10 +9,15 @@ import { Avatar } from '@progress/kendo-react-layout';
 import userAvatar from '../../assets/user-avatar.jpg';
 
 export const Upload = (fieldRenderProps) => {
-    const {valid, value, id, optional, label, hint, validationMessage, visited, ...others} = fieldRenderProps;
+    const {valid, value, id, optional, label, hint, validationMessage, touched, ...others} = fieldRenderProps;
     const imgRef = React.useRef(null);
     const hasImage = value && value.length > 0;
-    const showValidationMessage = visited && validationMessage;
+    const showValidationMessage = touched && validationMessage;
+    const showHint = !showValidationMessage && hint;
+
+    const hintId = showHint ? `${id}_hint` : '';
+    const errorId = showValidationMessage ? `${id}_error` : '';
+    const labelId = label ? `${id}_label` : '';
 
     const onChangeHandler = (event) => {
         fieldRenderProps.onChange({ value: event.newState });
@@ -38,7 +43,7 @@ export const Upload = (fieldRenderProps) => {
 
     return (
         <FieldWrapper>
-            <Label editorId={id} editorValid={valid} optional={optional}>
+            <Label id={labelId} editorId={id} editorValid={valid} optional={optional}>
                 {label}
                 <Avatar style={{width: 100, height: 100}} shape={'circle'} type={'image'}>
                     {
@@ -58,15 +63,17 @@ export const Upload = (fieldRenderProps) => {
                     files={value}
                     onAdd={onChangeHandler}
                     onRemove={onRemoveHandler}
+                    ariaDescribedBy={`${hintId} ${errorId}`}
+                    ariaLabelledBy={labelId}
                     {...others}
                 />
                 {
-                    !showValidationMessage &&
-                    <Hint>{hint}</Hint>
+                    showHint &&
+                    <Hint id={hintId}>{hint}</Hint>
                 }
                 {
                     showValidationMessage &&
-                    <Error>{validationMessage}</Error>
+                    <Error id={errorId}>{validationMessage}</Error>
                 }
             </div>
         </FieldWrapper>

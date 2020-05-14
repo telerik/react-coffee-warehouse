@@ -6,8 +6,9 @@ import { FieldWrapper } from '@progress/kendo-react-form';
 import { Label, Error, Hint } from '@progress/kendo-react-labels';
 
 export const Editor = (fieldRenderProps) => {
-    const { validationMessage, visited, label, id, valid, hint, optional, value, onChange, ...others } = fieldRenderProps;
-    const showValidationMessage = visited && validationMessage;
+    const { validationMessage, touched, label, id, valid, hint, optional, value, onChange, ...others } = fieldRenderProps;
+    const showValidationMessage = touched && validationMessage;
+    const showHint = !showValidationMessage && hint;
 
     const onChangeHandler = (event) => {
         onChange({value: event.html});
@@ -32,7 +33,7 @@ export const Editor = (fieldRenderProps) => {
                     {...others}
                 />
                 {
-                    !showValidationMessage &&
+                    showHint &&
                         <Hint>{hint}</Hint>
                 }
                 {

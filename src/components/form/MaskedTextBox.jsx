@@ -6,26 +6,35 @@ import { FieldWrapper } from '@progress/kendo-react-form';
 import { Label, Error, Hint } from '@progress/kendo-react-labels';
 
 export const MaskedTextBox = (fieldRenderProps) => {
-    const { validationMessage, visited, label, id, valid, hint, optional, ...others } = fieldRenderProps;
-    const showValidationMessage = visited && validationMessage;
+    const { validationMessage, touched, label, id, valid, hint, optional, ...others } = fieldRenderProps;
+
+    const showValidationMessage = touched && validationMessage;
+    const showHint = !showValidationMessage && hint;
+    const hintId = showHint ? `${id}_hint` : '';
+    const errorId = showValidationMessage ? `${id}_error` : '';
+
     return (
         <FieldWrapper>
             <Label editorId={id} editorValid={valid} optional={optional}>{label}</Label>
             <div className={'k-form-field-wrap'}>
-                <KendoMaskedTextBox valid={valid} id={id} {...others} />
+                <KendoMaskedTextBox
+                    ariaDescribedBy={`${hintId} ${errorId}`}
+                    valid={valid}
+                    id={id}
+                    {...others}
+                />
                 {
-                    !showValidationMessage &&
-                        <Hint>{hint}</Hint>
+                    showHint &&
+                        <Hint id={hintId}>{hint}</Hint>
                 }
                 {
                     showValidationMessage &&
-                        <Error>{validationMessage}</Error>
+                        <Error id={errorId}>{validationMessage}</Error>
                 }
             </div>
         </FieldWrapper>
     );
 };
-
 MaskedTextBox.displayName = 'MaskedTextBox';
 MaskedTextBox.propTypes = {
     valid: PropTypes.bool,

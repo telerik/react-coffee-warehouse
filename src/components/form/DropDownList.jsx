@@ -6,23 +6,43 @@ import { FieldWrapper } from '@progress/kendo-react-form';
 import { Label, Error, Hint } from '@progress/kendo-react-labels';
 
 export const DropDownList = (fieldRenderProps) => {
-    const { validationMessage, visited, label, id, value, valid, hint, optional, ...others } = fieldRenderProps;
-    const ddlRef = React.useRef(null);
-    const showValidationMessage = visited && validationMessage;
+    const { validationMessage, touched, label, id, valid, disabled, hint, wrapperStyle, ...others } = fieldRenderProps;
+    const editorRef = React.useRef(null);
+
+    const showValidationMessage = touched && validationMessage;
+    const showHint = !showValidationMessage && hint;
+    const hintId = showHint ? `${id}_hint` : '';
+    const errorId = showValidationMessage ? `${id}_error` : '';
+    const labelId = label ? `${id}_label` : '';
+
     return (
-        <FieldWrapper>
-            <Label editorId={id} editorValid={valid} editorRef={ddlRef} optional={optional}>{label}</Label>
-            <div className={'k-form-field-wrap'}>
-                <KendoDropDownList ref={ddlRef} value={value} valid={valid} id={id} {...others} />
-                {
-                    !showValidationMessage &&
-                        <Hint>{hint}</Hint>
-                }
-                {
-                    showValidationMessage &&
-                        <Error>{validationMessage}</Error>
-                }
-            </div>
+        <FieldWrapper style={wrapperStyle}>
+            <Label
+                id={labelId}
+                editorRef={editorRef}
+                editorId={id}
+                editorValid={valid}
+                editorDisabled={disabled}
+            >
+                {label}
+            </Label>
+            <KendoDropDownList
+                ariaLabelledBy={labelId}
+                ariaDescribedBy={`${hintId} ${errorId}`}
+                ref={editorRef}
+                valid={valid}
+                id={id}
+                disabled={disabled}
+                {...others}
+            />
+            {
+                showHint &&
+                    <Hint id={hintId}>{hint}</Hint>
+            }
+            {
+                showValidationMessage &&
+                    <Error id={errorId}>{validationMessage}</Error>
+            }
         </FieldWrapper>
     );
 };
