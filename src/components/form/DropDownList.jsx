@@ -26,23 +26,25 @@ export const DropDownList = (fieldRenderProps) => {
             >
                 {label}
             </Label>
-            <KendoDropDownList
-                ariaLabelledBy={labelId}
-                ariaDescribedBy={`${hintId} ${errorId}`}
-                ref={editorRef}
-                valid={valid}
-                id={id}
-                disabled={disabled}
-                {...others}
-            />
-            {
-                showHint &&
-                    <Hint id={hintId}>{hint}</Hint>
-            }
-            {
-                showValidationMessage &&
-                    <Error id={errorId}>{validationMessage}</Error>
-            }
+            <div className={'k-form-field-wrap'}>
+                <KendoDropDownList
+                    ariaLabelledBy={labelId}
+                    ariaDescribedBy={`${hintId} ${errorId}`}
+                    ref={editorRef}
+                    valid={valid}
+                    id={id}
+                    disabled={disabled}
+                    {...others}
+                />
+                {
+                    showHint &&
+                        <Hint id={hintId}>{hint}</Hint>
+                }
+                {
+                    showValidationMessage &&
+                        <Error id={errorId}>{validationMessage}</Error>
+                }
+            </div>
         </FieldWrapper>
     );
 };

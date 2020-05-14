@@ -18,23 +18,25 @@ export const RadioGroup = (fieldRenderProps) => {
     return (
         <FieldWrapper>
             <Label id={labelId} editorRef={editorRef} editorId={id} editorValid={valid} editorDisabled={disabled}>{label}</Label>
-            <KendoRadioGroup
-                id={id}
-                ariaDescribedBy={`${hintId} ${errorId}`}
-                ariaLabelledBy={labelId}
-                valid={valid}
-                disabled={disabled}
-                ref={editorRef}
-                {...others}
-            />
-            {
-                showHint &&
-                <Hint id={hintId}>{hint}</Hint>
-            }
-            {
-                showValidationMessage &&
-                <Error id={errorId}>{validationMessage}</Error>
-            }
+            <div className={'k-form-field-wrap'}>
+                <KendoRadioGroup
+                    id={id}
+                    ariaDescribedBy={`${hintId} ${errorId}`}
+                    ariaLabelledBy={labelId}
+                    valid={valid}
+                    disabled={disabled}
+                    ref={editorRef}
+                    {...others}
+                />
+                {
+                    showHint &&
+                    <Hint id={hintId}>{hint}</Hint>
+                }
+                {
+                    showValidationMessage &&
+                    <Error id={errorId}>{validationMessage}</Error>
+                }
+            </div>
         </FieldWrapper>
     );
 };

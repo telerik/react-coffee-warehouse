@@ -27,23 +27,25 @@ export const Switch = (fieldRenderProps) => {
             >
                 {label}
             </Label>
-            <KendoSwitch
-                ref={editorRef}
-                ariaLabelledBy={labelId}
-                ariaDescribedBy={`${hintId} ${errorId}`}
-                valid={valid}
-                id={id}
-                disabled={disabled}
-                {...others}
-            />
-            {
-                showHint &&
-                <Hint id={hintId}>{hint}</Hint>
-            }
-            {
-                showValidationMessage &&
-                <Error id={errorId}>{validationMessage}</Error>
-            }
+            <div className={'k-form-field-wrap'}>
+                <KendoSwitch
+                    ref={editorRef}
+                    ariaLabelledBy={labelId}
+                    ariaDescribedBy={`${hintId} ${errorId}`}
+                    valid={valid}
+                    id={id}
+                    disabled={disabled}
+                    {...others}
+                />
+                {
+                    showHint &&
+                    <Hint id={hintId}>{hint}</Hint>
+                }
+                {
+                    showValidationMessage &&
+                    <Error id={errorId}>{validationMessage}</Error>
+                }
+            </div>
         </FieldWrapper>
     );
 };
