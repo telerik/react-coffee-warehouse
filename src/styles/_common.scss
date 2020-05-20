@@ -20,6 +20,21 @@ a {
         box-shadow: 0 0 10px rgba(0,0,0,.2);
         border-right-width: 0 !important;
     }
+
+    .k-drawer-wrapper {
+        position: fixed;
+    }
+
+    &.k-drawer-expanded .k-drawer-wrapper {
+        width: 240px !important;
+    }
+
+    & .k-drawer-wrapper {
+        width: 50px !important;
+        opacity: 1;
+        transition: all 200ms ease 0s;
+    }
+
     .k-drawer-item {
         user-select: none;
 
@@ -32,6 +47,7 @@ a {
             mask-repeat: no-repeat;
             background-color: #656565;
             width: 20px;
+            height: 25px;
 
             &.dashboard-icon {
                 -webkit-mask-image: url('./../assets/dashboard-icon.svg');
@@ -174,6 +190,9 @@ a {
 // Header
 .header {
     height: 80px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 
     .nav-container {
         display: flex;
