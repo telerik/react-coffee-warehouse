@@ -122,7 +122,7 @@ const Dashboard = () => {
                 </div>
                 <span></span>
                 <div className="card-component">
-                    <Grid data={filterBy(data, gridFilterExpression)} style={{ height: 450, maxWidth: window.innerWidth - 20 }} onDataChange={data => setData(data)}>
+                    <Grid data={filterBy(data, gridFilterExpression)} style={{ height: 450 }} onDataChange={data => setData(data)}>
                         <Column title={localizationService.toLanguageString('custom.employee')} groupable={false}>
                             <Column field={'fullName'} title={localizationService.toLanguageString('custom.contactName')} columnMenu={ColumnMenu} width={230} cell={FullNameCell} />
                             <Column field={'jobTitle'} title={localizationService.toLanguageString('custom.jobTitle')} columnMenu={ColumnMenu} width={230} />
