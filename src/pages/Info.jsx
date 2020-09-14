@@ -42,14 +42,14 @@ const Info = () => {
                         <div>
                             <div className="package-item">
                                 <h3 className="package-title">
-                                    <a href="https://www.telerik.com/kendo-react-ui/components/buttons/">Buttons</a>
+                                    <a target="_blank" rel="noopener noreferrer" href="https://www.telerik.com/kendo-react-ui/components/buttons/">Buttons</a>
                                 </h3>
                                 <ul className="package-items">
                                     <li className="component-link">
-                                        <a href="https://www.telerik.com/kendo-react-ui/components/buttons/button">Button</a>
+                                        <a target="_blank" rel="noopener noreferrer" href="https://www.telerik.com/kendo-react-ui/components/buttons/button">Button</a>
                                     </li>
                                     <li className="component-link">
-                                        <a href="https://www.telerik.com/kendo-react-ui/components/buttons/buttongroup">ButtonGroup</a>
+                                        <a target="_blank" rel="noopener noreferrer" href="https://www.telerik.com/kendo-react-ui/components/buttons/buttongroup">ButtonGroup</a>
                                     </li>
                                 </ul>
                             </div>
@@ -57,24 +57,24 @@ const Info = () => {
                         <div>
                             <div className="package-item">
                                 <h3 className="package-title">
-                                    <a href="https://www.telerik.com/kendo-react-ui/components/dataquery/">Data Query</a>
+                                    <a target="_blank" rel="noopener noreferrer" href="https://www.telerik.com/kendo-react-ui/components/dataquery/">Data Query</a>
                                 </h3>
                             </div>
                         </div>
                         <div>
                             <div className="package-item">
                                 <h3 className="package-title">
-                                    <a href="https://www.telerik.com/kendo-react-ui/components/charts/">Charts</a>
+                                    <a target="_blank" rel="noopener noreferrer" href="https://www.telerik.com/kendo-react-ui/components/charts/">Charts</a>
                                 </h3>
                                 <ul className="package-items">
                                     <li className="component-link">
-                                        <a href="https://www.telerik.com/kendo-react-ui/components/charts/chart">Chart</a>
+                                        <a target="_blank" rel="noopener noreferrer" href="https://www.telerik.com/kendo-react-ui/components/charts/chart">Chart</a>
                                     </li>
                                     <li className="component-link">
-                                        <a href="https://www.telerik.com/kendo-react-ui/components/charts/series-types/bar">Column Bar</a>
+                                        <a target="_blank" rel="noopener noreferrer" href="https://www.telerik.com/kendo-react-ui/components/charts/series-types/bar">Column Bar</a>
                                     </li>
                                     <li className="component-link">
-                                        <a href="https://www.telerik.com/kendo-react-ui/components/charts/series-types/line">Horizontal Line</a>
+                                        <a target="_blank" rel="noopener noreferrer" href="https://www.telerik.com/kendo-react-ui/components/charts/series-types/line">Horizontal Line</a>
                                     </li>
                                 </ul>
                             </div>
@@ -82,11 +82,11 @@ const Info = () => {
                         <div>
                             <div className="package-item">
                                 <h3 className="package-title">
-                                    <a href="https://www.telerik.com/kendo-react-ui/components/datatools/">Data Tools</a>
+                                    <a target="_blank" rel="noopener noreferrer" href="https://www.telerik.com/kendo-react-ui/components/datatools/">Data Tools</a>
                                 </h3>
                                 <ul className="package-items">
                                     <li className="component-link">
-                                        <a href="https://www.telerik.com/kendo-react-ui/components/datatools/pager">Pager</a>
+                                        <a target="_blank" rel="noopener noreferrer" href="https://www.telerik.com/kendo-react-ui/components/datatools/pager">Pager</a>
                                     </li>
                                 </ul>
                             </div>
@@ -94,11 +94,11 @@ const Info = () => {
                         <div>
                             <div className="package-item">
                                 <h3 className="package-title">
-                                    <a href="https://www.telerik.com/kendo-react-ui/components/dateinputs/">Date Inputs</a>
+                                    <a target="_blank" rel="noopener noreferrer" href="https://www.telerik.com/kendo-react-ui/components/dateinputs/">Date Inputs</a>
                                 </h3>
                                 <ul className="package-items">
                                     <li className="component-link">
-                                        <a href="https://www.telerik.com/kendo-react-ui/components/dateinputs/daterangepicker">DateRangePicker</a>
+                                        <a target="_blank" rel="noopener noreferrer" href="https://www.telerik.com/kendo-react-ui/components/dateinputs/daterangepicker">DateRangePicker</a>
                                     </li>
                                 </ul>
                             </div>
@@ -106,11 +106,11 @@ const Info = () => {
                         <div>
                             <div className="package-item">
                                 <h3 className="package-title">
-                                    <a href="https://www.telerik.com/kendo-react-ui/components/dialogs/">Dialogs</a>
+                                    <a target="_blank" rel="noopener noreferrer" href="https://www.telerik.com/kendo-react-ui/components/dialogs/">Dialogs</a>
                                 </h3>
                                 <ul className="package-items">
                                     <li className="component-link">
-                                        <a href="https://www.telerik.com/kendo-react-ui/components/dialogs/dialog">Dialog</a>
+                                        <a target="_blank" rel="noopener noreferrer" href="https://www.telerik.com/kendo-react-ui/components/dialogs/dialog">Dialog</a>
                                     </li>
                                 </ul>
                             </div>
@@ -118,21 +118,21 @@ const Info = () => {
                         <div>
                             <div className="package-item">
                                 <h3 className="package-title">
-                                    <a href="https://www.telerik.com/kendo-react-ui/components/drawing/">Drawing</a>
+                                    <a target="_blank" rel="noopener noreferrer" href="https://www.telerik.com/kendo-react-ui/components/drawing/">Drawing</a>
                                 </h3>
                             </div>
                         </div>
                         <div>
                             <div className="package-item">
                                 <h3 className="package-title">
-                                    <a href="https://www.telerik.com/kendo-react-ui/components/dropdowns/">Dropdowns</a>
+                                    <a target="_blank" rel="noopener noreferrer" href="https://www.telerik.com/kendo-react-ui/components/dropdowns/">Dropdowns</a>
                                 </h3>
                                 <ul className="package-items">
                                     <li className="component-link">
-                                        <a href="https://www.telerik.com/kendo-react-ui/components/dropdowns/autocomplete">AutoComplete</a>
+                                        <a target="_blank" rel="noopener noreferrer" href="https://www.telerik.com/kendo-react-ui/components/dropdowns/autocomplete">AutoComplete</a>
                                     </li>
                                     <li className="component-link">
-                                        <a href="https://www.telerik.com/kendo-react-ui/components/dropdowns/dropdownlist">DropDownList</a>
+                                        <a target="_blank" rel="noopener noreferrer" href="https://www.telerik.com/kendo-react-ui/components/dropdowns/dropdownlist">DropDownList</a>
                                     </li>
                                 </ul>
                             </div>
@@ -140,48 +140,48 @@ const Info = () => {
                         <div>
                             <div className="package-item">
                                 <h3 className="package-title">
-                                    <a href="https://www.telerik.com/kendo-react-ui/components/editor/">Editor</a>
+                                    <a target="_blank" rel="noopener noreferrer" href="https://www.telerik.com/kendo-react-ui/components/editor/">Editor</a>
                                 </h3>
                             </div>
                         </div>
                         <div>
                             <div className="package-item">
                                 <h3 className="package-title">
-                                    <a href="https://www.telerik.com/kendo-react-ui/components/excelexport/">Excel Export</a>
+                                    <a target="_blank" rel="noopener noreferrer" href="https://www.telerik.com/kendo-react-ui/components/excelexport/">Excel Export</a>
                                 </h3>
                             </div>
                         </div>
                         <div>
                             <div className="package-item">
                                 <h3 className="package-title">
-                                    <a href="https://www.telerik.com/kendo-react-ui/components/form/">Form</a>
+                                    <a target="_blank" rel="noopener noreferrer" href="https://www.telerik.com/kendo-react-ui/components/form/">Form</a>
                                 </h3>
                             </div>
                         </div>
                         <div>
                             <div className="package-item">
                                 <h3 className="package-title">
-                                    <a href="https://www.telerik.com/kendo-react-ui/components/grid/">Grid</a>
+                                    <a target="_blank" rel="noopener noreferrer" href="https://www.telerik.com/kendo-react-ui/components/grid/">Grid</a>
                                 </h3>
                             </div>
                         </div>
                         <div>
                             <div className="package-item">
                                 <h3 className="package-title">
-                                    <a href="https://www.telerik.com/kendo-react-ui/components/inputs/">Inputs</a>
+                                    <a target="_blank" rel="noopener noreferrer" href="https://www.telerik.com/kendo-react-ui/components/inputs/">Inputs</a>
                                 </h3>
                                 <ul className="package-items">
                                     <li className="component-link">
-                                        <a href="https://www.telerik.com/kendo-react-ui/components/inputs/checkbox">Checkbox</a>
+                                        <a target="_blank" rel="noopener noreferrer" href="https://www.telerik.com/kendo-react-ui/components/inputs/checkbox">Checkbox</a>
                                     </li>
                                     <li className="component-link">
-                                        <a href="https://www.telerik.com/kendo-react-ui/components/inputs/input">Input</a>
+                                        <a target="_blank" rel="noopener noreferrer" href="https://www.telerik.com/kendo-react-ui/components/inputs/input">Input</a>
                                     </li>
                                     <li className="component-link">
-                                        <a href="https://www.telerik.com/kendo-react-ui/components/inputs/maskedtextbox">MaskedTextBox</a>
+                                        <a target="_blank" rel="noopener noreferrer" href="https://www.telerik.com/kendo-react-ui/components/inputs/maskedtextbox">MaskedTextBox</a>
                                     </li>
                                     <li className="component-link">
-                                        <a href="https://www.telerik.com/kendo-react-ui/components/inputs/switch">Switch</a>
+                                        <a target="_blank" rel="noopener noreferrer" href="https://www.telerik.com/kendo-react-ui/components/inputs/switch">Switch</a>
                                     </li>
                                 </ul>
                             </div>
@@ -189,17 +189,17 @@ const Info = () => {
                         <div>
                             <div className="package-item">
                                 <h3 className="package-title">
-                                    <a href="https://www.telerik.com/kendo-react-ui/components/layout/">Layout</a>
+                                    <a target="_blank" rel="noopener noreferrer" href="https://www.telerik.com/kendo-react-ui/components/layout/">Layout</a>
                                 </h3>
                                 <ul className="package-items">
                                     <li className="component-link">
-                                        <a href="https://www.telerik.com/kendo-react-ui/components/layout/avatar">Avatar</a>
+                                        <a target="_blank" rel="noopener noreferrer" href="https://www.telerik.com/kendo-react-ui/components/layout/avatar">Avatar</a>
                                     </li>
                                     <li className="component-link">
-                                        <a href="https://www.telerik.com/kendo-react-ui/components/layout/card">Card</a>
+                                        <a target="_blank" rel="noopener noreferrer" href="https://www.telerik.com/kendo-react-ui/components/layout/card">Card</a>
                                     </li>
                                     <li className="component-link">
-                                        <a href="https://www.telerik.com/kendo-react-ui/components/layout/drawer">Drawer</a>
+                                        <a target="_blank" rel="noopener noreferrer" href="https://www.telerik.com/kendo-react-ui/components/layout/drawer">Drawer</a>
                                     </li>
                                 </ul>
                             </div>
@@ -207,21 +207,21 @@ const Info = () => {
                         <div>
                             <div className="package-item">
                                 <h3 className="package-title">
-                                    <a href="https://www.telerik.com/kendo-react-ui/components/scheduler/">Scheduler</a>
+                                    <a target="_blank" rel="noopener noreferrer" href="https://www.telerik.com/kendo-react-ui/components/scheduler/">Scheduler</a>
                                 </h3>
                             </div>
                         </div>
                         <div>
                             <div className="package-item">
                                 <h3 className="package-title">
-                                    <a href="https://www.telerik.com/kendo-react-ui/components/tooltip/">Tooltip</a>
+                                    <a target="_blank" rel="noopener noreferrer" href="https://www.telerik.com/kendo-react-ui/components/tooltip/">Tooltip</a>
                                 </h3>
                             </div>
                         </div>
                         <div>
                             <div className="package-item">
                                 <h3 className="package-title">
-                                    <a href="https://www.telerik.com/kendo-react-ui/components/scheduler/">Upload</a>
+                                    <a target="_blank" rel="noopener noreferrer" href="https://www.telerik.com/kendo-react-ui/components/scheduler/">Upload</a>
                                 </h3>
                             </div>
                         </div>
