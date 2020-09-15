@@ -22,7 +22,7 @@
     "@progress/kendo-react-layout": "^3.17.0",
     "@progress/kendo-react-pdf": "^3.17.0",
     "@progress/kendo-react-progressbars": "^3.17.0",
-    "@progress/kendo-react-scheduler": "^3.17.0",
+    "@progress/kendo-react-scheduler": "^3.17.1-dev.202009151333",
     "@progress/kendo-react-upload": "^3.17.0",
     "@progress/kendo-theme-default": "^4.22.1",
     "@testing-library/jest-dom": "^4.2.4",
