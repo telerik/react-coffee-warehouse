@@ -216,7 +216,7 @@ export const Grid = (props) => {
 
     return (
         <>
-            <ExcelExport data={processedData.data} ref={excelExportRef}>
+            <ExcelExport data={data} ref={excelExportRef}>
                 { GridElement }
             </ExcelExport>
             <GridPDFExport ref={pdfExportRef}>
