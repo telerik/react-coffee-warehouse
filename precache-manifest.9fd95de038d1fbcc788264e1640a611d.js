@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e7dece1362595328420cda021619985c",
+    "revision": "e10d240b120fdf893f7e00f5ac468fe8",
     "url": "/react-coffee-warehouse/index.html"
   },
   {
-    "revision": "f6fb0adf8c483bf9e972",
-    "url": "/react-coffee-warehouse/static/css/main.abe5c80b.chunk.css"
+    "revision": "50ffdd6d5f8ddac5d4c7",
+    "url": "/react-coffee-warehouse/static/css/main.40667dc7.chunk.css"
   },
   {
     "revision": "7164450ef9ebb20ae4dd",
@@ -16,12 +16,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-coffee-warehouse/static/js/2.4b17c6f5.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "f6fb0adf8c483bf9e972",
-    "url": "/react-coffee-warehouse/static/js/main.52563e0f.chunk.js"
+    "revision": "50ffdd6d5f8ddac5d4c7",
+    "url": "/react-coffee-warehouse/static/js/main.d15eb154.chunk.js"
   },
   {
     "revision": "6e8f981863fdf8305257",
     "url": "/react-coffee-warehouse/static/js/runtime-main.64d8d816.js"
+  },
+  {
+    "revision": "11eabca2251325cfc5589c9c6fb57b46",
+    "url": "/react-coffee-warehouse/static/media/Roboto-Regular.11eabca2.ttf"
   },
   {
     "revision": "902317fdbd909bd41d7d3ce7507480e3",
