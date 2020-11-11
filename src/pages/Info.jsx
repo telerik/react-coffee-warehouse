@@ -16,7 +16,7 @@ const Info = () => {
                     </div>
                     <div className="section-1">
                         <h1>KendoReact</h1>
-                        <h2>UI for React Developers</h2>
+                        <h2>Master the Art of React UI</h2>
                         <div className="button-group">
                             <a className="k-button k-primary" href="https://www.telerik.com/download-login-v2-kendo-react-ui">
                                 {localizationService.toLanguageString('custom.startFreeTrial')}
