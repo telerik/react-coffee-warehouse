@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/react-coffee-warehouse/static/css/main.40667dc7.chunk.css",
-    "main.js": "/react-coffee-warehouse/static/js/main.d15eb154.chunk.js",
-    "main.js.map": "/react-coffee-warehouse/static/js/main.d15eb154.chunk.js.map",
+    "main.js": "/react-coffee-warehouse/static/js/main.692fc66a.chunk.js",
+    "main.js.map": "/react-coffee-warehouse/static/js/main.692fc66a.chunk.js.map",
     "runtime-main.js": "/react-coffee-warehouse/static/js/runtime-main.64d8d816.js",
     "runtime-main.js.map": "/react-coffee-warehouse/static/js/runtime-main.64d8d816.js.map",
-    "static/js/2.4b17c6f5.chunk.js": "/react-coffee-warehouse/static/js/2.4b17c6f5.chunk.js",
-    "static/js/2.4b17c6f5.chunk.js.map": "/react-coffee-warehouse/static/js/2.4b17c6f5.chunk.js.map",
+    "static/js/2.c521f86a.chunk.js": "/react-coffee-warehouse/static/js/2.c521f86a.chunk.js",
+    "static/js/2.c521f86a.chunk.js.map": "/react-coffee-warehouse/static/js/2.c521f86a.chunk.js.map",
     "index.html": "/react-coffee-warehouse/index.html",
-    "precache-manifest.9fd95de038d1fbcc788264e1640a611d.js": "/react-coffee-warehouse/precache-manifest.9fd95de038d1fbcc788264e1640a611d.js",
+    "precache-manifest.3175fbb3b278c100108d584245ad19f5.js": "/react-coffee-warehouse/precache-manifest.3175fbb3b278c100108d584245ad19f5.js",
     "service-worker.js": "/react-coffee-warehouse/service-worker.js",
     "static/css/main.40667dc7.chunk.css.map": "/react-coffee-warehouse/static/css/main.40667dc7.chunk.css.map",
-    "static/js/2.4b17c6f5.chunk.js.LICENSE.txt": "/react-coffee-warehouse/static/js/2.4b17c6f5.chunk.js.LICENSE.txt",
+    "static/js/2.c521f86a.chunk.js.LICENSE.txt": "/react-coffee-warehouse/static/js/2.c521f86a.chunk.js.LICENSE.txt",
     "static/media/App.scss": "/react-coffee-warehouse/static/media/profile-icon.aebef4ea.svg",
     "static/media/github-icon.svg": "/react-coffee-warehouse/static/media/github-icon.767e15a2.svg",
     "static/media/header-bg.png": "/react-coffee-warehouse/static/media/header-bg.f1a95872.png",
@@ -20,8 +20,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.64d8d816.js",
-    "static/js/2.4b17c6f5.chunk.js",
+    "static/js/2.c521f86a.chunk.js",
     "static/css/main.40667dc7.chunk.css",
-    "static/js/main.d15eb154.chunk.js"
+    "static/js/main.692fc66a.chunk.js"
   ]
 }
