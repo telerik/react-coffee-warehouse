@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7b1023988cc208c6e0c2124f244adf17",
+    "revision": "61e5ed13e44eb198dd94ac20614a6b4f",
     "url": "/react-coffee-warehouse/index.html"
   },
   {
-    "revision": "80aa28f6a2a148caeccf",
+    "revision": "cc13ba27d6276b5ca526",
     "url": "/react-coffee-warehouse/static/css/main.40667dc7.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-coffee-warehouse/static/js/2.c521f86a.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "80aa28f6a2a148caeccf",
-    "url": "/react-coffee-warehouse/static/js/main.692fc66a.chunk.js"
+    "revision": "cc13ba27d6276b5ca526",
+    "url": "/react-coffee-warehouse/static/js/main.afd2c37e.chunk.js"
   },
   {
     "revision": "6e8f981863fdf8305257",
