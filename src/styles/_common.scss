@@ -14,25 +14,16 @@ a {
 // App styles
 .k-drawer-container {
     background-color: $background-color;
-    min-height: calc(100vh - 80px);
 
     .k-drawer {
         box-shadow: 0 0 10px rgba(0,0,0,.2);
         border-right-width: 0 !important;
     }
 
-    .k-drawer-wrapper {
-        position: fixed;
-    }
-
-    &.k-drawer-expanded .k-drawer-wrapper {
-        width: 240px !important;
-    }
-
-    & .k-drawer-wrapper {
-        width: 50px !important;
-        opacity: 1;
-        transition: all 200ms ease 0s;
+    &.k-drawer-push .k-drawer {
+        position: sticky;
+        top: 80px;
+        height: calc(100vh - 80px);
     }
 
     .k-drawer-item {

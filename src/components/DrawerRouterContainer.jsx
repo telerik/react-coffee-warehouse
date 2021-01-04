@@ -74,6 +74,7 @@ class DrawerRouterContainer extends React.Component {
                 />
                 <Drawer
                     expanded={this.state.expanded}
+                    animation={{duration: 100}}
                     items={items.map((item) => ({
                                 ...item,
                                 text: localizationService.toLanguageString(`custom.${item.name}`),
