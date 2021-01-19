@@ -214,13 +214,9 @@ a {
         display: block;
         width: 40px;
         height: 40px;
+        flex-basis: 40px;
         margin: 0 25px;
         box-shadow: 0 0 0px 1px $white;
-
-        img {
-            width: 40px;
-            height: 40px;
-        }
     }
 
     .settings {
@@ -299,10 +295,6 @@ a {
     .k-hbox {
         padding: 0 20px;
         background: transparent;
-    }
-    .k-avatar {
-        width: 41px;
-        height: 41px;
     }
     .k-card-title {
         font-size: 15px;

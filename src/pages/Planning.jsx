@@ -52,21 +52,6 @@ const Planning = () => {
         [filterState, setFilterState]
     );
 
-    const photoStyle = {
-        display: 'inline-block',
-        width: 32,
-        height: 32,
-        borderRadius: '50%',
-        backgroundSize: '32px 35px',
-        backgroundPosition: 'center center',
-        borderWidth: 2,
-        borderStyle: 'solid',
-        verticalAlign: 'middle',
-        lineHeight: '32px',
-        boxShadow: 'inset 0 0 1px #999, inset 0 0 10px rgba(0,0,0,.2)',
-        marginLeft: '5px'
-    };
-
     return (
         <div id="Planning" className="planning-page main-content">
             <div className="card-container grid">
@@ -82,12 +67,18 @@ const Planning = () => {
                             >
                                 <Card style={{ borderWidth: 0, cursor: 'pointer'}}>
                                     <CardHeader className="k-hbox" >
-                                        <Avatar type='image' shape='circle'>
+                                        <Avatar type='image' shape='circle' size={'large'} style={{
+                                            borderWidth: 2,
+                                            borderColor: teams.find(({teamID}) => teamID === employee.teamId).teamColor,
+                                        }}>
                                             <img alt="" style={{
-                                                    backgroundImage: images[employee.imgId + employee.gender],
-                                                    borderColor: teams.find(({teamID}) => teamID === employee.teamId).teamColor,
-                                                    ...photoStyle
-                                                }}
+                                                backgroundImage: images[employee.imgId + employee.gender],
+                                                boxShadow: 'inset 0 0 1px #999, inset 0 0 10px rgba(0,0,0,.2)',
+                                                borderRadius: '50%',
+                                                backgroundSize: 'contain',
+                                                backgroundPosition: 'center center',
+                                                verticalAlign: 'middle'
+                                            }}
                                             />
                                         </Avatar>
                                         <div>
