@@ -45,7 +45,7 @@ export const Upload = (fieldRenderProps) => {
         <FieldWrapper>
             <Label id={labelId} editorId={id} editorValid={valid} optional={optional}>
                 {label}
-                <Avatar style={{width: 100, height: 100}} shape={'circle'} type={'image'}>
+                <Avatar style={{width: 100, height: 100, flexBasis: 100}} shape={'circle'} type={'image'}>
                     {
                         hasImage ?
                             <img style={{width: 100, height: 100}} ref={imgRef} src={'#'} alt={'User Avatar'} /> :
