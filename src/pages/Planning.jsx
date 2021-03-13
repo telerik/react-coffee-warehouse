@@ -1,32 +1,32 @@
 
-import * as React from 'react';
+import * as React from 'react'
 
-import { useLocalization } from '@progress/kendo-react-intl';
-import { Card, CardHeader, Avatar, CardTitle, CardSubtitle } from '@progress/kendo-react-layout';
-import { guid } from '@progress/kendo-react-common';
+import { useLocalization } from '@progress/kendo-react-intl'
+import { Card, CardHeader, Avatar, CardTitle, CardSubtitle } from '@progress/kendo-react-layout'
+import { guid } from '@progress/kendo-react-common'
 
-import { Scheduler } from './../components/Scheduler';
+import { Scheduler } from './../components/Scheduler'
 
-import { employees } from './../resources/employees';
-import { images } from './../resources/images';
-import { orders, ordersModelFields } from './../resources/orders';
-import { teams } from './../resources/teams';
+import { employees } from './../resources/employees'
+import { images } from './../resources/images'
+import { orders, ordersModelFields } from './../resources/orders'
+import { teams } from './../resources/teams'
 
-const orderEmployees = employees.filter(employee => employee.jobTitle === 'Sales Representative');
-const initialFilterState = { };
+const orderEmployees = employees.filter(employee => employee.jobTitle === 'Sales Representative')
+const initialFilterState = { }
 
 orderEmployees.forEach(employee => {
-    if(employee.fullName === 'Wait Peperell') {
-        initialFilterState[employee.id] = false;
+    if(employee.fullName === 'Martin Andrew') {
+        initialFilterState[employee.id] = false
     } else {
-        initialFilterState[employee.id] = true;
+        initialFilterState[employee.id] = true
     }
-});
+})
 
 const Planning = () => {
-    const localizationService = useLocalization();
-    const [filterState, setFilterState] = React.useState(initialFilterState);
-    const [data, setData] = React.useState(orders);
+    const localizationService = useLocalization()
+    const [filterState, setFilterState] = React.useState(initialFilterState)
+    const [data, setData] = React.useState(orders)
 
     const onDataChange = React.useCallback(
         ({ created, updated, deleted }) => {
@@ -39,18 +39,18 @@ const Planning = () => {
                 .concat(created.map((item) => Object.assign({}, item, { [ordersModelFields.id]: guid() }))))
         },
         []
-    );
+    )
 
     const onEmployeeClick = React.useCallback(
         (employeeId) => {
             setFilterState({
                 ...filterState,
                 [employeeId]: !filterState[employeeId]
-            });
+            })
             console.log(employeeId, filterState)
         },
         [filterState, setFilterState]
-    );
+    )
 
     return (
         <div id="Planning" className="planning-page main-content">
@@ -88,7 +88,7 @@ const Planning = () => {
                                     </CardHeader>
                                 </Card>
                             </div>
-                        );
+                        )
                     })
                 }
                 <div className="card-component" >
@@ -110,8 +110,8 @@ const Planning = () => {
                 </div>
             </div>
         </div>
-    );
+    )
 }
 
-export default Planning;
+export default Planning
 

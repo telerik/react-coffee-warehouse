@@ -1,42 +1,42 @@
 
-import * as React from 'react';
-import * as PropTypes from 'prop-types';
+import * as React from 'react'
+import * as PropTypes from 'prop-types'
 
-import { DropDownList } from '@progress/kendo-react-dropdowns';
-import { Avatar } from '@progress/kendo-react-layout';
-import { useLocalization } from '@progress/kendo-react-intl';
+import { DropDownList } from '@progress/kendo-react-dropdowns'
+import { Avatar } from '@progress/kendo-react-layout'
+import { useLocalization } from '@progress/kendo-react-intl'
 
-import { locales } from './../resources/locales';
+import { locales } from './../resources/locales'
 
 import { AppContext } from './../AppContext'
 
-import headerBg from '../assets/header-bg.png';
-import userAvatar from '../assets/user-avatar.jpg';
+import headerBg from '../assets/header-bg.png'
+import userAvatar from '../assets/user-avatar.jpg'
 
 export const Header = (props) => {
-    const { onButtonClick, page } = props;
-    const { avatar, localeId, onLanguageChange } = React.useContext(AppContext);
-    const localizationService = useLocalization();
+    const { onButtonClick, page } = props
+    const { avatar, localeId, onLanguageChange } = React.useContext(AppContext)
+    const localizationService = useLocalization()
 
-    const currentLanguage = locales.find(item => item.localeId === localeId);
+    const currentLanguage = locales.find(item => item.localeId === localeId)
 
-    const imgRef = React.useRef(null);
-    const hasImage = avatar && avatar.length > 0;
+    const imgRef = React.useRef(null)
+    const hasImage = avatar && avatar.length > 0
 
     React.useEffect(
         () => {
             if (hasImage) {
-                var reader = new FileReader();
+                var reader = new FileReader()
 
                 reader.onload = function(e) {
                     imgRef.current.setAttribute('src', e.target.result)
                 }
 
-                reader.readAsDataURL(avatar[0].getRawFile());
+                reader.readAsDataURL(avatar[0].getRawFile())
             }
         },
         [avatar, hasImage]
-    );
+    )
 
     return (
         <header className="header" style={{ backgroundImage: `url(${headerBg})` }}>
@@ -69,11 +69,11 @@ export const Header = (props) => {
                 </Avatar>
             </div>
         </header>
-    );
+    )
 }
 
-Header.displayName = 'Header';
+Header.displayName = 'Header'
 Header.propTypes = {
     page: PropTypes.string,
     onButtonClick: PropTypes.func
-};
+}

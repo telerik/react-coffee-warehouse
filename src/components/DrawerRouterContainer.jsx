@@ -12,6 +12,7 @@ const items = [
     { name: 'dashboard', iconSvg: 'dashboard-icon', selected: true , route: '/' },
     { name: 'planning', iconSvg: 'planning-icon', route: '/planning' },
     { name: 'profile', iconSvg: 'profile-icon', route: '/profile' },
+    { name: 'sales', iconSvg: 'planning-icon', route: '/sales' },
     { separator: true },
     { name: 'info', iconSvg: 'info-icon', route: '/info' }
 ];
@@ -93,7 +94,7 @@ class DrawerRouterContainer extends React.Component {
                         {this.props.children}
                     </DrawerContent>
                 </Drawer>
-        </React.Fragment>
+            </React.Fragment>
         );
     }
 };
