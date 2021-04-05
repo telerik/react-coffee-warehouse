@@ -71,13 +71,10 @@ const Planning = () => {
                                             borderWidth: 2,
                                             borderColor: teams.find(({teamID}) => teamID === employee.teamId).teamColor,
                                         }}>
-                                            <img alt="" style={{
+                                            <div class="k-avatar-image" style={{
                                                 backgroundImage: images[employee.imgId + employee.gender],
-                                                boxShadow: 'inset 0 0 1px #999, inset 0 0 10px rgba(0,0,0,.2)',
-                                                borderRadius: '50%',
-                                                backgroundSize: 'contain',
+                                                backgroundSize: 'cover',
                                                 backgroundPosition: 'center center',
-                                                verticalAlign: 'middle'
                                             }}
                                             />
                                         </Avatar>

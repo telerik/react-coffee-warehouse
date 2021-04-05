@@ -1,30 +1,19 @@
-
 import React from 'react';
 
 import { withRouter } from 'react-router-dom';
 import { registerForLocalization, provideLocalizationService } from '@progress/kendo-react-intl';
-import { Drawer, DrawerContent, DrawerItem } from '@progress/kendo-react-layout';
+import { Drawer, DrawerContent } from '@progress/kendo-react-layout';
 
 import { Header } from './Header.jsx';
 
 
 const items = [
-    { name: 'dashboard', iconSvg: 'dashboard-icon', selected: true , route: '/' },
-    { name: 'planning', iconSvg: 'planning-icon', route: '/planning' },
-    { name: 'profile', iconSvg: 'profile-icon', route: '/profile' },
+    { name: 'dashboard', icon: 'k-i-grid', selected: true , route: '/' },
+    { name: 'planning', icon: 'k-i-calendar', route: '/planning' },
+    { name: 'profile', icon: 'k-i-user', route: '/profile' },
     { separator: true },
-    { name: 'info', iconSvg: 'info-icon', route: '/info' }
+    { name: 'info', icon: 'k-i-information', route: '/info' }
 ];
-
-const CustomDrawerItem = (props) => {
-    const { iconSvg, text, ...others } = props;
-    return (
-        <DrawerItem {...others}>
-            <span className={'k-icon ' + iconSvg} />
-            <span className="k-item-text">{text}</span>
-        </DrawerItem>
-    );
-};
 
 class DrawerRouterContainer extends React.Component {
     state = {
@@ -67,7 +56,7 @@ class DrawerRouterContainer extends React.Component {
         const localizationService = provideLocalizationService(this);
 
         return (
-             <React.Fragment>
+            <React.Fragment>
                 <Header
                     onButtonClick={this.handleClick}
                     page={localizationService.toLanguageString(`custom.${selected}`)}
@@ -81,7 +70,6 @@ class DrawerRouterContainer extends React.Component {
                                 selected: item.name === selected
                             }))
                     }
-                    item={CustomDrawerItem}
                     position='start'
                     mode={this.state.isSmallerScreen ? 'overlay' : 'push'}
                     mini={this.state.isSmallerScreen ? false : true}
@@ -93,7 +81,7 @@ class DrawerRouterContainer extends React.Component {
                         {this.props.children}
                     </DrawerContent>
                 </Drawer>
-        </React.Fragment>
+            </React.Fragment>
         );
     }
 };
