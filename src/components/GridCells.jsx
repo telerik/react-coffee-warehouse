@@ -55,7 +55,7 @@ export const FlagCell = (props) => {
         <td style={{textAlign: 'center'}}>
             <img
                 src={images[props.dataItem.country]}
-                style={{width: 30}}
+                style={{width: 30, verticalAlign: 'middle', borderStyle: 'none'}}
                 alt={props.dataItem.country}
             />
         </td>
