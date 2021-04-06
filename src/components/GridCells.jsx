@@ -6,6 +6,7 @@ import {
     ChartValueAxisItem,
     ChartArea
 } from '@progress/kendo-react-charts';
+import { Badge } from '@progress/kendo-react-indicators';
 import {
     useInternationalization
 } from '@progress/kendo-react-intl';
@@ -90,27 +91,8 @@ export const RatingCell = (props) => {
 
 export const OnlineCell = (props) => {
     const badgeStyle = {
-        display: 'inline-block',
-        padding: '.25em .4em',
-        fontSize: '75%',
-        fontWeight: 700,
-        lineHeight: 1,
-        textAlign: 'center',
-        whiteSpace: 'nowrap',
-        verticalAlign: 'baseline',
-        borderRadius: '.25rem'
-    };
-
-    const onlineBadgeStyle = {
-        ...badgeStyle,
-        color: '#fff',
-        backgroundColor: '#28a745'
-    };
-
-    const offlineBadgeStyle = {
-        ...badgeStyle,
-        color: '#fff',
-        backgroundColor: '#dc3545'
+        position: 'relative',
+        display: 'inline'
     };
 
     if (props.rowType === 'groupHeader') {
@@ -119,10 +101,11 @@ export const OnlineCell = (props) => {
 
     return (
         <td style={{textAlign: 'center'}}>
+            
             {
                 props.dataItem.isOnline === true ?
-                    <span style={onlineBadgeStyle}>Online</span> :
-                    <span style={offlineBadgeStyle}>Offline</span>
+                    <Badge themeColor={'success'} shape={'rounded'} style={badgeStyle}>Online</Badge> :
+                    <Badge themeColor={'error'} shape={'rounded'} style={badgeStyle}>Offline</Badge>
             }
         </td>
     );

@@ -47,11 +47,11 @@ export const Grid = (props) => {
 
     const onDataStateChange = React.useCallback(
         (event) => {
-            setTake(event.data.take);
-            setSkip(event.data.skip);
-            setSort(event.data.sort);
-            setGroup(event.data.group);
-            setFilter(event.data.filter);
+            setTake(event.dataState.take);
+            setSkip(event.dataState.skip);
+            setSort(event.dataState.sort);
+            setGroup(event.dataState.group);
+            setFilter(event.dataState.filter);
         },
         [setTake, setSkip, setSort, setGroup]
     );
