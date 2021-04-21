@@ -221,7 +221,7 @@ const Info = () => {
                         <div>
                             <div className="package-item">
                                 <h3 className="package-title">
-                                    <a target="_blank" rel="noopener noreferrer" href="https://www.telerik.com/kendo-react-ui/components/scheduler/">Upload</a>
+                                    <a target="_blank" rel="noopener noreferrer" href="https://www.telerik.com/kendo-react-ui/components/upload/">Upload</a>
                                 </h3>
                             </div>
                         </div>

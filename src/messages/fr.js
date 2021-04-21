@@ -53,7 +53,6 @@ export const frMessages = {
         "pagerLastPage": "Aller à la dernière page",
         "pagerPage": "Page",
         "pagerOf": "de",
-        "filterClearButton":"Effacer",
         "filterEqOperator": "Est égal à",
         "filterNotEqOperator": "N'est pas égal à",
         "filterIsNullOperator": "Est nulle",
@@ -75,7 +74,14 @@ export const frMessages = {
         "filterAfterOperator": "Est postérieur",
         "filterBeforeOperator": "Est antérieur",
         "filterBeforeOrEqualOperator": "Est antérieur ou égal à",
-        "noRecords": "Aucun enregistrement disponible."
+        "noRecords": "Aucun enregistrement disponible.",
+        "filterSubmitButton": "Filtre",
+        "filterClearButton": "Effacer",
+        "filterAndLogic": "Et",
+        "filterOrLogic": "Ou alors",
+        "filterTitle": "Filtre",
+        "sortAscending": "Trier par ordre croissant",
+        "sortDescending": "Trier par ordre décroissant"
     },
     "dateinput":{
         "increment": "Augmenter la valeur",
