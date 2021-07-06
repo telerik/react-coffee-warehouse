@@ -4,4 +4,11 @@ body {
     list-style-type: none;
 }
 
+html,
+body {
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
 @import "./styles/main.scss";

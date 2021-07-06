@@ -47,7 +47,6 @@ const Planning = () => {
                 ...filterState,
                 [employeeId]: !filterState[employeeId]
             });
-            console.log(employeeId, filterState)
         },
         [filterState, setFilterState]
     );
@@ -71,7 +70,7 @@ const Planning = () => {
                                             borderWidth: 2,
                                             borderColor: teams.find(({teamID}) => teamID === employee.teamId).teamColor,
                                         }}>
-                                            <div class="k-avatar-image" style={{
+                                            <div className="k-avatar-image" style={{
                                                 backgroundImage: images[employee.imgId + employee.gender],
                                                 backgroundSize: 'cover',
                                                 backgroundPosition: 'center center',

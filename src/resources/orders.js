@@ -17436,6 +17436,7 @@ export const orders = [{
     shippedDate: new Date(order.shippedDate),
     requiredDateStart: new Date(order.requiredDateStart),
     requiredDateEnd: new Date(order.requiredDateEnd),
+    isAllDay: false
 }));
 
 export const ordersModelFields = {

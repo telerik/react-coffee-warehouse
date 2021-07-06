@@ -14,7 +14,7 @@ import headerBg from '../assets/header-bg.png';
 import userAvatar from '../assets/user-avatar.jpg';
 
 export const Header = (props) => {
-    const { onButtonClick, page } = props;
+    const { onButtonClick } = props;
     const { avatar, localeId, onLanguageChange } = React.useContext(AppContext);
     const localizationService = useLocalization();
 
@@ -42,13 +42,11 @@ export const Header = (props) => {
         <header className="header" style={{ backgroundImage: `url(${headerBg})` }}>
             <div className="nav-container">
                 <div className="menu-button">
-                    <span className={'k-icon hamburger-icon'} onClick={onButtonClick}/>
+                    <span className={'k-icon k-i-menu'} onClick={onButtonClick}/>
                 </div>
 
                 <div className="title">
                     <h1>{localizationService.toLanguageString('custom.warehouse')}</h1>
-                    <span className="vl"></span>
-                    <h2>{page}</h2>
                 </div>
                 <div className="settings">
                     <span>{localizationService.toLanguageString('custom.language')}</span>

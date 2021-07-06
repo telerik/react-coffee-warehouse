@@ -17,18 +17,9 @@ const items = [
 
 class DrawerRouterContainer extends React.Component {
     state = {
-        expanded: true,
+        expanded: false,
         selectedId: items.findIndex(x => x.selected === true),
         isSmallerScreen: window.innerWidth < 768
-    }
-
-    componentDidMount() {
-        window.addEventListener('resize', this.resizeWindow)
-        this.resizeWindow()
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener('resize', this.resizeWindow)
     }
 
     resizeWindow = () => {
@@ -38,7 +29,6 @@ class DrawerRouterContainer extends React.Component {
     handleClick = () => {
         this.setState((e) => ({expanded: !e.expanded}));
     }
-
 
     handleSelect = (e) => {
         this.setState({selectedId: e.itemIndex, expanded: false});
@@ -51,6 +41,27 @@ class DrawerRouterContainer extends React.Component {
             return currentPath.name;
         }
     }
+
+    componentDidUpdate() {
+        try {       
+            const parent = window.parent;
+            if(parent) {
+                parent.postMessage({ url: this.props.location.pathname, demo: true }, "*")
+            }
+        } catch(err) {
+            console.warn('Cannot access iframe')
+        }
+    }
+
+    componentDidMount() {
+        window.addEventListener('resize', this.resizeWindow, false)
+        this.resizeWindow();
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.resizeWindow)
+    }
+
     render() {
         let selected = this.getSelectedItem(this.props.location.pathname);
         const localizationService = provideLocalizationService(this);
@@ -77,7 +88,7 @@ class DrawerRouterContainer extends React.Component {
                     onOverlayClick={this.handleClick}
                     onSelect={this.handleSelect}
                 >
-                    <DrawerContent>
+                    <DrawerContent style={{height: 1066}}>
                         {this.props.children}
                     </DrawerContent>
                 </Drawer>

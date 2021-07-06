@@ -221,6 +221,15 @@ a {
     .k-grid-toolbar .k-textbox {
         margin-bottom: 10px;
     }
+
+    .k-grid .k-virtual-content,
+    .k-grid .k-virtual-content > div {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
     
     .k-badge {
         z-index: 1
@@ -514,6 +523,12 @@ a {
             column-count: 3;
         }
     }
+}
+@media (max-width: 480px) {
+    .k-form-horizontal .k-form-field-wrap {
+        max-width: 100%;
+    }
+    
 }
 
 @media (min-width: 768px) { 
