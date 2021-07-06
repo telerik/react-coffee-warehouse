@@ -24,7 +24,7 @@
     "@progress/kendo-react-layout": "^4.5.0",
     "@progress/kendo-react-pdf": "^4.5.0",
     "@progress/kendo-react-progressbars": "^4.5.0",
-    "@progress/kendo-react-scheduler": "^4.5.0",
+    "@progress/kendo-react-scheduler": "^4.6.0",
     "@progress/kendo-react-treeview": "^4.5.0",
     "@progress/kendo-react-upload": "^4.5.0",
     "@progress/kendo-theme-default": "^4.36.0",
