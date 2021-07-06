@@ -1,7 +1,5 @@
 import React from 'react';
 
-import './App.scss';
-
 import { HashRouter, Switch, Route } from 'react-router-dom';
 import Dashboard from './pages/Dashboard.jsx';
 import Planning from './pages/Planning.jsx';
@@ -34,6 +32,10 @@ import esDateFields from'cldr-dates-full/main/es/dateFields.json';
 import { enMessages } from './messages/en-US';
 import { frMessages } from './messages/fr';
 import { esMessages } from './messages/es';
+
+import 'hammerjs';
+import '@progress/kendo-theme-default/dist/all.css';
+import './App.scss';
 
 load(
     likelySubtags,
@@ -81,6 +83,7 @@ const App = () => {
         },
         [contextState, setContextState]
     );
+
     return (
         <div className="App">
             <LocalizationProvider language={contextState.localeId}>
