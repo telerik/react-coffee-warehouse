@@ -1,5 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Prerequisites
+
+Make sure that your current Node.js version is compatible with version 4.13.1 of node-sass. More information on version compatibility can be found here: https://github.com/sass/node-sass#node-version-support-policy
+
 ## Available Scripts
 
 In the project directory, you can run:
