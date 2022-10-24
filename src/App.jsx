@@ -34,7 +34,6 @@ import { frMessages } from './messages/fr';
 import { esMessages } from './messages/es';
 
 import 'hammerjs';
-import '@progress/kendo-theme-default/dist/all.css';
 import './App.scss';
 
 load(
