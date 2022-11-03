@@ -1,10 +1,10 @@
-
 import * as React from 'react';
 
 import { useLocalization } from '@progress/kendo-react-intl';
 
 import kendoka from '../assets/kendoka.png';
 import github from '../assets/github-icon.svg';
+import { Button } from "@progress/kendo-react-buttons";
 
 const Info = () => {
     const localizationService = useLocalization();
@@ -16,14 +16,10 @@ const Info = () => {
                     </div>
                     <div className="section-1">
                         <h1>KendoReact</h1>
-                        <h2>Master the Art of React UI</h2>
+                    <h2>Master the Art of React UI</h2>
                         <div className="button-group">
-                            <a className="k-button k-primary" href="https://www.telerik.com/download-login-v2-kendo-react-ui">
-                                {localizationService.toLanguageString('custom.startFreeTrial')}
-                            </a>
-                            <a className="k-button" href="https://www.telerik.com/kendo-react-ui/#pricing">
-                                {localizationService.toLanguageString('custom.buyNow')}
-                            </a>
+                            <Button themeColor={"primary"} rounded={"small"} onClick={()=>{window.open("https://www.telerik.com/download-login-v2-kendo-react-ui")}}>{localizationService.toLanguageString('custom.startFreeTrial')}</Button>
+                            <Button rounded={"small"} onClick={()=>{window.open("https://www.telerik.com/kendo-react-ui/#pricing")}}>{localizationService.toLanguageString('custom.buyNow')}</Button>
                         </div>
 
                         <a className="github-link" href="https://github.com/telerik/react-coffee-warehouse">
@@ -233,4 +229,3 @@ const Info = () => {
 }
 
 export default Info;
-
