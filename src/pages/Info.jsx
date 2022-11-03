@@ -18,12 +18,8 @@ const Info = () => {
                         <h1>KendoReact</h1>
                     <h2>Master the Art of React UI</h2>
                         <div className="button-group">
-                            <a className="k-button k-button-md k-button-solid k-button-solid-primary k-rounded-sm" href="https://www.telerik.com/download-login-v2-kendo-react-ui">
-                                {localizationService.toLanguageString('custom.startFreeTrial')}
-                            </a>
-                            <a className="k-button k-button-md k-button-solid k-button-solid-base k-rounded-sm" href="https://www.telerik.com/kendo-react-ui/#pricing">
-                                {localizationService.toLanguageString('custom.buyNow')}
-                            </a>
+                            <Button themeColor={"primary"} rounded={"small"} onClick={()=>{window.open("https://www.telerik.com/download-login-v2-kendo-react-ui")}}>{localizationService.toLanguageString('custom.startFreeTrial')}</Button>
+                            <Button rounded={"small"} onClick={()=>{window.open("https://www.telerik.com/kendo-react-ui/#pricing")}}>{localizationService.toLanguageString('custom.buyNow')}</Button>
                         </div>
 
                         <a className="github-link" href="https://github.com/telerik/react-coffee-warehouse">
