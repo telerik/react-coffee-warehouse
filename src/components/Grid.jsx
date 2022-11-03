@@ -125,12 +125,14 @@ export const Grid = (props) => {
                     if (!child.props.filter || child.props.filter === "text") {
                         return child.props.field;
                     }
+                    return null;
                 });
             } else if (col.props.field) {
                 if (!col.props.filter || col.props.filter === "text") {
                     return col.props.field;
                 }
             }
+            return null;
         })
         .flat()
         .filter(field => field);

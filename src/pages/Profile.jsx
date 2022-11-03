@@ -140,7 +140,7 @@ const Profile = () => {
                                             {localizationService.toLanguageString('custom.cancel')}
                                         </Button>
                                         <Button
-                                            primary={true}
+                                            themeColor={"primary"}
                                             type={'submit'}
                                             disabled={!formRenderProps.allowSubmit}
                                         >
