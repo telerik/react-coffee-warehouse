@@ -2,7 +2,18 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Prerequisites
 
-Make sure that your current Node.js version is compatible with version 4.13.1 of node-sass. More information on version compatibility can be found here: https://github.com/sass/node-sass#node-version-support-policy
+Make sure that your current Node.js version is compatible with version `9.0.0` of node-sass. More information on version compatibility can be found here: https://github.com/sass/node-sass#node-version-support-policy
+
+If you do not have python installed along with all the node-gyp dependencies, first download python 2.7: https://www.python.org/download/releases/2.7/ 
+ 
+Then open Powershell or Git Bash with administrator privileges and execute:
+
+1. npm install --global --production windows-build-tools
+
+2. npm install --global node-gyp
+
+3. set the python environment variable using npm config set python "path-to-python". For example: npm config set python "%USERPROFILE%\.windows-build-tools\python27\python.exe"
+
 
 ## Available Scripts
 
