@@ -28,7 +28,7 @@ export const Header = (props) => {
             if (hasImage) {
                 var reader = new FileReader();
 
-                reader.onload = function(e) {
+                reader.onload = function (e) {
                     imgRef.current.setAttribute('src', e.target.result)
                 }
 
@@ -42,14 +42,14 @@ export const Header = (props) => {
         <header className="header" style={{ backgroundImage: `url(${headerBg})` }}>
             <div className="nav-container">
                 <div className="menu-button">
-                    <span className={'k-icon k-i-menu'} onClick={onButtonClick}/>
+                    <span className={'k-icon k-i-menu'} onClick={onButtonClick} />
                 </div>
 
                 <div className="title">
                     <h1>{localizationService.toLanguageString('custom.warehouse')}</h1>
                 </div>
                 <div className="settings">
-                    <span>{localizationService.toLanguageString('custom.language')}</span>
+                    <span style={{ padding: '20px' }}>{localizationService.toLanguageString('custom.language')}</span>
                     <DropDownList
                         textField={'locale'}
                         dataItemKey={'localeId'}
@@ -62,7 +62,7 @@ export const Header = (props) => {
                     {
                         hasImage ?
                             <img ref={imgRef} src={'#'} alt={'User Avatar'} /> :
-                            <img src={userAvatar} alt="user-avatar"/>
+                            <img src={userAvatar} alt="user-avatar" />
                     }
                 </Avatar>
             </div>
