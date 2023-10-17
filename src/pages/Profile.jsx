@@ -2,7 +2,7 @@
 import * as React from 'react';
 
 import { useLocalization } from '@progress/kendo-react-intl';
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Form, Field, FormElement } from '@progress/kendo-react-form';
 import { Button } from '@progress/kendo-react-buttons';
 
@@ -30,20 +30,20 @@ const teamsData = teams.map(team => ({
 const Profile = () => {
         const {languageId, onLanguageChange, onProfileChange, ...formValues} = React.useContext(AppContext);
         const localizationService = useLocalization();
-        const history = useHistory();
+        const history = useNavigate();
 
         const onSubmit = React.useCallback(
             (dataItem) => {
                 onProfileChange({dataItem});
 
-                history.push('/');
+                history('/');
             },
             [onProfileChange, history]
         );
 
         const onCancelClick = React.useCallback(
             () => {
-                history.push('/');
+                history('/');
             },
             [history]
         );
