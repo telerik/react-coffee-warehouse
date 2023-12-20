@@ -5,13 +5,14 @@ import {
     useLocalization
 } from "@progress/kendo-react-intl";
 import { Header } from './Header.jsx';
+import { gridIcon, calendarIcon, userIcon, infoCircleIcon} from '@progress/kendo-svg-icons'
 
 const items = [
-    { name: 'dashboard', icon: 'k-i-grid', route: '/', selected: true },
-    { name: 'planning', icon: 'k-i-calendar', route: '/planning', selected: false },
-    { name: 'profile', icon: 'k-i-user', route: '/profile', selected: false },
+    { name: 'dashboard', svgIcon: gridIcon, route: '/', selected: true },
+    { name: 'planning', svgIcon: calendarIcon, route: '/planning', selected: false },
+    { name: 'profile', svgIcon: userIcon, route: '/profile', selected: false },
     { separator: true },
-    { name: 'info', icon: 'k-i-information', route: '/info', selected: false }
+    { name: 'info', svgIcon: infoCircleIcon, route: '/info', selected: false }
 ];
 
 const DrawerRouterContainer = (props) => {

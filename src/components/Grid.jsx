@@ -9,6 +9,7 @@ import { ExcelExport } from '@progress/kendo-react-excel-export';
 import { process } from '@progress/kendo-data-query';
 import { Input } from '@progress/kendo-react-inputs';
 import { useLocalization } from '@progress/kendo-react-intl';
+import { fileExcelIcon, filePdfIcon } from '@progress/kendo-svg-icons';
 
 export const Column = GridColumn;
 
@@ -191,13 +192,13 @@ export const Grid = (props) => {
                     placeholder={localizationService.toLanguageString('custom.gridSearch')}
                 />
                 <Button
-                    icon="excel"
+                    svgIcon={fileExcelIcon}
                     onClick={onExcelExport}
                 >
                     {localizationService.toLanguageString('custom.exportExcel')}
                 </Button>
                 <Button
-                    icon="pdf"
+                    svgIcon={filePdfIcon}
                     onClick={onPdfExport}
                     disabled={isPdfExporting}
                 >
