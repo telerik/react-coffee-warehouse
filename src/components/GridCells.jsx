@@ -12,6 +12,8 @@ import {
 } from '@progress/kendo-react-intl';
 
 import { images } from './../resources/images';
+import { SvgIcon } from '@progress/kendo-react-common';
+import { starIcon, starOutlineIcon} from '@progress/kendo-svg-icons';
 
 export const FullNameCell = (props) => {
     const customerPhotoStyle = {
@@ -77,11 +79,7 @@ export const RatingCell = (props) => {
                 [...new Array(MAX_STARS)].map((_, idx) => {
                     const isActive = rating <= idx;
                     return (
-                        <span
-                            key={idx}
-                            className={!isActive ? 'k-icon k-i-star' : 'k-icon k-i-star-outline'}
-                            style={!isActive ? {color: '#ffa600'} : undefined}
-                        />
+                        <SvgIcon key={idx} style={!isActive ? {color: '#ffa600'} : undefined} icon={!isActive ? starIcon : starOutlineIcon} />
                     );
                 })
             }

@@ -9,6 +9,8 @@ import { useLocalization } from '@progress/kendo-react-intl';
 import { locales } from './../resources/locales';
 
 import { AppContext } from './../AppContext'
+import { SvgIcon } from '@progress/kendo-react-common';
+import { menuIcon } from '@progress/kendo-svg-icons';
 
 import headerBg from '../assets/header-bg.png';
 import userAvatar from '../assets/user-avatar.jpg';
@@ -42,7 +44,7 @@ export const Header = (props) => {
         <header className="header" style={{ backgroundImage: `url(${headerBg})` }}>
             <div className="nav-container">
                 <div className="menu-button">
-                    <span className={'k-icon k-i-menu'} onClick={onButtonClick} />
+                    <SvgIcon icon={menuIcon} onClick={onButtonClick} />
                 </div>
 
                 <div className="title">
